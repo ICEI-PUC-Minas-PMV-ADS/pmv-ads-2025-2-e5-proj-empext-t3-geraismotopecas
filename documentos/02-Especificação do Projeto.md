@@ -39,8 +39,17 @@ Para mais informações, consulte os microfundamentos Fundamentos de Engenharia 
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| Permitir o cadastro de peças no estoque. | ALTA | 
+|RF-002| Possibilitar a atualização da quantidade de peças em estoque. | ALTA |
+|RF-003| Possibilitar a consulta de peças existentes no estoque. | ALTA |
+|RF-004| Permitir o registro de novos clientes. | ALTA |
+|RF-005| Possibilitar o registro de serviços e consertos realizados.| ALTA |
+|RF-006| Habilitar a associação das peças usadas a cada conserto. | MÉDIA |
+|RF-007| Exibir o histórico completo de consertos por cliente. | ALTA |
+|RF-008| Exibir o histórico de consertos para uma motocicleta específica. | MÉDIA |
+|RF-009| Gerar uma lista de todos os consertos feitos em um determinado período. | ALTA |
+|RF-010| Emitir um alerta automático quando a quantidade de uma peça atingir o nível mínimo de estoque. | MÉDIA |
+
 
 ### Requisitos não Funcionais
 

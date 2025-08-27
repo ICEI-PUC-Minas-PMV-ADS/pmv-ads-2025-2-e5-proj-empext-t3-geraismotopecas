@@ -1,25 +1,25 @@
-# TÍTULO DO PROJETO
+# Gerais Motopeças
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de um Sistema Sociotécnico Inovador `
 
-`SEMESTRE`
+`2025/2`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+A solução busca atender à loja de motopeças Gerais Motopeças e consiste no desenvolvimento de uma aplicação para gestão de estoque e controle de garantias de consertos de motos. O sistema permitirá registrar peças, acompanhar a entrada e saída de produtos, além de gerenciar prazos de garantia e manutenções realizadas, oferecendo maior organização e agilidade no atendimento.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Kiane Pinto Ramalho
+* Larissa Pocceschy Martins
+* Maria Vitória do Nascimento
+* Sara Guanais de Miranda
+* Thabata Dias de Freitas
+
 
 ## Orientador
 
-* Nome completo do professor orientador
+* José Wilson da Costa
 
 ## Instruções de utilização
 

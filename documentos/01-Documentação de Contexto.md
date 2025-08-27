@@ -3,29 +3,34 @@
 Texto descritivo apresentando a compreensão sobre extensão universitária discutido no microfundamento de nivelamento, relacionando a situação-problema da organização e ao sistema sociotécnico que será desenvolvido e implantado.
 
 ## Problema
-Nesse momento o grupo deve apresentar a situação-problema (dor/oportunidade) do parceiro onde será desenvolvido sistema sociotécnico.
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+A Gerais Motopeças enfrenta dificuldades em manter um controle eficiente do estoque de peças, o que compromete a disponibilidade dos itens necessários para o atendimento. Além disso, a oficina encontra obstáculos no acompanhamento das garantias de consertos ativos, processo que atualmente é feito de forma manual e pouco confiável. Essa falta de organização gera atrasos, falhas no pós-venda e pode impactar a satisfação e a confiança dos clientes.
 
 ## Objetivos
 
-Aqui o grupo deve descrever os objetivos do trabalho indicando que o objetivo é aplicar os conceitos de extensão universitária no desenvolvimento de um sistema sociotécnico que impacte positivamente a comunidade.
+O objetivo deste trabalho é aplicar os conceitos de extensão universitária no desenvolvimento de um sistema sociotécnico voltado à realidade da Gerais Motopeças, impactando positivamente tanto a oficina quanto sua comunidade de clientes.
+
+De forma específica, o sistema tem como metas:
+
+* Facilitar a disponibilidade de peças em estoque, garantindo maior agilidade e organização nos processos internos.
+
+* Permitir a verificação rápida das garantias de consertos, oferecendo mais transparência e segurança para clientes e para a gestão da oficina.
+
+Com isso, busca-se promover a integração entre o conhecimento acadêmico e a prática profissional, contribuindo para a inovação tecnológica no setor de serviços automotivos.
 
 ## Justificativa
 
-Descreva as dores/dificuldades do parceiro que motivam trabalhar na construção da solução.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+A eficiência na gestão de estoque e no acompanhamento de garantias é essencial para garantir um atendimento ágil e de qualidade aos clientes. Na Gerais Motopeças, a falta de um controle automatizado dessas áreas tem resultado em processos manuais pouco confiáveis, o que aumenta o risco de atrasos e falhas no pós-venda. Um sistema capaz de organizar e automatizar o controle de peças e garantias permitirá não apenas a redução de erros, mas também a otimização do tempo da equipe, maior confiabilidade nas informações e, consequentemente, uma experiência mais satisfatória para os clientes. Essa melhoria operacional é fundamental para fortalecer a competitividade da empresa e assegurar a fidelização dos clientes.
 
 ## Relação com a Extensão Universitária
 
-Relacionar a situação-problema da organização com o impacto social esperado com a implantação do sistema sociotécnico.
-Apresentar aqui como este projeto extensionista transforma a realidade do parceiro e dos alunos.
+O projeto desenvolvido em parceria com a Gerais Motopeças parte de uma situação-problema concreta: a dificuldade em manter um controle eficiente do estoque de peças e do acompanhamento das garantias de consertos. Esses desafios impactam diretamente a qualidade do atendimento aos clientes e a gestão da oficina.
+
+Ao propor e implementar um sistema sociotécnico para apoiar esses processos, o projeto promove um impacto social positivo, pois contribui para a modernização de uma pequena empresa local, fortalecendo sua sustentabilidade e competitividade no mercado. Além disso, a solução amplia a confiança dos clientes nos serviços prestados, garantindo mais transparência e agilidade.
+
+Para os alunos, o projeto representa uma oportunidade de aplicar na prática os conhecimentos adquiridos ao longo do curso, vivenciando a realidade de um parceiro externo e desenvolvendo competências técnicas, comportamentais, de gestão e de responsabilidade social. Dessa forma, o trabalho se alinha ao propósito da extensão universitária: gerar transformação mútua, beneficiando a comunidade atendida e formando profissionais mais preparados e conscientes de seu papel social.
+
 
 ## Descrição do Parceiro
 
-Apresente uma descrição resumida sobre a organização onde o projeto será desenvolvido para que possa ser compreendido o cenário do sistema sociotécnico.
+A Gerais Motopeças é uma oficina de serviços e comércio de peças para motocicletas localizada em Contagem - MG. O negócio atua em um cenário sociotécnico que enfrenta desafios específicos, como o controle manual e ineficiente do estoque de peças e o acompanhamento de garantias de consertos.

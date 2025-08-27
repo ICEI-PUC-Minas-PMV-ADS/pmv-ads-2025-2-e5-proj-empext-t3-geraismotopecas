@@ -1,6 +1,8 @@
 # Introdução
 
-Texto descritivo apresentando a compreensão sobre extensão universitária discutido no microfundamento de nivelamento, relacionando a situação-problema da organização e ao sistema sociotécnico que será desenvolvido e implantado.
+A extensão universitária é uma prática que conecta a universidade à sociedade, permitindo que conhecimentos acadêmicos sejam aplicados na resolução de problemas reais. No contexto do microfundamento de nivelamento, a extensão busca integrar teoria e prática, promovendo benefícios tanto para os estudantes quanto para as organizações parceiras.
+
+No caso da Gerais Motopeças, a organização apresenta desafios relacionados ao controle de estoque e ao gerenciamento de garantias de consertos ativos. Tais dificuldades impactam diretamente a eficiência operacional e a qualidade do atendimento ao cliente. O desenvolvimento e a implementação de um sistema sociotécnico adequado se mostram essenciais para solucionar essas questões, promovendo maior organização, agilidade nos processos e confiabilidade nas informações. Dessa forma, a extensão universitária não apenas contribui para a formação acadêmica dos alunos, mas também gera valor significativo para a empresa parceira, alinhando conhecimento técnico a soluções práticas.
 
 ## Problema
 

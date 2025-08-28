@@ -6,7 +6,7 @@
 
 `2025/2`
 
-A solução busca atender à loja de motopeças Gerais Motopeças e consiste no desenvolvimento de uma aplicação para gestão de estoque e controle de garantias de consertos de motos. O sistema permitirá registrar peças, acompanhar a entrada e saída de produtos, além de gerenciar prazos de garantia e manutenções realizadas, oferecendo maior organização e agilidade no atendimento.
+A solução para atender à loja de motopeças Gerais Motopeças consiste no desenvolvimento de uma aplicação para gestão de estoque e controle de garantias de consertos de motos. O sistema permitirá registrar peças, acompanhar a entrada e saída de produtos, além de gerenciar prazos de garantia e manutenções realizadas, oferecendo maior organização e agilidade no atendimento.
 
 ## Integrantes
 

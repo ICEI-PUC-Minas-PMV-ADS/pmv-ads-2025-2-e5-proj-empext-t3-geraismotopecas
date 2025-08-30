@@ -5,11 +5,6 @@
 Definição do problema e ideia de solução a partir da perspectiva do usuário. 
 
 ## Usuários
-| Tipo de Usuário   | Descrição | Responsabilidades |
-|------------------|-----------|------------------|
-| **xxx** | xxxxx | xxxxx |
-
-### Exemplo
 
 | Tipo de Usuário   | Descrição | Responsabilidades |
 |------------------|-----------|------------------|
@@ -81,7 +76,7 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 ## Modelo da Base de Dados
 
-# Para banco de dados NoSQL:
+## Banco de dados NoSQL:
 
 
 

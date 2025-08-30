@@ -2,7 +2,7 @@
 
 [Gerais Motopeças](https://www.canva.com/design/DAGxS40o0CY/wdUCGBc9zwfKrDcBuBDd3g/view?utm_content=DAGxS40o0CY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf0b1f39888)
 
-[Gerais Motopeças PDF](./imgs/GeraisMotopeças.pdf)
+[Gerais Motopeças PDF](./img/GeraisMotopeças.pdf)
 
 # Etapa 5 - Apresentação da Solução
 - Apresentação para Mostra de Extensão Eixo 5 ADS:

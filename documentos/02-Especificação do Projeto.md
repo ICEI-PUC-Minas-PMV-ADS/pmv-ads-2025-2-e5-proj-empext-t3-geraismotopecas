@@ -35,14 +35,14 @@ Para mais informações, consulte os microfundamentos Fundamentos de Engenharia 
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir o cadastro de peças no estoque. | ALTA | 
-|RF-002| Possibilitar a atualização da quantidade de peças em estoque. | ALTA |
+|RF-001| Permitir o cadastro de peças no estoque com informações detalhadas. | ALTA | 
+|RF-002| Possibilitar a atualização automática ou manual da quantidade de peças em estoque. | ALTA |
 |RF-003| Possibilitar a consulta de peças existentes no estoque. | ALTA |
-|RF-004| Permitir o registro de novos clientes. | ALTA |
-|RF-005| Possibilitar o registro de serviços e consertos realizados.| ALTA |
-|RF-006| Habilitar a associação das peças usadas a cada conserto. | MÉDIA |
-|RF-007| Exibir o histórico completo de consertos por cliente. | ALTA |
-|RF-008| Exibir o histórico de consertos para uma motocicleta específica. | MÉDIA |
+|RF-004| Permitir o registro de novos clientes, incluindo dados de contato e histórico de serviços. | ALTA |
+|RF-005| Registrar serviços e consertos realizados, associando-os aos clientes e motocicletas correspondentes.| ALTA |
+|RF-006| Permitir a associação de peças utilizadas a cada serviço ou conserto realizado. | MÉDIA |
+|RF-007| Exibir o histórico completo de serviços realizados por cliente, com detalhamento de peças e datas. | ALTA |
+|RF-008| Exibir o histórico de consertos para uma motocicleta específica, permitindo consultas rápidas. | MÉDIA |
 |RF-009| Gerar uma lista de todos os consertos feitos em um determinado período. | ALTA |
 |RF-010| Emitir um alerta automático quando a quantidade de uma peça atingir o nível mínimo de estoque. | MÉDIA |
 

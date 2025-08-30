@@ -35,4 +35,8 @@ Para os alunos, o projeto representa uma oportunidade de aplicar na prática os 
 
 ## Descrição do Parceiro
 
-A Gerais Motopeças é uma oficina de serviços e comércio de peças para motocicletas localizada em Contagem - MG. O negócio atua em um cenário sociotécnico que enfrenta desafios específicos, como o controle manual e ineficiente do estoque de peças e o acompanhamento de garantias de consertos.
+A Gerais Motopeças é uma empresa do mercado de serviços e comércio para motocicletas. Com quase 25 anos de atuação, se estabeleceu como um ponto de referência na cidade de Contagem, Minas Gerais.
+
+Sua atividade principal é o comércio de peças e acessórios para motocicletas. Além disso, a empresa expandiu suas operações para incluir serviços de manutenção e reparação de motocicletas.
+
+O negócio atua em um cenário sociotécnico que enfrenta desafios específicos, como o controle manual e ineficiente do estoque de peças e o acompanhamento de garantias de consertos.

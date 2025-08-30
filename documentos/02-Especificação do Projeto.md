@@ -51,8 +51,11 @@ Para mais informações, consulte os microfundamentos Fundamentos de Engenharia 
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| O sistema deve utilizar um banco de dados NoSQL | MÉDIA | 
+|RNF-002| A aplicação deve ser responsiva |  MÉDIA | 
+|RNF-003| O sistema deve ser seguro e exigir autenticação | MÉDIA | 
+|RNF-004| O sistema deve ter validação de campos | MÉDIA | 
+|RNF-005| O sistema deve ser fácil de usar | ALTA | 
 
 
 ## Restrições
@@ -62,8 +65,9 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
+|02| A equipe de projeto será restrita aos membros do grupo        |
+|03 | A aplicação deve utilizar apenas tecnologias discutidas no curso ADS      |
+|04 | A aplicação deverá estar hospedada em nuvem para fins de demonstração e utilização do parceiro     |
 
 
 ## Diagrama de Caso de Uso
@@ -76,7 +80,6 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 ## Modelo da Base de Dados
 
-## Banco de dados NoSQL:
 ### Coleção: serviços
 Armazena os tipos de serviços oferecidos pela oficina.
 

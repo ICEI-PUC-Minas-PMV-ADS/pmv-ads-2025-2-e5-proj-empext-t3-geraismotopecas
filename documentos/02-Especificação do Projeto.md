@@ -19,7 +19,9 @@ Definição do problema e ideia de solução a partir da perspectiva do usuário
 
 ## Arquitetura e Tecnologias
 
-Descreva brevemente a arquitetura definida para o projeto e as tecnologias a serem utilizadas. Sugere-se a criação de um diagrama de componentes da solução.
+Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
+<img width="1087" height="718" alt="image" src="https://github.com/user-attachments/assets/570797f4-f0dd-4615-b40d-8493d03eccf6" />
+
 
 ## Project Model Canvas
 
@@ -73,11 +75,13 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-<img width="511" height="745" alt="image" src="https://github.com/user-attachments/assets/f49dc755-106f-4cc2-89b0-6f318b7d54fc" />
+<img width="515" height="746" alt="image" src="https://github.com/user-attachments/assets/6bbf330b-b6b7-4009-afd2-846ab7319d4d" />
+
 
 
 ## Modelo da Base de Dados
 
 # Para banco de dados NoSQL:
-Apresentar o Modelo da Base de Dados (estrutura dos documentos, coleções, ou grafos, conforme o tipo de NoSQL utilizado)
+
+
 

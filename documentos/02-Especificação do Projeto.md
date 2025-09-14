@@ -84,7 +84,8 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 Este documento descreve a estrutura e o esquema do banco de dados não relacional utilizado por nosso projeto, baseado em MongoDB. O MongoDB é um banco de dados NoSQL que armazena dados em documentos JSON (ou BSON, internamente), permitindo uma estrutura flexível e escalável para armazenar e consultar dados.
 
-<img width="607" height="568" alt="image" src="https://github.com/user-attachments/assets/05a6f4ad-e161-4c6a-b5ac-78a67b654a0e" />
+<img width="614" height="567" alt="image" src="https://github.com/user-attachments/assets/f4f34c04-c9f7-4974-8e62-f2be35db3f46" />
+
 
 
 

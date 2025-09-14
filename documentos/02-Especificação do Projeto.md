@@ -46,7 +46,7 @@ Para mais informações, consulte os microfundamentos Fundamentos de Engenharia 
 |RF-009| Gerar um documento PDF dos consertos feitos. | ALTA |
 |RF-010| Emitir um alerta automático quando a quantidade de uma peça atingir o nível mínimo de estoque. | MÉDIA |
 |RF-011| Permitir o cadastro do usuário. | ALTA |
-|RF-011| Permitir o login do usuário cadastrado. | ALTA |
+|RF-012| Permitir o login do usuário cadastrado. | ALTA |
 
 
 ### Requisitos não Funcionais

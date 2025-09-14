@@ -173,6 +173,32 @@ Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, u
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-002<br>Cadastrar usuário</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve redirecionar o usuário para o login do aplicativo após o cadastro bem-sucedido.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Larissa Pocceschy Martins </td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">14/09/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro corretamente.</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><strong>Evidência</strong></td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><img src="img/evidencia-cadastro1.gif" alt="Evidência do cadastro" />
+  </tr>
+</table>
+
 ### ETAPA 3
 Colocar evidências de teste da etapa 3
 

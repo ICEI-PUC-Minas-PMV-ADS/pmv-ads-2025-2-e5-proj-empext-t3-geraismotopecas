@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #F9EDE3;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.login-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #333;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff7f50; /* Coral */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+button:hover {
+  background-color: #ff5722; /* Darker coral */
+}
+
+.register-link {
+  background-color: transparent;
+  color: #ff7f50;
+  border: 2px solid #ff7f50;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  background-color: #ff7f50;
+  color: white;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #81816f; /* cor marrom para combinar com seu tema */
+  margin-bottom: 15px;
+}

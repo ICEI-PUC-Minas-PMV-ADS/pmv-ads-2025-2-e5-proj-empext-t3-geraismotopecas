@@ -1,0 +1,72 @@
+.sobre-banner {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+.sobre-texto {
+  padding: 20px;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #f9ede3;
+}
+
+.sobre-texto h2 {
+  color: #b5b59b;
+}
+
+.sobre-texto p {
+  font-size: 16px;
+  color: #444;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.sobre-conteudo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px;
+  background-color: #f9ede3;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.sobre-imagem {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.sobre-dropdown {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.sobre-dropdown button {
+  width: 100%;
+  background-color: #d98f82;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sobre-dropdown button:hover {
+  background-color: #c57d73;
+}
+
+.sobre-resposta {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

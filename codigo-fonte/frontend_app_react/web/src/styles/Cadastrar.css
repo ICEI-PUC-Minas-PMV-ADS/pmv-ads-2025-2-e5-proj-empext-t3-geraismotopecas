@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+.cadastrar-container {
+  min-height: 80vh;
+  padding: 20px 20px 40px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  background-color: #F9EDE3;
+  font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+/* Caixa do formulário */
+.form-card {
+  margin-top: 4px;
+  background-color: #B5B59B;
+  padding: 30px;
+  border-radius: 10px;
+  width: 30%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.form-card h2 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+/* Labels */
+.form-card label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+/* Inputs */
+.form-card input {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; 
+  margin-bottom: 15px;
+}
+
+/* Botão */
+.form-card button {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff !important;
+  border: none;
+  color: #333333;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-card button:hover {
+  background-color: #fff !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do checkbox e do rótulo */
+.form-card label.checkbox-label {
+  font-size: 14px;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-left: 0;         /* Garante que não vai pra direita */
+  padding-left: 2px;      /* Alinha com os outros inputs */
+}
+
+/* Estilo do checkbox */
+.form-card input[type="checkbox"] {
+  transform: scale(1.1);      /* Um pouco menor que 1.2, mais elegante */
+  margin: 0;                  /* Remove qualquer espaço lateral indesejado */
+  padding: 0;
+}

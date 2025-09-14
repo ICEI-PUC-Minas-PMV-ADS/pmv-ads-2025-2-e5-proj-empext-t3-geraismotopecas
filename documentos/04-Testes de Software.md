@@ -1,13 +1,12 @@
 # Planos de Testes de Software
 
-Apresente os casos de testes utilizados na realização da verificação e validação da aplicação. Escolha cenários de testes que demonstrem os requisitos sendo satisfeitos bem como o tratamento de erros (robustez da aplicação).
+Casos de testes utilizados na realização da verificação e validação da aplicação.
 
 ### Tipo de Teste
 - **Sucesso**: Tem o objetivo de verificar se as funcionalidades funcionam corretamente.
 - **Insucesso**: Tem o objetivo de verificar se o sistema trata erros de maneira correta.
 
-#### Exemplo de Caso de Teste de Sucesso
-O caso de teste de sucesso deve ser identificado por CT - xxx - S
+### Casos de Teste de Sucesso
 
 <table>
   <tr>
@@ -19,7 +18,7 @@ O caso de teste de sucesso deve ser identificado por CT - xxx - S
   </tr>
   <tr>
     <td><strong>Responsável Caso de Teste </strong></td>
-    <td width="430">José da Silva</td>
+    <td width="430">Larissa Pocceschy Martins</td>
   </tr>
  <tr>
     <td><strong>Tipo do Teste</strong></td>
@@ -27,21 +26,21 @@ O caso de teste de sucesso deve ser identificado por CT - xxx - S
   </tr> 
   <tr>
     <td><strong>Requisitos associados</strong></td>
-    <td>RF-001: O funcionário deve conseguir logar no aplicativo</td>
+    <td>RF-012: Permitir o login do usuário cadastrado.</td>
   </tr>
   <tr>
     <td><strong>Passos</strong></td>
     <td>
       1. Abrir o aplicativo.<br>
-      2. Inserir o CPF válido.<br>
+      2. Inserir o email válido.<br>
       3. Inserir a senha válida.<br>
-      4. Clicar no botão "Entrar".
+      4. Clicar no botão "Login".
       </td>
   </tr>
     <tr>
     <td><strong>Dados de teste</strong></td>
     <td>
-      - <strong>CPF:</strong> Colocar CPF cadastrado na base<br>
+      - <strong>Email:</strong> Colocar email cadastrado na base<br>
       - <strong>Senha:</strong> Colocar valor de senha válida
   </tr>
     <tr>
@@ -50,9 +49,50 @@ O caso de teste de sucesso deve ser identificado por CT - xxx - S
   </tr>
 </table>
 
-#### Exemplo de Caso de Teste de Insucesso
-Os casos de testes de insucesso devem ser identificados por CT - xxx - I + sequencial de insucesso.
-Para cada etapa do projeto, criar uma seção com o nome da Etapa do projeto: Etapa 2, Etapa 3 e Etapa 4
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-002 - S<br>Cadastrar Usuário</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se um usuário pode fazer cadastro com sucesso.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Larissa Pocceschy Martins</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>RF-011: Permitir o cadastro do usuário.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Abrir o aplicativo.<br>
+      2. Clicar em "Cadastre-se".<br>
+      3. Inserir o email.<br>
+      4. Inserir a senha.<br>
+      5. Clicar no botão "Criar conta".
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Email:</strong> Inserir novo email na base<br>
+      - <strong>Senha:</strong> Inserir valor de senha
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve redirecionar o usuário para o login do aplicativo após o cadastro bem-sucedido.</td>
+  </tr>
+</table>
+
+### Casos de Teste de Insucesso
+
 ### ETAPA 2  
 <table>
   <tr>
@@ -78,15 +118,15 @@ Para cada etapa do projeto, criar uma seção com o nome da Etapa do projeto: Et
     <td><strong>Passos</strong></td>
     <td>
       1. Abrir o aplicativo.<br>
-      2. Inserir o CPF válido.<br>
+      2. Inserir o email inválido.<br>
       3. Inserir a senha inválida.<br>
-      4. Clicar no botão "Entrar".
+      4. Clicar no botão "Login".
       </td>
   </tr>
     <tr>
     <td><strong>Dados de teste</strong></td>
     <td>
-      - <strong>CPF:</strong> Colocar CPF cadastrado na base<br>
+      - <strong>Email:</strong> Colocar email não cadastrado na base<br>
       - <strong>Senha:</strong> Colocar senha inválida
   </tr>
     <tr>
@@ -103,12 +143,9 @@ Criar casos de teste da etapa 4
  
 # Evidências de Testes de Software
 
-Apresente imagens e/ou vídeos que comprovam que um determinado teste foi executado, e o resultado esperado foi obtido. Normalmente são screenshots de telas, ou vídeos do software em funcionamento.
-
 ## Parte 1 - Testes de desenvolvimento
 Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, utilizando casos de teste, tanto de sucesso quanto de insucesso, elaborados por ele. Todos os testes devem ser evidenciados.
 
-### Exemplo
 ### ETAPA 2
 <table>
   <tr>
@@ -120,9 +157,9 @@ Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, u
   </tr>
     <tr>
     <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
-    <td width="430">José da Silva </td>
+    <td width="430">Larissa Pocceschy Martins </td>
      <td width="100"><strong>Data do Teste</strong></td>
-    <td width="150">08/05/2024</td>
+    <td width="150">14/09/2025</td>
   </tr>
     <tr>
     <td width="170"><strong>Comentário</strong></td>

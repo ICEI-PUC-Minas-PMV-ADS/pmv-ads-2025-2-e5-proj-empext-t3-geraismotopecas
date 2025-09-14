@@ -76,7 +76,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
 
-<img width="515" height="746" alt="image" src="https://github.com/user-attachments/assets/6bbf330b-b6b7-4009-afd2-846ab7319d4d" />
+<img width="429" height="766" alt="image" src="https://github.com/user-attachments/assets/e2709b8f-5947-4fce-a95e-260e585f140e" />
 
 
 
@@ -84,7 +84,11 @@ O diagrama de casos de uso é o próximo passo após a elicitação de requisito
 
 Este documento descreve a estrutura e o esquema do banco de dados não relacional utilizado por nosso projeto, baseado em MongoDB. O MongoDB é um banco de dados NoSQL que armazena dados em documentos JSON (ou BSON, internamente), permitindo uma estrutura flexível e escalável para armazenar e consultar dados.
 
-##Esquema do Banco de Dados
+<img width="607" height="568" alt="image" src="https://github.com/user-attachments/assets/05a6f4ad-e161-4c6a-b5ac-78a67b654a0e" />
+
+
+
+## Esquema do Banco de Dados
 
 ### Coleção: serviços
 Armazena os tipos de serviços oferecidos pela oficina.
@@ -148,7 +152,6 @@ Armazena os dados dos usuários do sistema.
     "nome": "Maria Souza", // Nome do usuário
     "email": "maria.souza@email.com", // E-mail de acesso
     "senha": "hash_senha_123", // Senha criptografada
-    "tipo_usuario": "administrador" // Tipo de usuário (administrador/desenvolvedor)
   }
 ]
 ```
@@ -158,7 +161,6 @@ Armazena os dados dos usuários do sistema.
 > - <strong>nome:</strong> Nome do usuário.
 > - <strong>email:</strong> E-mail utilizado para login.
 > - <strong>senha:</strong> Senha armazenada de forma criptografada.
-> - <strong>tipo_usuario:</strong> Define se é administrador ou manutenção (para testes e suporte).
 
 
 

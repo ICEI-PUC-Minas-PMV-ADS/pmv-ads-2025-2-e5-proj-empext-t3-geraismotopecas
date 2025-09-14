@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
 
 .custom-header {
-  background-color: #f9ede3;
+  background-color: #1f1a16;
   padding: 25px 24px;
   display: flex;
   justify-content: space-between;
@@ -10,11 +10,28 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
-.custom-header-left .logo-placeholder img {
+.custom-header-left {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente o conteúdo dentro do header */
+  align-items: center;     /* centraliza verticalmente */
+  width: 100%;             /* ocupa toda a largura do header */
+}
+
+.custom-header-left .logo-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-header-left .logo-placeholder img { 
   height: 80px;
   width: auto;
   object-fit: contain;
+  border-radius: 50%;      /* imagem redonda */
+  border: 2px solid #000;  /* moldura */
+  padding: 4px;
 }
+
 
 .custom-header-nav {
   display: flex;

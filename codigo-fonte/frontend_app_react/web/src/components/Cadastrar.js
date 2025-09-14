@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
+
 import '../styles/Cadastrar.css';
 
 const Cadastrar = () => {
@@ -47,7 +47,7 @@ const Cadastrar = () => {
       <Header />
       <div className="cadastrar-container">
         <div className="form-card">
-          <h2>Cadastro</h2>
+          <h2>Criar conta</h2>
           <form onSubmit={handleSubmit}>
             <label>Nome</label>
             <input type="text" name="name" value={form.name} onChange={handleChange} required />
@@ -61,17 +61,12 @@ const Cadastrar = () => {
             <label>Confirmar Senha</label>
             <input type="password" name="confirmPassword" value={form.confirmPassword} onChange={handleChange} required />
 
-            {/* Caixa de seleção para Administrador */}
-            <label className="checkbox-label">
-              <input type="checkbox" name="isAdmin" checked={form.isAdmin} onChange={handleCheckboxChange} />
-              Administrador
-            </label>
 
-            <button type="submit">Cadastrar</button>
+
+            <button type="submit">Criar conta</button>
           </form>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

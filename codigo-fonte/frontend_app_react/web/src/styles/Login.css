@@ -1,107 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
-    background-color: #faeee5;
-    font-family: 'Josefin Sans', sans-serif;
-    margin-top: 4px;
-    padding: 0 16px; /* Adiciona um pequeno espaçamento lateral para responsividade */
-    box-sizing: border-box;
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #f6eee6; /* tom mais neutro */
 }
 
-.login-background {
-    width: 30%;
-    display: flex;
-    justify-content: center;
+/* Página de login */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
-/* Card de login */
+/* Card central */
 .login-card {
-    background-color: #B5B59B !important;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 1000px;
+  background-color: #a5a28c; /* cor neutra */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
 }
 
+/* Título */
 .login-card h2 {
-    text-align: center;
-    font-size: 20px;
-    color: #333333;
-    margin-bottom: 24px;
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #2d2d2d;
 }
 
+/* Labels e inputs */
 .login-card label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
-    color: #666;
-    font-family: 'Josefin Sans', sans-serif;
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
 }
 
 .login-card input {
-    width: 95%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #B5B59B;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    color: #000;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #7d7d7d;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 
 .login-card input:focus {
-    border-color: #B5B59B;
-    outline: none;
+  border-color: #555;
+  outline: none;
+}
+
+/* Botões */
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .login-card button {
-    width: 100%;
-    padding: 12px;
-    background-color: #fff;
-    border: none;
-    color: #333333;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 48%;
 }
 
-.login-card button:hover {
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
+.login-btn {
+  background-color: #7d3c2d; /* marrom escuro */
+  color: #fff;
+  border: none;
 }
 
-/* Estilo do container dos botões */
-.login-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.login-btn:hover {
+  background-color: #5a2a1f;
 }
 
-/* Estilo dos botões de login e cadastro */
-.login-buttons button {
-    width: 48%;
+.register-btn {
+  background-color: #fff;
+  border: 1px solid #7d3c2d;
+  color: #7d3c2d;
 }
 
-.login-buttons button[type="submit"] {
-    margin-right: 20%;
-}
-
-.register-link {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    color: #B5B59B;
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.register-link:hover {
-    color: #B5B59B;
+.register-btn:hover {
+  background-color: #f0ebe5;
 }

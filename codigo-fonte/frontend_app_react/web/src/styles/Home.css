@@ -1,105 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
-
-.Home {
-  width: 100%;
-  height: auto;
+.development-container {
   display: flex;
   justify-content: center;
-  align-items: left;
-  flex-direction: column;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: #F9EDE3;
-  font-weight: 300;
-}
-
-.headerContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: auto;
-  height: 100%;
-  padding: 30px; 
-}
-
-.headerContainer h1 {
-  font-size: 90px;
-  height: 90px;
-  font-weight: 100;
-  color: #B5B59B;
-}
-
-.headerContainer button {
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #D98F82;
-  height: 50px;
-  width: 180px;
-  color: white;
-  font-size: 20px;
-  font-family: 'Josefin Sans', sans-serif;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.headerContainer button:hover {
-  background-color: #C77B6D;
-  transform: scale(1.01);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.receitasContainer {
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 30px;
-}
-
-.receitasHeader {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-left: 50px;
-  margin-right: 50px;
+  height: 80vh; /* ocupa a maior parte da tela */
 }
 
-.receitasHeader h2 {
-  color: #847F5F;
-  font-size: 30px;
-  font-family: 'Josefin Sans', sans-serif;
-  margin: 0;
-}
-
-.receitasHeader p {
-  color: #D98F82;
-  font-size: 18px;
-  font-weight: 600;
-  padding-right: 50px;
-  cursor: pointer;
-}
-
-.receitasHeader a {
-  text-decoration: none;
-}
-
-.receitas_items {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 20px;
-}
-
-.receitas_item {
-  overflow: hidden;
-}
-
-.receitas_item img {
-  width: 300px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-right: 20px;
-  
+.development-container h1 {
+  font-size: 48px;
+  color: #7d3c2d; /* cor marrom escura, combinando com o estilo do site */
+  text-align: center;
 }

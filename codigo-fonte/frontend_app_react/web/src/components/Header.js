@@ -15,21 +15,10 @@ function Header() {
   return (
     <header className="custom-header">
       <div className="custom-header-left">
-        <Link to="/home" className="logo-placeholder">
+        <Link to="/#" className="logo-placeholder">
           <img src={logoImage} alt="Logo CookBook" />
         </Link>
       </div>
-      <nav className="custom-header-nav">
-        <Link to="/profile" className="nav-link-button">Perfil</Link>
-        <Link to="/MinhasReceitas" className="nav-link-button">Suas Receitas</Link>
-        <Link to="/sobre" className="nav-link-button">Dúvidas </Link>
-
-        {userId ? (
-          <button onClick={handleLogout} className="nav-logout-button">Sair</button>
-        ) : (
-          <Link to="/" className="nav-link-button">Login</Link>
-        )}
-      </nav>
     </header>
   );
 }

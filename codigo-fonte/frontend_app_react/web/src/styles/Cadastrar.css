@@ -1,88 +1,126 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #f6eee6; /* mesmo fundo do login */
+}
+
+/* Página de cadastro */
 .cadastrar-container {
-  min-height: 80vh;
-  padding: 20px 20px 40px;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  align-items: flex-start; 
-  background-color: #F9EDE3;
-  font-family: 'Josefin Sans', sans-serif;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 16px;
   box-sizing: border-box;
 }
 
-/* Caixa do formulário */
+/* Card central */
 .form-card {
-  margin-top: 4px;
-  background-color: #B5B59B;
-  padding: 30px;
-  border-radius: 10px;
-  width: 30%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff; /* igual ao login */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Logo */
+.form-card .custom-header-left .logo-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-card .custom-header-left .logo-placeholder img { 
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  outline: 2px solid #000;
+  margin: 0;
+  padding: 0;
 }
 
 /* Título */
 .form-card h2 {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #333333;
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #2d2d2d;
 }
 
-/* Labels */
+/* Labels e inputs */
 .form-card label {
   display: block;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  color: #666;
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
 }
 
-/* Inputs */
 .form-card input {
   width: 100%;
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; 
-  margin-bottom: 15px;
-}
-
-/* Botão */
-.form-card button {
-  width: 100%;
-  padding: 12px;
-  background-color: #fff !important;
-  border: none;
-  color: #333333;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #7d7d7d;
   font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
-.form-card button:hover {
-  background-color: #fff !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.form-card input:focus {
+  border-color: #555;
+  outline: none;
 }
 
-/* Estilo do checkbox e do rótulo */
+/* Checkbox */
 .form-card label.checkbox-label {
-  font-size: 14px;
-  color: #333;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-size: 14px;
+  color: #333;
   margin-top: 10px;
-  margin-left: 0;         /* Garante que não vai pra direita */
-  padding-left: 2px;      /* Alinha com os outros inputs */
 }
 
-/* Estilo do checkbox */
 .form-card input[type="checkbox"] {
-  transform: scale(1.1);      /* Um pouco menor que 1.2, mais elegante */
-  margin: 0;                  /* Remove qualquer espaço lateral indesejado */
+  transform: scale(1.1);
+  margin: 0;
   padding: 0;
+}
+
+/* Botões */
+.form-card button {
+  width: 48%;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  border: none;
+}
+
+/* Botão de cadastro */
+.register-btn {
+  background-color: #7d3c2d; /* marrom escuro igual login */
+  color: #fff;
+}
+
+.register-btn:hover {
+  background-color: #5a2a1f;
+}
+
+/* Botão de link para login */
+.login-link-btn {
+  background-color: #fff;
+  border: 1px solid #7d3c2d;
+  color: #7d3c2d;
+}
+
+.login-link-btn:hover {
+  background-color: #f0ebe5;
 }

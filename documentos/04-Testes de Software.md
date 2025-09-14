@@ -104,7 +104,7 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
   <tr>
     <td><strong>Responsável Caso de Teste </strong></td>
-    <td width="430">José da Silva</td>
+    <td width="430">Larissa Pocceschy Martins</td>
   </tr>
  <tr>
     <td><strong>Tipo do Teste</strong></td>
@@ -112,7 +112,7 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr> 
   <tr>
     <td><strong>Requisitos associados</strong></td>
-    <td>RF-001: O funcionário não conseguirá logar no aplicativo</td>
+    <td>RF-012: O funcionário não conseguirá logar no aplicativo</td>
   </tr>
   <tr>
     <td><strong>Passos</strong></td>
@@ -169,7 +169,7 @@ Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, u
     <td colspan="6" align="center"><strong>Evidência</strong></td>
   </tr>
   <tr>
-    <td colspan="6" align="center"><video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-time-sheet/assets/82043220/2e3c1722-7adc-4bd4-8b4c-3abe9ddc1b48"/></td>
+    <td colspan="6" align="center"><img src="img/evidencia-login1.gif" alt="Evidência do login" />
   </tr>
 </table>
 

@@ -20,7 +20,8 @@ Definição de como o software é estruturado em termos dos componentes que faze
 
 ## Project Model Canvas
 
-<img width="935" height="661" alt="image" src="https://github.com/user-attachments/assets/8b40c12f-d782-4678-aa6b-5a2dd932bcc8" />
+<img width="857" height="606" alt="image" src="https://github.com/user-attachments/assets/1ffb4152-7fce-4bca-90a3-964b1e9917c9" />
+
 
 
 

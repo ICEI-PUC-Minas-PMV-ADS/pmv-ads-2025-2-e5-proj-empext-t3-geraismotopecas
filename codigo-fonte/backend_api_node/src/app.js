@@ -8,6 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 
 const loginRoutes = require("./routes/loginRoutes");
 const sobreRoutes = require("./routes/sobreRoutes");
+const produtoRoutes= require("./routes/produtoRoutes");
 const cors = require("cors");
 
 const app = express();
@@ -30,6 +31,7 @@ mongoose.connect(mongoUri, {
 app.use("/usuarios", userRoutes);
 app.use("/auth", loginRoutes);
 app.use("/sobre", sobreRoutes);
+app.use("/produtos", produtoRoutes);
 
 // Exporta app para testes
 module.exports = app;

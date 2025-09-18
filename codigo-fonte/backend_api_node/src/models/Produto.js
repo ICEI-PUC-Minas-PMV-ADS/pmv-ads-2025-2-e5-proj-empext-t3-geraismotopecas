@@ -1,0 +1,51 @@
+const mongoose = require("mongoose");
+
+const ProdutoSchema = new mongoose.Schema({
+  id_peca: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  nome: {
+    type: String,
+    required: true,
+  },
+  codigo: {
+    type: String,
+    default: null,
+  },
+  desc: {
+    type: String,
+    required: true,
+  },
+  data_inicio_gestao: {
+    type: Date,
+    required: true,
+  },
+  contem_servico: {
+    type: Boolean,
+    default: false, 
+  },
+  meta_controle: {
+    qtd_min_fixa: {
+      type: Number,
+      required: true,
+    },
+    data_ultima_compra: {
+      type: Date,
+      default: null,
+    },
+    qtd_estoque: {
+      type: Number,
+      required: true,
+    },
+    qtd_vendido: {
+      type: Number,
+      default: 0,
+    },
+  },
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model("Produto", ProdutoSchema);

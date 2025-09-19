@@ -8,7 +8,8 @@ const userRoutes = require("./routes/userRoutes");
 
 const loginRoutes = require("./routes/loginRoutes");
 const sobreRoutes = require("./routes/sobreRoutes");
-const produtoRoutes= require("./routes/produtoRoutes");
+const produtoRoutes = require("./routes/produtoRoutes");
+const servicoFeitoRoutes = require("./routes/servicoFeitoRoutes");
 const cors = require("cors");
 
 const app = express();
@@ -17,21 +18,23 @@ app.use(cors());
 app.use(express.json());
 
 // Conexão com MongoDB
-const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/geraismot_db";
+const mongoUri =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/geraismot_db";
 
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log(`Conectado ao MongoDB: ${mongoUri}`))
-.catch(err => console.error('Erro ao conectar:', err));
-
+mongoose
+  .connect(mongoUri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log(`Conectado ao MongoDB: ${mongoUri}`))
+  .catch((err) => console.error("Erro ao conectar:", err));
 
 // Rotas
 app.use("/usuarios", userRoutes);
 app.use("/auth", loginRoutes);
 app.use("/sobre", sobreRoutes);
 app.use("/produtos", produtoRoutes);
+app.use("/servicos-feitos", servicoFeitoRoutes);
 
 // Exporta app para testes
 module.exports = app;

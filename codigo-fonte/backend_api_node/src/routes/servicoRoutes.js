@@ -38,3 +38,15 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+// ATULIZAR SERVIÇO 
+
+router.put("/:id", async (req, res) => {
+  try {
+    const servicoAtualizado = await Servico.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!servicoAtualizado) return res.status(404).json({ message: "Serviço não encontrado" });
+    res.json(servicoAtualizado);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});

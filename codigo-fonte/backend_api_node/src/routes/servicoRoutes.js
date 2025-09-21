@@ -16,3 +16,13 @@ router.post("/", async (req, res) => {
     }
 });
 
+// LISTAR TODOS OS SERVIÇOS
+
+router.get("/", async (req, res) => {
+    try {
+        const servicos = await Servico.find();
+        res.json(servicos);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});

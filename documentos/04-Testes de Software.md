@@ -365,34 +365,37 @@ A fim de aumentar a qualidade da aplicação desenvolvida, cada funcionalidade d
 
 ### ETAPA 2
 
-### Exemplo
 <table>
   <tr>
-    <th colspan="6" width="1000">CT-001<br>Login com credenciais válidas</th>
+    <th colspan="6" width="1000">CT-001<br>Cadastro válido</th>
   </tr>
   <tr>
     <td width="170"><strong>Critérios de êxito</strong></td>
-    <td colspan="5">O sistema deve redirecionar o usuário para a página inicial do aplicativo após o login bem-sucedido.</td>
+    <td colspan="5">O sistema deve realizar com sucesso o cadastro.</td>
   </tr>
     <tr>
       <td><strong>Responsável pela funcionalidade</strong></td>
-    <td width="430">José da Silva </td>
+    <td width="430">Larissa Pocceschy Martins</td>
       <td><strong>Responsável pelo teste</strong></td>
-    <td width="430">Maria Oliveira </td>
+    <td width="430">Thabata Dias de Freitas</td>
      <td width="100"><strong>Data do teste</strong></td>
-    <td width="150">08/05/2024</td>
+    <td width="150">21/09/2025</td>
   </tr>
     <tr>
     <td width="170"><strong>Comentário</strong></td>
-    <td colspan="5">O sistema está permitindo o login corretamente.</td>
+    <td colspan="5">O sistema está permitindo o cadastro corretamente.</td>
   </tr>
   <tr>
     <td colspan="6" align="center"><strong>Evidência</strong></td>
   </tr>
   <tr>
-    <td colspan="6" align="center"><video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-time-sheet/assets/82043220/2e3c1722-7adc-4bd4-8b4c-3abe9ddc1b48"/></td>
-  </tr>
 </table>
+
+
+https://github.com/user-attachments/assets/fc0dee3a-7524-41b4-952f-971a4ab5c84a
+
+
+
 
 ### ETAPA 3
 Colocar evidências de teste da etapa 3

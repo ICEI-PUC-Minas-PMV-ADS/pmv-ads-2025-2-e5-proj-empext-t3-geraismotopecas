@@ -7,6 +7,7 @@ const loginRoutes = require("./routes/loginRoutes");
 const sobreRoutes = require("./routes/sobreRoutes");
 const produtoRoutes = require("./routes/produtoRoutes");
 const servicoFeitoRoutes = require("./routes/servicoFeitoRoutes");
+const servicoRoutes = require("./routes/servicoRoutes")
 const cors = require("cors");
 
 const app = express();
@@ -19,6 +20,7 @@ app.use("/auth", loginRoutes);
 app.use("/sobre", sobreRoutes);
 app.use("/produtos", produtoRoutes);
 app.use("/servicos-feitos", servicoFeitoRoutes);
+app.use("/servicos", servicoRoutes);
 
 // Exporta app para testes
 module.exports = app;

@@ -30,23 +30,36 @@ router.get("/", async (req, res) => {
 // BUSCAR SERVIÇO POR ID
 
 router.get("/:id", async (req, res) => {
-  try {
-    const servico = await Servico.findById(req.params.id);
-    if (!servico) return res.status(404).json({ message: "Serviço não encontrado" });
-    res.json(servico);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+    try {
+        const servico = await Servico.findById(req.params.id);
+        if (!servico) return res.status(404).json({ message: "Serviço não encontrado" });
+        res.json(servico);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // ATULIZAR SERVIÇO 
 
 router.put("/:id", async (req, res) => {
-  try {
-    const servicoAtualizado = await Servico.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!servicoAtualizado) return res.status(404).json({ message: "Serviço não encontrado" });
-    res.json(servicoAtualizado);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
+    try {
+        const servicoAtualizado = await Servico.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!servicoAtualizado) return res.status(404).json({ message: "Serviço não encontrado" });
+        res.json(servicoAtualizado);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
 });
+
+// DELETAR SERVIÇO
+
+router.delete("/:id", async (req, res) => {
+    try {
+        const servico = await Servico.findByIdAndDelete(req.params.id);
+        if (!servico) return res.status(404).json({ message: "Serviço não encontrado" });
+        res.json({ message: "Serviço deletado com sucesso" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+

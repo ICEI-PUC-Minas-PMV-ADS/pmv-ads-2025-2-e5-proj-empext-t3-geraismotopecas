@@ -26,3 +26,15 @@ router.get("/", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+
+// BUSCAR SERVIÇO POR ID
+
+router.get("/:id", async (req, res) => {
+  try {
+    const servico = await Servico.findById(req.params.id);
+    if (!servico) return res.status(404).json({ message: "Serviço não encontrado" });
+    res.json(servico);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});

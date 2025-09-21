@@ -91,6 +91,53 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-003 - S<br>Cadastrar Produto</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se um usuário pode cadastrar com sucesso.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>RF-001: Permitir o cadastro de peças no estoque com informações detalhadas.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Clicar em produtos.<br>
+      2. Adicionar dados de produtos.<br>
+      3. Cadastrar produtos.<br>
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Nome</strong>: Inserir nome da peça.<br>
+      - <strong>Código</strong>: Inserir código da peça.<br>
+      - <strong>Descrição</strong>: Inserir descrição.<br>
+      - <strong>Data início de gestão</strong>: Inserir a data em que a peça passou a ser gerida.<br>
+      - <strong>Contém serviço</strong>: Se se o produto está associado a um serviço ou não.<br>
+      - <strong>Quantidade mínima</strong>: Inserir quantidade mínima para alerta de reposição.<br>
+      - <strong>Data da última compra:</strong>: Inserir data da última compra da peça.<br>
+      - <strong>Quantidade de estoque</strong>: Inserir quantidade atual disponível em estoque.<br>
+      - <strong>Quantidade vendido</strong>: Inserir quantidade já vendida ou utilizada.<br>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve confirmar que o produto foi cadastrado.</td>
+  </tr>
+</table>
+
 ### Casos de Teste de Insucesso
 
 ### ETAPA 2  
@@ -198,6 +245,38 @@ Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, u
     <td colspan="6" align="center"><img src="img/evidencia-cadastro1.gif" alt="Evidência do cadastro" />
   </tr>
 </table>
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-001<br>Cadastro de produto válido</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve permitir o usuário a cadastrar um novo produto/peça.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">18/09/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro de produto corretamente.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+
+https://github.com/user-attachments/assets/d199d1ab-5832-47c7-adbf-0ade5dcb0c7c
+
+
+
+
 
 ### ETAPA 3
 Colocar evidências de teste da etapa 3

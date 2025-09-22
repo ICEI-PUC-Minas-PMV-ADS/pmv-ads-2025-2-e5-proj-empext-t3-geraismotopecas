@@ -91,6 +91,53 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-003 - S<br>Cadastrar Produto</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se um usuário pode cadastrar com sucesso.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>RF-001: Permitir o cadastro de peças no estoque com informações detalhadas.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Clicar em produtos.<br>
+      2. Adicionar dados de produtos.<br>
+      3. Cadastrar produtos.<br>
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Nome</strong>: Inserir nome da peça.<br>
+      - <strong>Código</strong>: Inserir código da peça.<br>
+      - <strong>Descrição</strong>: Inserir descrição.<br>
+      - <strong>Data início de gestão</strong>: Inserir a data em que a peça passou a ser gerida.<br>
+      - <strong>Contém serviço</strong>: Se o produto está associado a um serviço ou não.<br>
+      - <strong>Quantidade mínima</strong>: Inserir quantidade mínima para alerta de reposição.<br>
+      - <strong>Data da última compra:</strong>: Inserir data da última compra da peça.<br>
+      - <strong>Quantidade de estoque</strong>: Inserir quantidade atual disponível em estoque.<br>
+      - <strong>Quantidade vendido</strong>: Inserir quantidade já vendida ou utilizada.<br>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve confirmar que o produto foi cadastrado.</td>
+  </tr>
+</table>
+
 ### Casos de Teste de Insucesso
 
 ### ETAPA 2  
@@ -132,6 +179,53 @@ Casos de testes utilizados na realização da verificação e validação da apl
     <tr>
     <td><strong>Critérios de êxito</strong></td>
     <td>O sistema deve apresentar a mensagem de login inválido.</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-002<br>Cadastro inválido de produto</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica dados inválidos no cadastro de produto.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Insucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>	RF-001: Não permitir o cadastro de peças no estoque com informações detalhadas.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+     	1. Clicar em produtos.
+      2. Adicionar dados inválidos de produtos.
+      3. Cadastrar produtos.
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Nome</strong>: Inserir nome da peça.<br>
+      - <strong>Código</strong>: Inserir código da peça.<br>
+      - <strong>Descrição</strong>: Inserir descrição.<br>
+      - <strong>Data início de gestão</strong>: Inserir a data em que a peça passou a ser gerida.<br>
+      - <strong>Contém serviço</strong>: Se o produto está associado a um serviço ou não.<br>
+      - <strong>Quantidade mínima</strong>: Inserir quantidade mínima para alerta de reposição.<br>
+      - <strong>Data da última compra:</strong>: Inserir data da última compra da peça.<br>
+      - <strong>Quantidade de estoque</strong>: <STRONG>Não</STRONG> inserir dado de estoque<br>
+      - <strong>Quantidade vendido</strong>: Inserir quantidade já vendida ou utilizada.
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve apresentar a mensagem de erro ao cadastrar produto.</td>
   </tr>
 </table>
 
@@ -199,6 +293,67 @@ Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, u
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-003<br>Cadastro de produto válido</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve permitir o usuário a cadastrar um novo produto/peça.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">18/09/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro de produto corretamente.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+
+https://github.com/user-attachments/assets/d199d1ab-5832-47c7-adbf-0ade5dcb0c7c
+
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-004<br>Cadastro inválido de produto</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema não deve permitir o cadastro de um produto quando houver campos obrigatórios faltando ou valores inválidos.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">18/09/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O teste consistiu em tentar cadastrar um produto sem informar a quantidade de estoque. O sistema retornou erro, impedindo o cadastro, conforme esperado.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+
+
+https://github.com/user-attachments/assets/dfe3e9b5-f317-44a4-9e54-61ef926e05af
+
+
+
+
 ### ETAPA 3
 Colocar evidências de teste da etapa 3
 
@@ -210,34 +365,37 @@ A fim de aumentar a qualidade da aplicação desenvolvida, cada funcionalidade d
 
 ### ETAPA 2
 
-### Exemplo
 <table>
   <tr>
-    <th colspan="6" width="1000">CT-001<br>Login com credenciais válidas</th>
+    <th colspan="6" width="1000">CT-001<br>Cadastro válido</th>
   </tr>
   <tr>
     <td width="170"><strong>Critérios de êxito</strong></td>
-    <td colspan="5">O sistema deve redirecionar o usuário para a página inicial do aplicativo após o login bem-sucedido.</td>
+    <td colspan="5">O sistema deve realizar com sucesso o cadastro.</td>
   </tr>
     <tr>
       <td><strong>Responsável pela funcionalidade</strong></td>
-    <td width="430">José da Silva </td>
+    <td width="430">Larissa Pocceschy Martins</td>
       <td><strong>Responsável pelo teste</strong></td>
-    <td width="430">Maria Oliveira </td>
+    <td width="430">Thabata Dias de Freitas</td>
      <td width="100"><strong>Data do teste</strong></td>
-    <td width="150">08/05/2024</td>
+    <td width="150">21/09/2025</td>
   </tr>
     <tr>
     <td width="170"><strong>Comentário</strong></td>
-    <td colspan="5">O sistema está permitindo o login corretamente.</td>
+    <td colspan="5">O sistema está permitindo o cadastro corretamente.</td>
   </tr>
   <tr>
     <td colspan="6" align="center"><strong>Evidência</strong></td>
   </tr>
   <tr>
-    <td colspan="6" align="center"><video src="https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e5-proj-time-sheet/assets/82043220/2e3c1722-7adc-4bd4-8b4c-3abe9ddc1b48"/></td>
-  </tr>
 </table>
+
+
+https://github.com/user-attachments/assets/fc0dee3a-7524-41b4-952f-971a4ab5c84a
+
+
+
 
 ### ETAPA 3
 Colocar evidências de teste da etapa 3

@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Header from './Header';
-import Footer from './Footer';
-import snoopy1 from '../images/img2.jpg';
+import Sidebar from './Sidebar';
 import '../styles/EditProfile.css';
 
 const EditProfile = () => {
-    const [formData, setFormData] = useState({ nome: '', email: '', foto: '' });
+    const [formData, setFormData] = useState({ nome: '', email: '', senha: '' });
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
-    const [previewFoto, setPreviewFoto] = useState(null);
     const navigate = useNavigate();
     const userId = localStorage.getItem('userId');
 
@@ -21,9 +18,8 @@ const EditProfile = () => {
                 setFormData({
                     nome: response.data.name || '',
                     email: response.data.email || '',
-                    foto: response.data.foto || '',
+                    senha: '',
                 });
-                setPreviewFoto(response.data.foto || null);
                 setLoading(false);
             } catch (error) {
                 console.error('Erro ao carregar perfil:', error);
@@ -42,35 +38,20 @@ const EditProfile = () => {
         }));
     };
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setFormData(prev => ({ ...prev, foto: reader.result }));
-                setPreviewFoto(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handleRemovePhoto = () => {
-        setFormData(prev => ({ ...prev, foto: '' }));
-        setPreviewFoto(null);
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSaving(true);
         try {
-            const response = await axios.put(`http://localhost:3000/auth/users/${userId}`, {
+            const payload = {
                 name: formData.nome,
                 email: formData.email,
-                foto: formData.foto,
-            });
+            };
+            if (formData.senha) {
+                payload.password = formData.senha; // atualiza a senha somente se digitada
+            }
 
-
-            console.log('Perfil atualizado:', response.data);
+            await axios.put(`http://localhost:3000/auth/users/${userId}`, payload);
+            alert('Perfil atualizado com sucesso!');
             navigate('/profile');
         } catch (error) {
             console.error('Erro ao salvar perfil:', error);
@@ -80,41 +61,28 @@ const EditProfile = () => {
         }
     };
 
+    const handleDelete = async () => {
+        const confirmDelete = window.confirm('Tem certeza que deseja excluir seu usuário?');
+        if (!confirmDelete) return;
+
+        try {
+            await axios.delete(`http://localhost:3000/auth/users/${userId}`);
+            alert('Usuário excluído com sucesso!');
+            localStorage.removeItem('userId');
+            navigate('/');
+        } catch (error) {
+            console.error('Erro ao excluir usuário:', error);
+            alert('Erro ao excluir usuário.');
+        }
+    };
+
     if (loading) return <p>Carregando perfil...</p>;
 
     return (
-        <>
-            <Header />
-            <img src={snoopy1} alt="Banner" className="profile-banner" />
+        <Sidebar>
             <div className="edit-profile-container">
                 <form onSubmit={handleSubmit} className="edit-profile-form">
                     <h2>Editar Perfil</h2>
-
-                    <label htmlFor="foto">Foto de Perfil:</label>
-                    <div className="profile-picture-container">
-                        <input
-                            type="file"
-                            accept="image/*"
-                            name="foto"
-                            onChange={handleFileChange}
-                        />
-                        {previewFoto && (
-                            <div className="preview-container">
-                                <img
-                                    src={previewFoto}
-                                    alt="Prévia da Foto"
-                                    className="profile-preview"
-                                />
-                                <button
-                                    type="button"
-                                    className="remove-icon"
-                                    onClick={handleRemovePhoto}
-                                >
-                                    X
-                                </button>
-                            </div>
-                        )}
-                    </div>
 
                     <label htmlFor="nome">Nome:</label>
                     <input
@@ -134,13 +102,39 @@ const EditProfile = () => {
                         required
                     />
 
+                    <label htmlFor="senha">Nova Senha:</label>
+                    <input
+                        type="password"
+                        name="senha"
+                        value={formData.senha}
+                        onChange={handleChange}
+                        placeholder="Digite para alterar a senha"
+                    />
+
                     <button type="submit" disabled={saving}>
                         {saving ? 'Salvando...' : 'Salvar'}
                     </button>
+
+                    <button
+                        type="button"
+                        onClick={handleDelete}
+                        style={{
+                            marginTop: '10px',
+                            backgroundColor: '#FF0000',
+                            color: 'white',
+                            width: '100%',
+                            padding: '12px',
+                            border: 'none',
+                            borderRadius: '5px',
+                            cursor: 'pointer',
+                            fontWeight: 'bold'
+                        }}
+                    >
+                        Excluir Usuário
+                    </button>
                 </form>
             </div>
-            <Footer />
-        </>
+        </Sidebar>
     );
 };
 

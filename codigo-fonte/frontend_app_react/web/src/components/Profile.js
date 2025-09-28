@@ -1,9 +1,9 @@
+// Profile.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Profile.css';
-import Header from './Header';
-import Footer from './Footer';
+import Sidebar from './Sidebar';
 import Avatar from '../images/avatar.png';
 
 const Profile = () => {
@@ -12,7 +12,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const userId = localStorage.getItem('userId'); // pega ID salvo no login
+            const userId = localStorage.getItem('userId'); 
             if (!userId) {
                 alert("Usuário não está logado!");
                 navigate('/');
@@ -36,21 +36,17 @@ const Profile = () => {
     }
 
     return (
-        <>
-            <Header />
+        <Sidebar>
             <div className="login-container">
                 <div className="login-card">
                     <img src={Avatar} alt="Avatar" className="avatar" />
                     <h2>Perfil de {user.name}</h2>
                     <p>Email: {user.email}</p>
 
-                    <button onClick={() => navigate('/Resultados')}>Pesquisar Receitas</button>
                     <button onClick={() => navigate('/editProfile')}>Editar Perfil</button>
                 </div>
             </div>
-            <Footer />
-        </>
-
+        </Sidebar>
     );
 };
 

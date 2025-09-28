@@ -1,0 +1,82 @@
+/* Servicos.css */
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.servicos-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filtro-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-right: 10px;
+}
+
+.add-btn {
+  padding: 10px 20px;
+  background-color: #A32009;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #ff5722;
+}
+
+.servicos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.servico-card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.servico-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.servico-imagem-placeholder {
+  width: 80px;
+  height: 60px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.servico-detalhes p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.servico-actions {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.servico-delete {
+  cursor: pointer;
+  color: #A32009;
+}
+
+.servico-delete:hover {
+  color: #ff5722;
+}

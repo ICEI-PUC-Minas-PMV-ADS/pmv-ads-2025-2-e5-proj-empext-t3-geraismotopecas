@@ -9,6 +9,10 @@ import Cadastrar from "./components/Cadastrar";
 import Home from "./components/Home";
 import SobreApp from "./components/SobreApp";
 
+import Servicos from "./components/Servicos";
+import CadastroServicos from "./components/CadastroServicos";
+import EditarServicos from "./components/EditarServicos";
+
 
 import "./styles/Login.css";
 import "./styles/Profile.css";
@@ -25,10 +29,13 @@ const App = () => {
 
         <Route path="/editProfile" element={<EditProfile />} />
         <Route path="/cadastrar" element={<Cadastrar />} />
+        <Route path="/Servicos" element={<Servicos />} />
+        <Route path="/CadastroServicos" element={<CadastroServicos />} />
+        <Route path="/EditarServicos/:id" element={<EditarServicos />} />
+
 
 
         <Route path="/sobre" element={<SobreApp />} />
-   >
       </Routes>
     </Router>
   );

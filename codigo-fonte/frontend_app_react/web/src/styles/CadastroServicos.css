@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #f6eee6; /* mesmo fundo do login */
+}
+
+/* Página de cadastro de serviços */
+.cadastrar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Card central */
+.form-card {
+  background-color: #fff; /* igual ao login */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Título */
+.form-card h2 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #2d2d2d;
+}
+
+/* Labels e inputs */
+.form-card label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid #7d7d7d;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  border-color: #555;
+  outline: none;
+}
+
+/* Checkbox */
+.form-card label.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.form-card input[type="checkbox"] {
+  transform: scale(1.1);
+  margin: 0;
+  padding: 0;
+}
+
+/* Botões */
+.form-card button {
+  width: 48%;
+  padding: 12px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  border: none;
+}
+
+/* Botão de cadastro/atualizar */
+.register-btn {
+  background-color: #7d3c2d; /* marrom escuro igual login */
+  color: #fff;
+}
+
+.register-btn:hover {
+  background-color: #5a2a1f;
+}
+
+/* Botão de cancelar */
+.cancel-btn {
+  background-color: #fff;
+  border: 1px solid #7d3c2d;
+  color: #7d3c2d;
+}
+
+.cancel-btn:hover {
+  background-color: #f0ebe5;
+}

@@ -4,13 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #F9EDE3;
-  font-family: 'Josefin Sans', sans-serif;
+  min-height: 100vh;
+  background-color: transparent;
 }
 
 .login-card {
-  background-color: white;
+  background-color: rgba(217, 217, 217, 0.5);
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -50,7 +49,7 @@ input {
 button {
   width: 100%;
   padding: 12px;
-  background-color: #ff7f50; /* Coral */
+  background-color: #A32009;
   border: none;
   color: white;
   border-radius: 5px;

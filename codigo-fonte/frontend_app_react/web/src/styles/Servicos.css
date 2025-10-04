@@ -1,82 +1,227 @@
-/* Servicos.css */
+/* Reset básico e altura total */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f0f0f0; /* fundo da página */
+}
+
+/* Container principal: sidebar + conteúdo */
+.home-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar fixa à esquerda */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* nunca encolhe */
+}
+
+/* Conteúdo principal flexível */
 .content {
   flex: 1;
-  padding: 2rem;
-}
-
-.servicos-header {
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.filtro-input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  margin-right: 10px;
+/* Container de formulários e cards */
+.garantias-container,
+.cadastrar-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.add-btn {
-  padding: 10px 20px;
-  background-color: #A32009;
+/* Card de formulário ou produto */
+.garantia-card,
+.form-card,
+.servico-card {
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Títulos */
+.garantia-card h2,
+.form-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.garantia-card h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #444;
+}
+
+/* Labels e inputs */
+.garantia-card label,
+.form-card label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+}
+
+.garantia-card input,
+.garantia-card textarea,
+.form-card input,
+.form-card textarea {
+  margin-top: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.garantia-card textarea,
+.form-card textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Peças */
+.pecas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.peca-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputs-peca {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-remove-peca {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  width: 20%;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.btn-remove-peca:hover {
+  background-color: #d32f2f;
+}
+
+/* Botões do formulário */
+.form-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.register-btn {
+  background-color: #d93c00;
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.add-btn:hover {
-  background-color: #ff5722;
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+/* Lista de produtos/serviços */
 .servicos-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .servico-card {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  padding: 20px 25px;
+  border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  background-color: #f3f3f3;
-  padding: 10px;
-  border-radius: 5px;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 120px; 
+  width: 300px;
 }
 
-.servico-info {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.servico-imagem-placeholder {
-  width: 80px;
-  height: 60px;
-  background-color: #d9d9d9;
-  border-radius: 5px;
+.servico-detalhes .servico-nome {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 17px;
 }
 
 .servico-detalhes p {
   margin: 0;
-  font-weight: bold;
+  font-weight: normal; 
+  font-size: 15px;
+  color: #333;
 }
 
+/* Ações do card */
 .servico-actions {
   display: flex;
   gap: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
-.servico-delete {
+.btn-editar {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  color: #A32009;
 }
 
-.servico-delete:hover {
-  color: #ff5722;
+.btn-editar:hover {
+  background-color: #1565c0;
+}
+
+.btn-delete {
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: #b71c1c;
 }

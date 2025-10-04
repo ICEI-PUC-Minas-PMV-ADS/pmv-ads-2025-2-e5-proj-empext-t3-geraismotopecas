@@ -48,13 +48,13 @@ const CadastroProdutos = () => {
               />
             </label>
 
-            <label>
-              Descrição:
-              <textarea
-                value={desc}
-                onChange={(e) => setDesc(e.target.value)}
-              />
-            </label>
+           <label>
+            Descrição:
+            <textarea
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+            />
+          </label>
 
             <label>
               Preço:

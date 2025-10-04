@@ -1,4 +1,5 @@
 /* Sidebar.css */
+
 .sidebar {
   width: 160px;
   background: #2d2d2d;
@@ -6,12 +7,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
 }
 
+/* Logo */
 .logo {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .logo img {
@@ -21,14 +23,15 @@
   background: white;
 }
 
+/* Itens do menu principal */
 .sidebar nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os 3 primeiros itens */
-  gap: 15px;
+  align-items: center;
+  gap: 25px; /* espaço maior entre os textos */
 }
 
 .sidebar nav ul li {
@@ -36,12 +39,14 @@
   font-weight: 500;
   font-size: 16px;
   transition: color 0.3s;
+  letter-spacing: 0.5px; /* leve espaçamento entre letras */
 }
 
 .sidebar nav ul li:hover {
   color: #007bff;
 }
 
+/* Parte inferior */
 .sidebar-bottom {
   margin-top: auto;
 }
@@ -54,7 +59,19 @@
 }
 
 .sidebar-bottom li {
-  margin: 0.5rem 0;
+  margin: 1rem 0; /* mais espaçamento vertical entre textos */
   cursor: pointer;
   font-size: 15px;
+}
+
+/* Conteúdo principal com scroll independente */
+.content {
+  flex: 1;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
 }

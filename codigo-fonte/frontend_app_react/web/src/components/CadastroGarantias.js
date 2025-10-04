@@ -101,18 +101,41 @@ const CadastroGarantias = () => {
             <label>Dias de garantia</label>
             <input type="number" value={diasGarantia} min="0" onChange={(e) => setDiasGarantia(e.target.value)} />
 
-            <h3>Peças utilizadas</h3>
-            <div className="pecas-container">
-              {pecas.map((p, i) => (
-                <div key={i} className="peca-item">
-                  <input placeholder="Nome" value={p.nome} onChange={(e) => handlePecaChange(i, "nome", e.target.value)} required />
-                  <input type="number" placeholder="Qtd" value={p.quantidade} min="1" onChange={(e) => handlePecaChange(i, "quantidade", e.target.value)} />
-                  <input type="number" placeholder="Preço unit" value={p.precoUnit} min="0" step="0.01" onChange={(e) => handlePecaChange(i, "precoUnit", e.target.value)} />
-                  <button type="button" onClick={() => removePeca(i)}>X</button>
-                </div>
-              ))}
-              <button type="button" onClick={addPeca}>Adicionar peça</button>
-            </div>
+           <h3>Peças utilizadas</h3>
+<div className="pecas-container">
+  {pecas.map((p, i) => (
+    <div key={i} className="peca-item">
+      <div className="inputs-peca">
+        <input
+          placeholder="Nome"
+          value={p.nome}
+          onChange={(e) => handlePecaChange(i, "nome", e.target.value)}
+          required
+        />
+        <input
+          type="number"
+          placeholder="Qtd"
+          value={p.quantidade}
+          min="1"
+          onChange={(e) => handlePecaChange(i, "quantidade", e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Preço unit"
+          value={p.precoUnit}
+          min="0"
+          step="0.01"
+          onChange={(e) => handlePecaChange(i, "precoUnit", e.target.value)}
+        />
+
+         <button type="button" className="btn-remove-peca" onClick={() => removePeca(i)}>X</button>
+      </div>
+     
+    </div>
+  ))}
+  <button type="button" onClick={addPeca}>Adicionar peça</button>
+</div>
+
 
             <div className="form-buttons">
               <button type="submit" className="register-btn">Salvar</button>

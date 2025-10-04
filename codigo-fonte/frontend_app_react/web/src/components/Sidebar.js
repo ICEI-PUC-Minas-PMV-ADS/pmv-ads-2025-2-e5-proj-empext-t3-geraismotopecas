@@ -10,9 +10,8 @@ function Sidebar({ children }) {
     // Remove dados do usuário
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
-    localStorage.removeItem('token'); // se estiver usando JWT
+    localStorage.removeItem('token');
 
-    // Redireciona para login
     navigate('/');
   };
 

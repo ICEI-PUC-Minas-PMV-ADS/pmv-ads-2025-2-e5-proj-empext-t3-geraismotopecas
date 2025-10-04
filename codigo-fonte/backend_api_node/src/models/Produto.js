@@ -26,6 +26,11 @@ const ProdutoSchema = new mongoose.Schema({
     type: Boolean,
     default: false, 
   },
+  valor:{
+    type: Number,
+    required: true,
+  },
+  
   meta_controle: {
     qtd_min_fixa: {
       type: Number,

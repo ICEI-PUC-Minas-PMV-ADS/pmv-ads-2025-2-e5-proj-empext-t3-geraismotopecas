@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "josefin sans", sans-serif;
   background-color: #f0f0f0; /* fundo da página */
 }
 
@@ -38,8 +38,8 @@ html, body {
 /* Container do formulário */
 .garantias-container {
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto; /* centraliza horizontalmente */
+  max-width: 1000px; /* aumenta largura máxima */
+  margin: 0; /* remove centralização */
 }
 
 /* Remove borda, sombra e fundo do formulário */
@@ -58,6 +58,7 @@ html, body {
   color: #333;
   margin-bottom: 10px;
   font-size: 22px;
+  font-family: "josefin sans", sans-serif;
 }
 
 .garantia-card h3 {
@@ -128,25 +129,87 @@ html, body {
 /* Botões do formulário */
 .form-buttons {
   display: flex;
-  justify-content: flex-start; /* alinhado ao início */
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: flex-end; /* joga tudo pra direita */
+  align-items: center;
+  gap: 8px; /* espaço entre os botões */
+  margin-top: 20px;
+}
+
+.register-btn,
+.cancel-btn {
+  width: 200px;           /* define largura fixa */
+  padding: 8px 5;         /* altura menor */
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .register-btn {
-  background-color: #d93c00;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #A32009;
+  color: #fff;
 }
 
 .cancel-btn {
   background-color: #ccc;
   color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
+}
+
+.register-btn:hover {
+  background-color: #621406;
+}
+
+.cancel-btn:hover {
+  background-color: #797979;
+}
+
+/* Checkbox alinhado à esquerda */
+.form-card label.checkbox {
+  display: flex;             /* flex container */
+  align-items: center;       /* centraliza verticalmente checkbox e texto */
+  justify-content: flex-start; /* deixa tudo à esquerda */
+  gap: 8px;                  /* espaço entre checkbox e texto */
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Ajuste checkbox */
+.checkbox-label {
+  display: flex;
+  flex-direction: column; /* força o checkbox para a linha de baixo */
+  align-items: flex-start; /* garante alinhamento à esquerda */
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;     /* verticalmente centralizados */
+  justify-content: flex-start; /* força à esquerda */
+  gap: 10px;                /* espaço entre o checkbox e "Sim" */
+  margin-top: 15px;         /* pequeno espaçamento em relação ao label acima */
+  font-family: "josefin sans", sans-serif;
+}
+
+.checkbox-containe
+
+/* Ajuste do tamanho do checkbox */
+.checkbox-container input[type="checkbox"] {
+  transform: scale(1.1);
+  margin: 0;
+  padding: 0;
+}
+
+.servico-select {
+  width: 300px;          /* largura fixa menor */
+  padding: 6px 10px;     /* diminui o tamanho interno */
+  margin-top: 5px;       /* afasta do label */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
 }

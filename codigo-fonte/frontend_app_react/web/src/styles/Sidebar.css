@@ -1,5 +1,4 @@
-/* Sidebar.css */
-
+/* Sidebar */
 .sidebar {
   width: 160px;
   background: #2d2d2d;
@@ -13,58 +12,60 @@
 /* Logo */
 .logo {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .logo img {
-  width: 150px;
+  width: 120px;
   height: auto;
   border-radius: 50%;
   background: white;
 }
 
-/* Itens do menu principal */
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Menu principal */
+.menu-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px; /* espaço maior entre os textos */
 }
 
-.sidebar nav ul li {
+/* Botões principais */
+.menu-buttons button,
+.sidebar-bottom button {
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s;
-  letter-spacing: 0.5px; /* leve espaçamento entre letras */
+  font-family: "Kurb", sans-serif;
+  background-color: #3a3a3a;
+  margin: 8px 0;
 }
 
-.sidebar nav ul li:hover {
-  color: #007bff;
+.menu-buttons button.active,
+.sidebar-bottom button.active {
+  background-color: #A90101;
+  color: #fff;
 }
 
-/* Parte inferior */
+/* Parte inferior (perfil e sair) */
 .sidebar-bottom {
+  display: flex;
+  flex-direction: column;
   margin-top: auto;
 }
 
-.sidebar-bottom ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
+/* Botões inferiores (sem hover colorido) */
+.sidebar-bottom button {
+  background-color: #3a3a3a;
 }
 
-.sidebar-bottom li {
-  margin: 1rem 0; /* mais espaçamento vertical entre textos */
-  cursor: pointer;
-  font-size: 15px;
+.sidebar-bottom button:hover {
+  background-color: #3a3a3a; /* mantém igual — sem efeito */
 }
 
-/* Conteúdo principal com scroll independente */
+/* Conteúdo principal */
 .content {
   flex: 1;
   padding: 40px 20px;

@@ -1,17 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/Sidebar.css";
 import logoImage from "../images/logolivro.png";
 
 function Sidebar({ children }) {
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const produtosPaths = ["/Produtos", "/CadastroProdutos", "/EditarProdutos"];
+  const garantiasPaths = ["/Garantias", "/CadastroGarantias", "/EditarGarantias"];
+  const servicosPaths = ["/Servicos", "/CadastroServicos", "/EditarServicos"];
+  const perfilPaths = ["/Profile"];
 
   const handleLogout = () => {
-    // Remove dados do usuário
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
     localStorage.removeItem('token');
-
     navigate('/');
   };
 
@@ -19,29 +24,50 @@ function Sidebar({ children }) {
     <div className="home-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <div 
-          className="logo" 
-          style={{ cursor: "pointer" }} 
+        <div
+          className="logo"
+          style={{ cursor: "pointer" }}
           onClick={() => navigate("/home")}
         >
           <img src={logoImage} alt="Logo" />
         </div>
-        <nav>
-          <ul>
-            <li onClick={() => navigate("/produtos")}>Produtos</li>
-            <li onClick={() => navigate("/garantias")}>Garantias</li>
-            <li onClick={() => navigate("/servicos")}>Serviços</li>
-          </ul>
+
+        <nav className="menu-buttons">
+          <button
+            onClick={() => navigate("/Produtos")}
+            className={produtosPaths.includes(currentPath) ? "active" : ""}
+          >
+            Produtos
+          </button>
+
+          <button
+            onClick={() => navigate("/Garantias")}
+            className={garantiasPaths.includes(currentPath) ? "active" : ""}
+          >
+            Garantias
+          </button>
+
+          <button
+            onClick={() => navigate("/Servicos")}
+            className={servicosPaths.includes(currentPath) ? "active" : ""}
+          >
+            Serviços
+          </button>
         </nav>
+
         <div className="sidebar-bottom">
-          <ul>
-            <li onClick={() => navigate("/profile")}>Perfil</li>
-            <li onClick={handleLogout}>Sair</li>
-          </ul>
+          <button
+            onClick={() => navigate("/Profile")}
+            className={perfilPaths.includes(currentPath) ? "active" : ""}
+          >
+            Perfil
+          </button>
+
+          <button onClick={handleLogout}>Sair</button>
         </div>
       </aside>
 
-      {/* Main content */}
+      {/* Conteúdo principal */}
       <main className="content">{children}</main>
     </div>
   );

@@ -97,7 +97,7 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
   <tr>
     <td width="150"><strong>Descrição</strong></td>
-    <td>Este caso de teste verifica se um usuário pode cadastrar com sucesso.</td>
+    <td>Este caso de teste verifica se um usuário pode cadastrar uma peça com sucesso.</td>
   </tr>
   <tr>
     <td><strong>Responsável Caso de Teste </strong></td>
@@ -135,6 +135,57 @@ Casos de testes utilizados na realização da verificação e validação da apl
     <tr>
     <td><strong>Critérios de êxito</strong></td>
     <td>O sistema deve confirmar que o produto foi cadastrado.</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-004 - S<br>Cadastrar Garantia</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se um usuário pode cadastrar uma garantia com sucesso.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Kiane Ramalho</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>RF-005: Registrar serviços e consertos realizados, associando-os aos clientes e motocicletas correspondentes.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Clicar em Garantias<br>
+      2. Adicionar dados da garantia<br>
+      3. Cadastrar garantia<br>
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Nome</strong>: Inserir nome do cliente.<br>
+      - <strong>Contato</strong>: Inserir contato do cliente.<br>
+      - <strong>Modelo</strong>: Inserir modelo da moto do cliente.<br>
+      - <strong>Placa</strong>: Inserir a placa da moto do cliente.<br>
+      - <strong>Cor</strong>: Inserir a cor da moto do cliente.<br>
+      - <strong>Ano</strong>: Inserir o ano da moto do cliente.<br>
+      - <strong>Serviço</strong>: Inserir o serviço realizado.<br>
+      - <strong>Quantidade</strong>: Inserir quantidade de serviço realizado.<br>
+      - <strong>Preço unitário</strong>: Inserir o valor do serviço realizado.<br>
+      - <strong>Dias de garantia</strong>: Inserir a quantidade de dias de garantia que o serviço possui.<br>
+      - <strong>Peça utilizada</strong>: Selecionar a peça utilizada no serviço.<br>
+      - <strong>Quantidade</strong>: Inserir quantidade de peça utilizada no serviço realizado.<br>
+      - <strong>Preço unitário</strong>: Inserir o valor do peça utilizada no serviço realizado.<br>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve confirmar que a garantia foi cadastrada com sucesso.</td>
   </tr>
 </table>
 

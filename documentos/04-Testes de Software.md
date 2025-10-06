@@ -281,7 +281,57 @@ Casos de testes utilizados na realização da verificação e validação da apl
 </table>
 
 ### ETAPA 3
-Criar casos de teste da etapa 3
+
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-003<br>Cadastro inválido de garantia</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica dados inválidos no cadastro de garantia.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Kiane Ramalho</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Insucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>	RF-005: Não permitir o registro de serviços e consertos realizados, associando-os aos clientes e motocicletas correspondentes</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+     	1. Clicar em Garantias.
+      2. Adicionar dados inválidos de garantia.
+      3. Cadastrar garantia.
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Nome</strong>: Inserir nome do cliente.<br>
+      - <strong>Contato</strong>: Inserir contato do cliente.<br>
+      - <strong>Modelo</strong>: Inserir modelo da moto do cliente.<br>
+      - <strong>Placa</strong>: <STRONG>Não</STRONG> inserir a placa da moto do cliente.<br>
+      - <strong>Cor</strong>: Inserir a cor da moto do cliente.<br>
+      - <strong>Ano</strong>: Inserir o ano da moto do cliente.<br>
+      - <strong>Serviço</strong>: Inserir o serviço realizado.<br>
+      - <strong>Quantidade</strong>: Inserir quantidade de serviço realizado.<br>
+      - <strong>Preço unitário</strong>: Inserir o valor do serviço realizado.<br>
+      - <strong>Dias de garantia</strong>: Inserir a quantidade de dias de garantia que o serviço possui.<br>
+      - <strong>Peça utilizada</strong>: Selecionar a peça utilizada no serviço.<br>
+      - <strong>Quantidade</strong>: Inserir quantidade de peça utilizada no serviço realizado.<br>
+      - <strong>Preço unitário</strong>: Inserir o valor do peça utilizada no serviço realizado.<br>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve apresentar a mensagem de erro ao clicar em salvar a garantia</td>
+  </tr>
+</table>
 
 ### ETAPA 4
 Criar casos de teste da etapa 4
@@ -406,7 +456,62 @@ https://github.com/user-attachments/assets/dfe3e9b5-f317-44a4-9e54-61ef926e05af
 
 
 ### ETAPA 3
-Colocar evidências de teste da etapa 3
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-004<br>Cadastro válido de garantia</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve permitir o usuário cadastrar uma nova garantia.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Kiane Ramalho</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">06/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro de garantia corretamente.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-004<br>Cadastro inválido de garantia</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema não deve permitir o cadastro da garantia quando houver campos obrigatórios faltando ou valores inválidos.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Kiane Ramalho</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">06/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema retornou o erro, impedindo o cadastro.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+
+
+
 
 ### ETAPA 4
 Colocar evidências de teste da etapa 4

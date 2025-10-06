@@ -17,9 +17,12 @@
 
 .logo img {
   width: 120px;
-  height: auto;
+  height: 120px;
   border-radius: 50%;
   background: white;
+  object-fit: contain;
+  object-position: -5px center;
+  padding: 5px;
 }
 
 /* Menu principal */
@@ -45,7 +48,7 @@
 
 .menu-buttons button.active,
 .sidebar-bottom button.active {
-  background-color: #A90101;
+  background-color: #a90101;
   color: #fff;
 }
 

@@ -1,5 +1,6 @@
 /* Reset básico e altura total */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -99,6 +100,7 @@ html, body {
 .inputs-peca {
   display: flex;
   gap: 10px; /* espaçamento entre os inputs */
+  align-items: center;
 }
 
 .peca-item {
@@ -125,7 +127,6 @@ html, body {
   background-color: #d32f2f;
 }
 
-
 /* Botões do formulário */
 .form-buttons {
   display: flex;
@@ -137,8 +138,8 @@ html, body {
 
 .register-btn,
 .cancel-btn {
-  width: 200px;           /* define largura fixa */
-  padding: 8px 5;         /* altura menor */
+  width: 200px; /* define largura fixa */
+  padding: 8px 5; /* altura menor */
   font-size: 14px;
   font-weight: 600;
   border-radius: 6px;
@@ -148,7 +149,7 @@ html, body {
 }
 
 .register-btn {
-  background-color: #A32009;
+  background-color: #a32009;
   color: #fff;
 }
 
@@ -167,10 +168,10 @@ html, body {
 
 /* Checkbox alinhado à esquerda */
 .form-card label.checkbox {
-  display: flex;             /* flex container */
-  align-items: center;       /* centraliza verticalmente checkbox e texto */
+  display: flex; /* flex container */
+  align-items: center; /* centraliza verticalmente checkbox e texto */
   justify-content: flex-start; /* deixa tudo à esquerda */
-  gap: 8px;                  /* espaço entre checkbox e texto */
+  gap: 8px; /* espaço entre checkbox e texto */
   font-size: 14px;
   color: #333;
   margin-top: 10px;
@@ -188,10 +189,10 @@ html, body {
 
 .checkbox-container {
   display: flex;
-  align-items: center;     /* verticalmente centralizados */
+  align-items: center; /* verticalmente centralizados */
   justify-content: flex-start; /* força à esquerda */
-  gap: 10px;                /* espaço entre o checkbox e "Sim" */
-  margin-top: 15px;         /* pequeno espaçamento em relação ao label acima */
+  gap: 10px; /* espaço entre o checkbox e "Sim" */
+  margin-top: 15px; /* pequeno espaçamento em relação ao label acima */
   font-family: "josefin sans", sans-serif;
 }
 
@@ -205,11 +206,29 @@ html, body {
 }
 
 .servico-select {
-  width: 300px;          /* largura fixa menor */
-  padding: 6px 10px;     /* diminui o tamanho interno */
-  margin-top: 5px;       /* afasta do label */
+  width: 300px; /* largura fixa menor */
+  padding: 6px 10px; /* diminui o tamanho interno */
+  margin-top: 5px; /* afasta do label */
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
   box-sizing: border-box;
+}
+
+.peca-select-input {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: "josefin sans", sans-serif;
+  color: #333;
+  box-sizing: border-box;
+  height: 34px;
+  line-height: 1.2;
+  vertical-align: middle;
+  flex-grow: 1;
+  background-position: right 8px center;
+  transform: translateY(1.5px);
+  align-self: center;
 }

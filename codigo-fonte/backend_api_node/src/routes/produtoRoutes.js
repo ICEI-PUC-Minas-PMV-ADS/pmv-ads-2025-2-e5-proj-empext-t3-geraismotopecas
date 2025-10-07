@@ -90,4 +90,39 @@ router.get("/filtro/estoque/baixo", async (req, res) => {
     }
 });
 
+// DIMINUIR ESTOQUE (BAIXA)
+router.put("/:id/baixa", async (req, res) => {
+  try {
+    const { quantidade } = req.body;
+
+    if (quantidade <= 0) {
+      return res.status(400).json({ message: "A quantidade deve ser maior que zero." });
+    }
+
+    const produto = await Produto.findById(req.params.id);
+
+    if (!produto) {
+      return res.status(404).json({ message: "Produto não encontrado." });
+    }
+
+    // Verifica se há estoque suficiente
+    if (produto.meta_controle.qtd_estoque < quantidade) {
+      return res.status(400).json({ message: "Estoque insuficiente para dar baixa." });
+    }
+
+    // Diminui o estoque
+    produto.meta_controle.qtd_estoque -= quantidade;
+
+    await produto.save();
+
+    res.json({
+      message: "Baixa de estoque realizada com sucesso.",
+      produto,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao dar baixa no estoque.", error });
+  }
+});
+
+
 module.exports = router;

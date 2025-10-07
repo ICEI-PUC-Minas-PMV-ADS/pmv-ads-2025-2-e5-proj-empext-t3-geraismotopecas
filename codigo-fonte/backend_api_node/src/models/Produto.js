@@ -1,12 +1,7 @@
 const mongoose = require("mongoose");
 
 const ProdutoSchema = new mongoose.Schema({
-  id_peca: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
-  nome: {
+    nome: {
     type: String,
     required: true,
   },
@@ -43,10 +38,6 @@ const ProdutoSchema = new mongoose.Schema({
     qtd_estoque: {
       type: Number,
       required: true,
-    },
-    qtd_vendido: {
-      type: Number,
-      default: 0,
     },
   },
 }, {

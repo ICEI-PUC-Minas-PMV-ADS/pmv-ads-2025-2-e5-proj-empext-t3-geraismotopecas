@@ -31,16 +31,16 @@ const CadastroProdutos = () => {
       nome,
       codigo,
       desc,
-      data_inicio_gestao: dataInicioGestao ? new Date(dataInicioGestao) : null,
+      data_inicio_gestao: dataInicioGestao ? new Date(dataInicioGestao) : new Date(),
       contem_servico: servico,
-      servico_relacionado: servico ? servicoSelecionado : null,
-      valor,
+      valor: parseFloat(valor) || 0,
       meta_controle: {
         qtd_min_fixa: parseInt(qtdMin) || 0,
         data_ultima_compra: dataCompra ? new Date(dataCompra) : null,
         qtd_estoque: parseInt(qtdEstoque) || 0,
       },
     };
+
 
     try {
       await axios.post('http://localhost:3000/produtos', dados);

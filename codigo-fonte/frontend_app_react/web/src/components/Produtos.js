@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
-import '../styles/Servicos.css'; // Reutiliza o mesmo CSS de card
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import '../styles/Servicos.css';
+import { FaTrash, FaEdit, FaArrowAltCircleDown } from 'react-icons/fa';
 
 const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
@@ -39,6 +39,18 @@ const Produtos = () => {
     }
   };
 
+  async function darBaixa(id, quantidade) {
+    try {
+      const response = await axios.put(`http://localhost:3000/produtos/${id}/baixa`, {
+        quantidade: quantidade,
+      });
+      alert("Baixa realizada com sucesso!");
+      console.log(response.data.produto);
+    } catch (error) {
+      alert(error.response?.data?.message || "Erro ao dar baixa no estoque.");
+    }
+  }
+
   return (
     <div className="home-container">
       <Sidebar />
@@ -73,9 +85,20 @@ const Produtos = () => {
                   <div className="servico-actions">
                     <button
                       className="btn-editar"
-                      onClick={() => navigate(`/EditarProdutos/${produto._id}/editar`)}
+                      onClick={() => navigate(`/EditarProdutos/${produto._id}`)}
                     >
                       <FaEdit /> Editar
+                    </button>
+                    <button
+                      className="btn-baixa"
+                      onClick={() => {
+                        const qtd = prompt("Digite a quantidade para dar baixa:");
+                        if (qtd) {
+                          darBaixa(produto._id, parseInt(qtd));
+                        }
+                      }}
+                    >
+                      <FaArrowAltCircleDown /> Baixa
                     </button>
                     <button
                       className="btn-delete"
@@ -83,6 +106,7 @@ const Produtos = () => {
                     >
                       <FaTrash /> Excluir
                     </button>
+
                   </div>
                 </div>
               </div>

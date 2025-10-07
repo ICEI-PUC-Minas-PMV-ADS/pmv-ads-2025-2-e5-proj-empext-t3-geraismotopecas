@@ -1,49 +1,43 @@
-/* Reset básico e altura total */
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: "josefin sans", sans-serif;
-  background-color: #f0f0f0; /* fundo da página */
+  background-color: #f0f0f0; 
 }
 
-/* Container principal: sidebar + conteúdo */
 .home-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar fixa à esquerda */
 .sidebar {
   width: 250px;
   background-color: #333;
   color: #fff;
   padding: 20px;
   box-sizing: border-box;
-  flex-shrink: 0; /* nunca encolhe */
+  flex-shrink: 0; 
 }
 
-/* Conteúdo principal flexível */
 .content {
-  flex: 1; /* ocupa todo o espaço restante */
+  flex: 1; 
   padding: 40px 20px;
   box-sizing: border-box;
-  background-color: #f0f0f0; /* mesma cor do body */
+  background-color: #f0f0f0; 
   display: flex;
-  justify-content: flex-start; /* alinha ao topo */
+  justify-content: flex-start; 
   flex-direction: column;
-  gap: 20px; /* espaçamento entre elementos */
+  gap: 20px;
 }
 
-/* Container do formulário */
 .garantias-container {
   width: 100%;
-  max-width: 1000px; /* aumenta largura máxima */
-  margin: 0; /* remove centralização */
+  max-width: 1000px;
+  margin: 0; 
 }
 
-/* Remove borda, sombra e fundo do formulário */
 .garantia-card {
   background: none;
   box-shadow: none;
@@ -53,9 +47,8 @@ body {
   gap: 15px;
 }
 
-/* Títulos */
 .garantia-card h2 {
-  text-align: left; /* ou center se quiser */
+  text-align: left; 
   color: #333;
   margin-bottom: 10px;
   font-size: 22px;
@@ -69,7 +62,6 @@ body {
   color: #444;
 }
 
-/* Labels e inputs */
 .garantia-card label {
   font-size: 14px;
   color: #333;
@@ -87,19 +79,19 @@ body {
 .pecas-container {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* espaço entre cada peça */
+  gap: 15px; 
   margin-bottom: 15px;
 }
 
 .peca-item {
   display: flex;
-  flex-direction: column; /* coloca botão embaixo */
-  gap: 5px; /* espaçamento entre inputs e botão */
+  flex-direction: column; 
+  gap: 5px; 
 }
 
 .inputs-peca {
   display: flex;
-  gap: 10px; /* espaçamento entre os inputs */
+  gap: 10px; 
   align-items: center;
 }
 
@@ -127,19 +119,18 @@ body {
   background-color: #d32f2f;
 }
 
-/* Botões do formulário */
 .form-buttons {
   display: flex;
-  justify-content: flex-end; /* joga tudo pra direita */
+  justify-content: flex-end;
   align-items: center;
-  gap: 8px; /* espaço entre os botões */
+  gap: 8px; 
   margin-top: 20px;
 }
 
 .register-btn,
 .cancel-btn {
-  width: 200px; /* define largura fixa */
-  padding: 8px 5; /* altura menor */
+  width: 200px; 
+  padding: 8px 5; 
   font-size: 14px;
   font-weight: 600;
   border-radius: 6px;
@@ -166,12 +157,12 @@ body {
   background-color: #797979;
 }
 
-/* Checkbox alinhado à esquerda */
+
 .form-card label.checkbox {
-  display: flex; /* flex container */
-  align-items: center; /* centraliza verticalmente checkbox e texto */
-  justify-content: flex-start; /* deixa tudo à esquerda */
-  gap: 8px; /* espaço entre checkbox e texto */
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start; 
+  gap: 8px;
   font-size: 14px;
   color: #333;
   margin-top: 10px;
@@ -180,8 +171,8 @@ body {
 /* Ajuste checkbox */
 .checkbox-label {
   display: flex;
-  flex-direction: column; /* força o checkbox para a linha de baixo */
-  align-items: flex-start; /* garante alinhamento à esquerda */
+  flex-direction: column; 
+  align-items: flex-start; 
   font-size: 14px;
   color: #333;
   margin-top: 10px;
@@ -189,16 +180,13 @@ body {
 
 .checkbox-container {
   display: flex;
-  align-items: center; /* verticalmente centralizados */
-  justify-content: flex-start; /* força à esquerda */
-  gap: 10px; /* espaço entre o checkbox e "Sim" */
-  margin-top: 15px; /* pequeno espaçamento em relação ao label acima */
+  align-items: center; 
+  justify-content: flex-start;
+  gap: 10px; 
+  margin-top: 15px; 
   font-family: "josefin sans", sans-serif;
 }
 
-.checkbox-containe
-
-/* Ajuste do tamanho do checkbox */
 .checkbox-container input[type="checkbox"] {
   transform: scale(1.1);
   margin: 0;
@@ -206,9 +194,9 @@ body {
 }
 
 .servico-select {
-  width: 300px; /* largura fixa menor */
-  padding: 6px 10px; /* diminui o tamanho interno */
-  margin-top: 5px; /* afasta do label */
+  width: 300px;
+  padding: 6px 10px; 
+  margin-top: 5px; 
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;

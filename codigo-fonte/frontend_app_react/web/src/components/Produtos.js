@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import '../styles/Servicos.css';
-import { FaTrash, FaEdit, FaArrowAltCircleDown } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaArrowAltCircleDown, FaExclamationTriangle } from 'react-icons/fa';
 
 const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
@@ -24,10 +24,13 @@ const Produtos = () => {
     fetchProdutos();
   }, []);
 
-  const produtosFiltrados = produtos.filter(p =>
-    p.nome?.toLowerCase().includes(filtro.toLowerCase())
-  );
+const removeAcentos = (str) => {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};
 
+const produtosFiltrados = produtos.filter(p =>
+  removeAcentos(p.nome?.toLowerCase()).includes(removeAcentos(filtro.toLowerCase()))
+);
   const handleDelete = async (id) => {
     if (!window.confirm('Deseja realmente excluir este produto?')) return;
     try {
@@ -76,7 +79,15 @@ const Produtos = () => {
             produtosFiltrados.map(produto => (
               <div className="servico-card" key={produto._id}>
                 <div className="servico-detalhes">
-                  <p className="servico-nome">{produto.nome}</p>
+                  <p className="servico-nome">
+                    {produto.nome}
+                    {produto.meta_controle.qtd_estoque < produto.meta_controle.qtd_min_fixa && (
+                      <FaExclamationTriangle
+                        title="Estoque abaixo do mínimo"
+                        style={{ color: 'orange', marginLeft: '8px' }}
+                      />
+                    )}
+                  </p>
                   <p className="servico-desc">{produto.desc}</p>
                   <p className="servico-valor">R$ {produto.valor?.toFixed(2)}</p>
                   <p className="servico-garantia">
@@ -106,9 +117,9 @@ const Produtos = () => {
                     >
                       <FaTrash /> Excluir
                     </button>
-
                   </div>
                 </div>
+
               </div>
             ))
           ) : (

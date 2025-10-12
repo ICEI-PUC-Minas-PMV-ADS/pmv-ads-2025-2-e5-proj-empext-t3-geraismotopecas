@@ -23,7 +23,6 @@ html, body {
   flex-shrink: 0;
 }
 
-/* Conteúdo principal flexível */
 .content {
   flex: 1;
   padding: 20px 40px;
@@ -35,7 +34,7 @@ html, body {
 }
 
 /* ===========================
-   HEADER — título e ações
+   HEADER — título e filtro
    =========================== */
 .header {
   display: flex;
@@ -133,7 +132,6 @@ html, body {
   color: #e67e22;
   font-size: 14px;
 }
-
 
 .garantia-desc,
 .garantia-validade,

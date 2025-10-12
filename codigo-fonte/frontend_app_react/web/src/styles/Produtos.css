@@ -201,7 +201,7 @@ html, body {
 }
 
 /* ============================================
-   LISTAGEM DE PRODUTOS (linha única, sem cards)
+   LISTAGEM DE PRODUTOS
    ============================================ */
 
 /* Lista geral */
@@ -219,8 +219,8 @@ html, body {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 2px solid #ccc; /* separador ___ visual */
-  flex-wrap: wrap; /* permite quebrar linha se necessário */
+  border-bottom: 2px solid #ccc;
+  flex-wrap: wrap; 
 }
 
 /* Área de imagem + detalhes */

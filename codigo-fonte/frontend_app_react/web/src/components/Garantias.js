@@ -10,7 +10,7 @@ const Garantias = () => {
   const [filtro, setFiltro] = useState("");
   const navigate = useNavigate();
 
-  // 🔹 Buscar garantias da API
+
   const fetchGarantias = async () => {
     try {
       const res = await axios.get("http://localhost:3000/servicos-feitos");
@@ -25,7 +25,7 @@ const Garantias = () => {
     fetchGarantias();
   }, []);
 
-  // 🔹 Filtro de busca
+
   const removeAcentos = (str) =>
     str?.normalize?.("NFD").replace(/[\u0300-\u036f]/g, "") ?? "";
 
@@ -35,7 +35,7 @@ const Garantias = () => {
     )
   );
 
-  // 🔹 Excluir garantia
+
   const handleDelete = async (id) => {
     if (!window.confirm("Tem certeza que deseja excluir esta garantia?")) return;
 
@@ -48,7 +48,7 @@ const Garantias = () => {
     }
   };
 
-  // 🔹 Verificar validade
+
   const estaPertoDeVencer = (data_validade) => {
     if (!data_validade) return false;
     const hoje = new Date();

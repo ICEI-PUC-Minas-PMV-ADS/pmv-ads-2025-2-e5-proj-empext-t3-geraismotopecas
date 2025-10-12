@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import "../styles/Produtos.css"; // reutiliza o mesmo estilo da página de produtos
+import "../styles/Garantias.css"; // use o CSS com as classes garantia-*
 import { FaTrash, FaExclamationTriangle } from "react-icons/fa";
 
 const Garantias = () => {
@@ -9,9 +9,7 @@ const Garantias = () => {
   const [filtro, setFiltro] = useState("");
   const navigate = useNavigate();
 
-  // ===============================
-  // MOCK (dados simulados)
-  // ===============================
+  // MOCK de garantias (substitua pela sua API quando quiser)
   const mockGarantias = [
     {
       _id: "1",
@@ -19,7 +17,7 @@ const Garantias = () => {
       modelo_moto: "Honda CG 160",
       placa_moto: "ABC-1234",
       valor_total: 350.0,
-      data_validade: "2025-12-20",
+      data_validade: "2025-12-19",
       status: "Ativa",
     },
     {
@@ -42,17 +40,17 @@ const Garantias = () => {
     },
   ];
 
-  const fetchGarantias = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    setGarantias(mockGarantias);
-  };
-
   useEffect(() => {
-    fetchGarantias();
+    // simula fetch
+    const load = async () => {
+      await new Promise((r) => setTimeout(r, 250));
+      setGarantias(mockGarantias);
+    };
+    load();
   }, []);
 
   const removeAcentos = (str) =>
-    str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    str?.normalize?.("NFD").replace(/[\u0300-\u036f]/g, "") ?? "";
 
   const garantiasFiltradas = garantias.filter((g) =>
     removeAcentos(g.nome_cliente.toLowerCase()).includes(
@@ -62,21 +60,22 @@ const Garantias = () => {
 
   const handleDelete = (id) => {
     if (!window.confirm("Deseja realmente excluir esta garantia?")) return;
-    setGarantias(garantias.filter((g) => g._id !== id));
+    setGarantias((prev) => prev.filter((g) => g._id !== id));
   };
 
   const estaPertoDeVencer = (data_validade) => {
+    if (!data_validade) return false;
     const hoje = new Date();
     const validade = new Date(data_validade);
     const diffDias = (validade - hoje) / (1000 * 60 * 60 * 24);
-    return diffDias <= 15;
+    return diffDias <= 15 && diffDias >= 0;
   };
 
   return (
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        {/* HEADER com título Garantias */}
+        {/* header com título e ações */}
         <div className="header">
           <h2>Garantias</h2>
           <div className="header-actions">
@@ -96,37 +95,47 @@ const Garantias = () => {
           </div>
         </div>
 
-        {/* LISTAGEM */}
-        <div className="produtos-lista">
+        {/* listagem de garantias */}
+        <div className="garantias-lista">
           {garantiasFiltradas.length > 0 ? (
             garantiasFiltradas.map((g) => (
-              <div className="produto-linha" key={g._id}>
-                <div className="produto-info">
-                  <div className="produto-img-placeholder" />
-                  <div className="produto-detalhes">
-                    <p className="produto-nome">
+              <div className="garantia-linha" key={g._id}>
+                <div className="garantia-info">
+                  <div className="garantia-img-placeholder" />
+                  <div className="garantia-detalhes">
+                    <p className="garantia-nome">
                       {g.nome_cliente}
+                      {g.status === "Expirada" && (
+                        <FaExclamationTriangle
+                          className="icone-alerta"
+                          title="Garantia expirada"
+                        />
+                      )}
                       {estaPertoDeVencer(g.data_validade) && (
                         <FaExclamationTriangle
                           className="icone-alerta"
-                          title="Garantia próxima do vencimento"
+                          title="Próximo do vencimento"
                         />
                       )}
                     </p>
-                    <p className="produto-desc">
+
+                    <p className="garantia-desc">
                       {g.modelo_moto} — {g.placa_moto}
                     </p>
-                    <p className="produto-estoque">
+
+                    <p className="garantia-validade">
                       Validade:{" "}
                       {g.data_validade
                         ? new Date(g.data_validade).toLocaleDateString()
                         : "-"}{" "}
                       ({g.status})
                     </p>
-                    <p className="produto-estoque">
+
+                    <p className="garantia-valor">
                       Valor total: R$ {g.valor_total?.toFixed(2)}
                     </p>
-                    <div className="produto-acoes">
+
+                    <div className="garantia-acoes">
                       <button
                         className="btn-azul"
                         onClick={() => navigate(`/EditarGarantias/${g._id}`)}
@@ -135,9 +144,7 @@ const Garantias = () => {
                       </button>
                       <button
                         className="btn-cinza"
-                        onClick={() =>
-                          navigate(`/DetalhesGarantia/${g._id}`)
-                        }
+                        onClick={() => navigate(`/DetalhesGarantia/${g._id}`)}
                       >
                         Detalhes
                       </button>
@@ -145,17 +152,17 @@ const Garantias = () => {
                   </div>
                 </div>
 
-                {/* BOTÃO DE LIXO */}
                 <button
                   className="delete-button"
                   onClick={() => handleDelete(g._id)}
+                  title="Excluir garantia"
                 >
                   <FaTrash />
                 </button>
               </div>
             ))
           ) : (
-            <p className="nenhum-produto">Nenhuma garantia encontrada.</p>
+            <p className="nenhuma-garantia">Nenhuma garantia encontrada.</p>
           )}
         </div>
       </main>

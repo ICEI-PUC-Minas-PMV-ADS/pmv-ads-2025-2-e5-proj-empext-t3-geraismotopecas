@@ -1,21 +1,17 @@
-/* ============================================
-   BASE / ESTRUTURA GERAL
-============================================ */
-html, body {
+/* ======= BASE ======= */
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "josefin sans", sans-serif;
   background-color: #f0f0f0;
 }
 
-/* Container principal */
 .home-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* Sidebar */
 .sidebar {
   width: 250px;
   background-color: #333;
@@ -25,7 +21,6 @@ html, body {
   flex-shrink: 0;
 }
 
-/* Conteúdo principal */
 .content {
   flex: 1;
   padding: 40px 20px;
@@ -36,312 +31,170 @@ html, body {
   gap: 20px;
 }
 
-/* ============================================
-   CABEÇALHO / AÇÕES
-============================================ */
+/* ======= HEADER ======= */
 .header {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 65%;
-  max-width: none;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .header h2 {
-  color: #333;
   font-size: 24px;
-  font-weight: bold;
+  color: #333;
+  margin: 0;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .filtro-input {
+  padding: 8px 12px;
   border: 1px solid #ccc;
-  width: 800px;
-  padding: 8px;
   border-radius: 6px;
+  font-size: 14px;
+  width: 200px;
 }
 
 .add-btn {
   background-color: #a32009;
-  color: white;
+  color: #fff;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
-  width: 250px;
-  padding: 10px;
+  padding: 8px 14px;
   border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
   transition: background 0.3s;
 }
 
 .add-btn:hover {
-  background-color: #871b07;
+  background-color: #621406;
 }
 
-/* ============================================
-   FORMULÁRIOS DE GARANTIA
-============================================ */
-.garantias-container,
-.cadastrar-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.garantia-card,
-.form-card {
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 20px 25px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.garantia-card h2,
-.form-card h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.garantia-card h3 {
-  margin-top: 15px;
-  margin-bottom: 5px;
-  font-size: 18px;
-  color: #444;
-}
-
-/* Labels e Inputs */
-.garantia-card label,
-.form-card label {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  color: #333;
-}
-
-.garantia-card input,
-.garantia-card textarea,
-.form-card input,
-.form-card textarea {
-  margin-top: 5px;
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.garantia-card textarea,
-.form-card textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-/* ============================================
-   PEÇAS RELACIONADAS
-============================================ */
-.pecas-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.peca-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.inputs-peca {
-  display: flex;
-  gap: 10px;
-}
-
-.btn-remove-peca {
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  padding: 3px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-  width: 20%;
-  text-align: center;
-  transition: background 0.3s;
-}
-
-.btn-remove-peca:hover {
-  background-color: #d32f2f;
-}
-
-/* ============================================
-   BOTÕES DE FORMULÁRIO
-============================================ */
-.form-buttons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.register-btn {
-  background-color: #d93c00;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.cancel-btn {
-  background-color: #ccc;
-  color: #333;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.register-btn:hover {
-  background-color: #a32e00;
-}
-
-.cancel-btn:hover {
-  background-color: #999;
-}
-
-/* ============================================
-   LISTAGEM DE GARANTIAS (estilo linha)
-============================================ */
+/* ======= LISTAGEM DE GARANTIAS ======= */
 .garantias-lista {
-  width: 70%;
-  gap: 10px;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
 }
 
 .garantia-linha {
-  border-radius: 6px;
-  padding: 15px 20px;
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 2px solid #ccc;
-  flex-wrap: wrap;
+  align-items: stretch;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Informações */
+.garantia-linha:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ======= BLOCO DE INFORMAÇÕES ======= */
 .garantia-info {
   display: flex;
-  align-items: flex-start;
-  flex: 1;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Placeholder visual */
 .garantia-img-placeholder {
-  width: 150px;
-  height: 120px;
-  background-color: #e5e5e5;
-  border-radius: 6px;
-  margin: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #ddd;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
-/* Detalhes */
 .garantia-detalhes {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 4px;
 }
 
 .garantia-nome {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icone-alerta {
+  color: #e67e22;
+  font-size: 14px;
 }
 
 .garantia-desc,
-.garantia-validade {
-  font-size: 15px;
-  color: #666;
+.garantia-validade,
+.garantia-valor {
+  font-size: 14px;
+  color: #555;
 }
 
-/* Ações */
+/* ======= BOTÕES ======= */
 .garantia-acoes {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.btn-azul,
+.btn-cinza {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
 }
 
 .btn-azul {
-  background-color: #1976d2;
+  background-color: #0056b3;
   color: white;
-  border: none;
-  margin: 5px;
-  width: 200px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.3s;
 }
+
 .btn-azul:hover {
-  background-color: #125ea8;
+  background-color: #003f80;
 }
 
 .btn-cinza {
-  background-color: #ddd;
-  color: #333;
-  border: none;
-  width: 200px;
-  margin: 5px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.3s;
-}
-.btn-cinza:hover {
   background-color: #ccc;
+  color: #333;
 }
 
-/* Botão de excluir */
+.btn-cinza:hover {
+  background-color: #999;
+}
+
+/* ======= BOTÃO EXCLUIR ======= */
 .delete-button {
-  background-color: transparent;
+  background: transparent;
   border: none;
+  color: #a32009;
+  font-size: 18px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  transition: background-color 0.2s ease;
-  flex-shrink: 0;
+  transition: color 0.3s;
 }
 
 .delete-button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  color: #621406;
 }
 
-.delete-button i,
-.delete-button svg {
-  font-size: 28px;
-  color: #333;
-}
-
-/* Quando não há garantias */
+/* ======= MENSAGEM DE LISTA VAZIA ======= */
 .nenhuma-garantia {
   text-align: center;
-  color: #666;
-  font-size: 16px;
+  color: #777;
+  font-size: 15px;
   margin-top: 30px;
 }

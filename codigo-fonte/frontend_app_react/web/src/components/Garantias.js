@@ -1,68 +1,54 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import "../styles/Garantias.css"; // use o CSS com as classes garantia-*
+import "../styles/Garantias.css";
 import { FaTrash, FaExclamationTriangle } from "react-icons/fa";
+import axios from "axios";
 
 const Garantias = () => {
   const [garantias, setGarantias] = useState([]);
   const [filtro, setFiltro] = useState("");
   const navigate = useNavigate();
 
-  // MOCK de garantias (substitua pela sua API quando quiser)
-  const mockGarantias = [
-    {
-      _id: "1",
-      nome_cliente: "João Silva",
-      modelo_moto: "Honda CG 160",
-      placa_moto: "ABC-1234",
-      valor_total: 350.0,
-      data_validade: "2025-12-19",
-      status: "Ativa",
-    },
-    {
-      _id: "2",
-      nome_cliente: "Maria Oliveira",
-      modelo_moto: "Yamaha Fazer 250",
-      placa_moto: "XYZ-9876",
-      valor_total: 420.5,
-      data_validade: "2025-08-10",
-      status: "Expirada",
-    },
-    {
-      _id: "3",
-      nome_cliente: "Carlos Souza",
-      modelo_moto: "Honda Bros 160",
-      placa_moto: "KLM-4455",
-      valor_total: 280.75,
-      data_validade: "2026-01-05",
-      status: "Ativa",
-    },
-  ];
+  // 🔹 Buscar garantias da API
+  const fetchGarantias = async () => {
+    try {
+      const res = await axios.get("http://localhost:3000/servicos-feitos");
+      setGarantias(res.data);
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao buscar garantias");
+    }
+  };
 
   useEffect(() => {
-    // simula fetch
-    const load = async () => {
-      await new Promise((r) => setTimeout(r, 250));
-      setGarantias(mockGarantias);
-    };
-    load();
+    fetchGarantias();
   }, []);
 
+  // 🔹 Filtro de busca
   const removeAcentos = (str) =>
     str?.normalize?.("NFD").replace(/[\u0300-\u036f]/g, "") ?? "";
 
   const garantiasFiltradas = garantias.filter((g) =>
-    removeAcentos(g.nome_cliente.toLowerCase()).includes(
+    removeAcentos(g.nome_cliente?.toLowerCase() || "").includes(
       removeAcentos(filtro.toLowerCase())
     )
   );
 
-  const handleDelete = (id) => {
-    if (!window.confirm("Deseja realmente excluir esta garantia?")) return;
-    setGarantias((prev) => prev.filter((g) => g._id !== id));
+  // 🔹 Excluir garantia
+  const handleDelete = async (id) => {
+    if (!window.confirm("Tem certeza que deseja excluir esta garantia?")) return;
+
+    try {
+      await axios.delete(`http://localhost:3000/servicos-feitos/${id}`);
+      setGarantias((prev) => prev.filter((g) => g._id !== id));
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao deletar garantia");
+    }
   };
 
+  // 🔹 Verificar validade
   const estaPertoDeVencer = (data_validade) => {
     if (!data_validade) return false;
     const hoje = new Date();
@@ -75,7 +61,7 @@ const Garantias = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        {/* header com título e ações */}
+        {/* HEADER */}
         <div className="header">
           <h2>Garantias</h2>
           <div className="header-actions">
@@ -95,7 +81,7 @@ const Garantias = () => {
           </div>
         </div>
 
-        {/* listagem de garantias */}
+        {/* LISTAGEM */}
         <div className="garantias-lista">
           {garantiasFiltradas.length > 0 ? (
             garantiasFiltradas.map((g) => (

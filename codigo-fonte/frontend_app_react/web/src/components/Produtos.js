@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import '../styles/Produtos.css';
-import { FaTrash, FaEdit, FaArrowAltCircleDown, FaExclamationTriangle } from 'react-icons/fa';
+import { FaTrash, FaExclamationTriangle } from 'react-icons/fa';
 
 const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
   const [filtro, setFiltro] = useState('');
   const navigate = useNavigate();
+
   const fetchProdutos = async () => {
     try {
       const res = await axios.get('http://localhost:3000/produtos');
@@ -23,21 +24,17 @@ const Produtos = () => {
     fetchProdutos();
   }, []);
 
-  const removeAcentos = (str) => {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  };
+  const removeAcentos = str => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const produtosFiltrados = produtos.filter(p =>
-    removeAcentos(p.nome?.toLowerCase()).includes(removeAcentos(filtro.toLowerCase()))
+    removeAcentos(p.nome.toLowerCase()).includes(removeAcentos(filtro.toLowerCase()))
   );
 
-  const handleDelete = async (id) => {
+  const handleDelete = async id => {
     if (!window.confirm('Deseja realmente excluir este produto?')) return;
-
     try {
       await axios.delete(`http://localhost:3000/produtos/${id}`);
       setProdutos(produtos.filter(p => p._id !== id));
-    } catch (err) {
-      console.error(err);
+    } catch {
       alert('Erro ao deletar produto');
     }
   };
@@ -63,53 +60,45 @@ const Produtos = () => {
           <div className="header-actions">
             <input
               type="text"
-              placeholder="Filtrar produtos"
+              placeholder="Filtrar produtos..."
               value={filtro}
               onChange={e => setFiltro(e.target.value)}
               className="filtro-input"
             />
-            <button className="add-btn" onClick={() => navigate('/CadastroProdutos')}>
-              + Produto
-            </button>
+            <button className="add-btn" onClick={() => navigate('/CadastroProdutos')}>+ Produto</button>
           </div>
         </div>
 
-      <div className="servicos-list">
-  {produtosFiltrados.length > 0 ? (
-    produtosFiltrados.map(produto => (
-      <div className="produto-linha" key={produto._id}>
-        <div className="produto-info">
-          <div className="produto-img-placeholder" />
-
-          <div className="produto-detalhes">
-            <p className="produto-nome">
-              {produto.nome}
-              {produto.meta_controle.qtd_estoque < produto.meta_controle.qtd_min_fixa && (
-                <FaExclamationTriangle className="icone-alerta" title="Estoque abaixo do mínimo" />
-              )}
-            </p>
-            <p className="produto-desc">{produto.desc}</p>
-            <p className="produto-estoque">
-              Estoque: {produto.meta_controle?.qtd_estoque ?? 0}
-            </p>
-
-            <div className="produto-acoes">
-              <button className="btn-azul" onClick={() => navigate(`/EditarProdutos/${produto._id}`)}>Editar</button>
-              <button className="btn-cinza" onClick={() => navigate(`/DetalhesProduto/${produto._id}`)}>Detalhes</button>
-            </div>
-          </div>
+        <div className="produtos-lista">
+          {produtosFiltrados.length > 0 ? (
+            produtosFiltrados.map(produto => (
+              <div className="produto-linha" key={produto._id}>
+                <div className="produto-info">
+                  <div className="produto-img-placeholder" />
+                  <div className="produto-detalhes">
+                    <p className="produto-nome">
+                      {produto.nome}
+                      {produto.meta_controle.qtd_estoque < produto.meta_controle.qtd_min_fixa && (
+                        <FaExclamationTriangle className="icone-alerta" title="Estoque abaixo do mínimo" />
+                      )}
+                    </p>
+                    <p className="produto-desc">{produto.desc}</p>
+                    <p className="produto-estoque">Estoque: {produto.meta_controle.qtd_estoque}</p>
+                    <div className="produto-acoes">
+                      <button className="btn-azul" onClick={() => navigate(`/EditarProdutos/${produto._id}`)}>Editar</button>
+                      <button className="btn-cinza" onClick={() => navigate(`/DetalhesProduto/${produto._id}`)}>Detalhes</button>
+                    </div>
+                  </div>
+                </div>
+                <button className="delete-button" onClick={() => handleDelete(produto._id)}>
+                  <FaTrash />
+                </button>
+              </div>
+            ))
+          ) : (
+            <p className="nenhum-produto">Nenhum produto encontrado.</p>
+          )}
         </div>
-
-        <button className="delete-button" onClick={() => handleDelete(produto._id)}>
-          <FaTrash />
-        </button>
-      </div>
-    ))
-  ) : (
-    <p className="nenhum-servico">Nenhum produto encontrado.</p>
-  )}
-</div>
-
       </main>
     </div>
   );

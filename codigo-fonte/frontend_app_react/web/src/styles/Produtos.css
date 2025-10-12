@@ -24,22 +24,24 @@ html, body {
 }
 
 /* Conteúdo principal flexível */
-/* Aumentar área do conteúdo */
 .content {
   flex: 1;
-  padding: 40px 60px;
+  padding: 40px 20px;
   box-sizing: border-box;
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
-  gap: 25px; 
+  gap: 20px;
 }
 
+/* Cabeçalho da página */
 /* Cabeçalho da página */
 .header {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 65%; 
+  max-width: none;
 }
 
 .header h2 {
@@ -51,24 +53,21 @@ html, body {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .filtro-input {
-  padding: 10px;
-  border-radius: 6px;
   border: 1px solid #ccc;
-  width: 250px;
+  width: 800px;
 }
 
 .add-btn {
   background-color: #a32009;
   color: white;
   border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  width: 250px;
 }
 
 .add-btn:hover {
@@ -79,22 +78,51 @@ html, body {
 .garantias-container,
 .cadastrar-container {
   width: 100%;
-  max-width: 900px; /* maior que 600px */
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px; /* adicionar um pouco de padding interno */
-  box-sizing: border-box;
+}
+
+/* Card de formulário ou produto */
+.garantia-card,
+.form-card,
+.servico-card {
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Títulos */
+.garantia-card h2,
+.form-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.garantia-card h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #444;
 }
 
 /* Labels e inputs */
-label {
+.garantia-card label,
+.form-card label {
   display: flex;
   flex-direction: column;
   font-size: 14px;
   color: #333;
 }
 
-input,
-textarea {
+.garantia-card input,
+.garantia-card textarea,
+.form-card input,
+.form-card textarea {
   margin-top: 5px;
   padding: 8px;
   border-radius: 6px;
@@ -104,7 +132,8 @@ textarea {
   width: 100%;
 }
 
-textarea {
+.garantia-card textarea,
+.form-card textarea {
   resize: vertical;
   min-height: 80px;
 }
@@ -173,44 +202,42 @@ textarea {
 }
 
 /* ============================================
-   LISTAGEM DE PRODUTOS
+   LISTAGEM DE PRODUTOS (linha única, sem cards)
    ============================================ */
 
 /* Lista geral */
-.servicos-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.produtos-lista {
+  width: 70%; 
+  max-width: none;
+  gap: 10px;
   margin-top: 10px;
 }
 
-/* Cada linha de produto — remover aparência de card */
+/* Cada linha de produto */
 .produto-linha {
-  background: transparent; 
-  border-radius: 0;        
-  box-shadow: none;       
-  padding: 0;              
-  border-bottom: 1px solid #ccc; 
+  border-radius: 6px;
+  padding: 15px 20px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  flex-wrap: wrap;
+  border-bottom: 2px solid #ccc; /* separador ___ visual */
+  flex-wrap: wrap; /* permite quebrar linha se necessário */
 }
 
 /* Área de imagem + detalhes */
 .produto-info {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
   flex: 1;
 }
 
 /* Espaço cinza da imagem */
 .produto-img-placeholder {
-  width: 120px;
+  width: 150px;
   height: 120px;
   background-color: #e5e5e5;
   border-radius: 6px;
+  margin: 20px;
   flex-shrink: 0;
 }
 
@@ -218,19 +245,18 @@ textarea {
 .produto-detalhes {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   flex: 1;
 }
 
 .produto-nome {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
   color: #333;
 }
 
 .produto-desc,
 .produto-estoque {
-  font-size: 14px;
+  font-size: 15px;
   color: #666;
 }
 
@@ -246,10 +272,11 @@ textarea {
   background-color: #1976d2;
   color: white;
   border: none;
-  padding: 6px 14px;
+  margin: 5px;
+  width: 200px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   transition: background 0.3s;
 }
 .btn-azul:hover {
@@ -260,10 +287,11 @@ textarea {
   background-color: #ddd;
   color: #333;
   border: none;
-  padding: 6px 14px;
+  width: 200px;
+  margin: 5px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   transition: background 0.3s;
 }
 .btn-cinza:hover {
@@ -278,8 +306,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 10px;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
@@ -296,7 +324,7 @@ textarea {
 }
 
 /* Texto quando não há produtos */
-.nenhum-servico {
+.nenhum-produto {
   text-align: center;
   color: #666;
   font-size: 16px;

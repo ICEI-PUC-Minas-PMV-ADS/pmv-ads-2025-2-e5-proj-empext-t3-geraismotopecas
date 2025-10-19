@@ -189,6 +189,50 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-005 - S<br>Cadastrar Serviços</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se um usuário pode cadastrar um serviço com sucesso.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Sara Guanais de Miranda</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td>RF-005: Registrar serviços e consertos realizados, associando-os aos clientes e motocicletas correspondentes.</td>
+    <td>RF-007: Exibir o histórico completo de serviços realizados por cliente, com detalhamento de peças e datas.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Clicar em Serviços<br>
+      2. Adicionar dados do serviço<br>
+      3. Cadastrar o serviço<br>
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Dados de teste</strong></td>
+    <td>
+      - <strong>Nome</strong>: Inserir nome do serviço.<br>
+      - <strong>Descrição</strong>: Inserir a descrição do serviço, se necessário.<br>
+      - <strong>Preço</strong>: Inserir o valor do serviço.<br>
+      - <strong>Dias de garantia</strong>: Inserir os dias de garantia desse serviço.<br>
+      - <strong>Peça usada</strong>: Inserir a peça associada a esse serviço.<br>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve confirmar que o serviço foi cadastrado com sucesso.</td>
+  </tr>
+</table>
+
 ### Casos de Teste de Insucesso
 
 ### ETAPA 2  
@@ -536,6 +580,60 @@ https://github.com/user-attachments/assets/dfe3e9b5-f317-44a4-9e54-61ef926e05af
 </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-005<br>Cadastro de Serviço.</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema  deve permitir o cadastro de serviços </td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Sara Guanais de Miranda</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">18/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema permitiu o cadastro.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+https://github.com/user-attachments/assets/675d8bf3-8513-4a90-9f63-db9a8506edce
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-005<br>Cadastro inválido de Serviço.</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema não deve permitir o cadastro de serviços </td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Sara Guanais de Miranda</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">18/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema não permitiu o cadastro do serviço por não completar todoso os campos obrigatórios.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+https://github.com/user-attachments/assets/5f844ca0-6d8f-44a3-bfc2-39607587c80d
+
 
 
 
@@ -633,60 +731,6 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
     <td colspan="6" align="center"><img src="img/evidencia-garantia-par.gif" alt="Evidência de garantia par" />
   <tr>
 </table>
-
-<table>
-  <tr>
-    <th colspan="6" width="1000">CT-001<br>Cadastro de Serviço.</th>
-  </tr>
-  <tr>
-    <td width="170"><strong>Critérios de êxito</strong></td>
-    <td colspan="5">O sistema  deve permitir o cadastro de serviços </td>
-  </tr>
-    <tr>
-    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
-    <td width="430">Sara Guanais de Miranda</td>
-     <td width="100"><strong>Data do Teste</strong></td>
-    <td width="150">18/10/2025</td>
-  </tr>
-    <tr>
-    <td width="170"><strong>Comentário</strong></td>
-    <td colspan="5">O sistema permitiu o cadastro.</td>
-  </tr>
- <tr>
-  <td colspan="6" align="center">
-    <strong>Evidência</strong><br><br>
-  </td>
-</tr>
-</table>
-
-https://github.com/user-attachments/assets/675d8bf3-8513-4a90-9f63-db9a8506edce
-
-<table>
-  <tr>
-    <th colspan="6" width="1000">CT-002<br>Cadastro inválido de Serviço.</th>
-  </tr>
-  <tr>
-    <td width="170"><strong>Critérios de êxito</strong></td>
-    <td colspan="5">O sistema não deve permitir o cadastro de serviços </td>
-  </tr>
-    <tr>
-    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
-    <td width="430">Sara Guanais de Miranda</td>
-     <td width="100"><strong>Data do Teste</strong></td>
-    <td width="150">18/10/2025</td>
-  </tr>
-    <tr>
-    <td width="170"><strong>Comentário</strong></td>
-    <td colspan="5">O sistema não permitiu o cadastro do serviço por não completar todoso os campos obrigatórios.</td>
-  </tr>
- <tr>
-  <td colspan="6" align="center">
-    <strong>Evidência</strong><br><br>
-  </td>
-</tr>
-</table>
-
-https://github.com/user-attachments/assets/5f844ca0-6d8f-44a3-bfc2-39607587c80d
 
 ### ETAPA 4
 

@@ -490,12 +490,7 @@ https://github.com/user-attachments/assets/5bce86bf-1b68-490f-9d4f-3a70bba6fc46
 </tr>
 </table>
 
-
-
-https://github.com/user-attachments/assets/dfe3e9b5-f317-44a4-9e54-61ef926e05af
-
-
-
+https://github.com/user-attachments/assets/ec48b43b-ddc3-41c4-ab29-c9a9174c9ab2
 
 ### ETAPA 3
 

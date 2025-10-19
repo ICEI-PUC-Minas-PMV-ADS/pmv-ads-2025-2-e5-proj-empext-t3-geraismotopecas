@@ -509,7 +509,32 @@ https://github.com/user-attachments/assets/dfe3e9b5-f317-44a4-9e54-61ef926e05af
 </tr>
 </table>
 
-
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-004<br>Login com credenciais inválidas</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema não deve permitir o login quando as credenciais forem inválidas.</td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Larissa Pocceschy Martins</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">19/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema retornou o erro, impedindo o login.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  <tr>
+    <td colspan="6" align="center"><img src="img/evidencia-login-error1.gif" alt="Evidência do erro" />
+  </tr>
+</tr>
+</table>
 
 
 

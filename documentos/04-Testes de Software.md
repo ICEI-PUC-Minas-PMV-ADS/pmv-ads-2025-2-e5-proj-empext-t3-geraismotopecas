@@ -511,7 +511,7 @@ https://github.com/user-attachments/assets/dfe3e9b5-f317-44a4-9e54-61ef926e05af
 
 <table>
   <tr>
-    <th colspan="6" width="1000">CT-004<br>Login com credenciais inválidas</th>
+    <th colspan="6" width="1000">CT-001 - I01<br>Login com credenciais inválidas</th>
   </tr>
   <tr>
     <td width="170"><strong>Critérios de êxito</strong></td>
@@ -607,6 +607,33 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
 
 
 ### ETAPA 3
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-004<br>Cadastrar Garantia</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve realizar o cadastro de garantias.</td>
+  </tr>
+    <tr>
+      <td><strong>Responsável pela funcionalidade</strong></td>
+    <td width="430">Kiane Ramalho</td>
+      <td><strong>Responsável pelo teste</strong></td>
+    <td width="430">Larissa Pocceschy Martins</td>
+     <td width="100"><strong>Data do teste</strong></td>
+    <td width="150">19/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro de garantias corretamente.</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><strong>Evidência</strong></td>
+  </tr>
+    <td colspan="6" align="center"><img src="img/evidencia-login-error1.gif" alt="Evidência de garantia par" />
+  <tr>
+</table>
+
 <table>
   <tr>
     <th colspan="6" width="1000">CT-001<br>Cadastro de Serviço.</th>

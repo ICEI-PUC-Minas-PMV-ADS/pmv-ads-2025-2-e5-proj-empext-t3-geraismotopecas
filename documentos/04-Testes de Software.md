@@ -669,9 +669,7 @@ A fim de aumentar a qualidade da aplicação desenvolvida, cada funcionalidade d
   <tr>
 </table>
 
-
-https://github.com/user-attachments/assets/fc0dee3a-7524-41b4-952f-971a4ab5c84a
-
+https://github.com/user-attachments/assets/2d456819-bb82-4969-ac4f-da7017cb3db9
 
 ### ETAPA 3
 

@@ -584,7 +584,7 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
 ### ETAPA 3
 <table>
   <tr>
-    <th colspan="6" width="1000">CT-005<br>Cadastro de Serviço.</th>
+    <th colspan="6" width="1000">CT-001<br>Cadastro de Serviço.</th>
   </tr>
   <tr>
     <td width="170"><strong>Critérios de êxito</strong></td>
@@ -608,6 +608,36 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
 </table>
 
 https://github.com/user-attachments/assets/675d8bf3-8513-4a90-9f63-db9a8506edce
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-002<br>Cadastro inválido de Serviço.</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema não deve permitir o cadastro de serviços </td>
+  </tr>
+    <tr>
+    <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
+    <td width="430">Sara Guanais de Miranda</td>
+     <td width="100"><strong>Data do Teste</strong></td>
+    <td width="150">18/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema não permitiu o cadastro do serviço por não completar todoso os campos obrigatórios.</td>
+  </tr>
+ <tr>
+  <td colspan="6" align="center">
+    <strong>Evidência</strong><br><br>
+  </td>
+</tr>
+</table>
+
+https://github.com/user-attachments/assets/5f844ca0-6d8f-44a3-bfc2-39607587c80d
+
+### ETAPA 4
+
 ### ETAPA 4
 Colocar evidências de teste da etapa 4
 

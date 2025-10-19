@@ -463,9 +463,7 @@ Cada funcionalidade desenvolvida deve ser testada pelo próprio desenvolvedor, u
 </tr>
 </table>
 
-
-https://github.com/user-attachments/assets/d199d1ab-5832-47c7-adbf-0ade5dcb0c7c
-
+https://github.com/user-attachments/assets/5bce86bf-1b68-490f-9d4f-3a70bba6fc46
 
 <table>
   <tr>

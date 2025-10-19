@@ -506,7 +506,7 @@ https://github.com/user-attachments/assets/ec48b43b-ddc3-41c4-ab29-c9a9174c9ab2
     <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
     <td width="430">Kiane Ramalho</td>
      <td width="100"><strong>Data do Teste</strong></td>
-    <td width="150">06/10/2025</td>
+    <td width="150">19/10/2025</td>
   </tr>
     <tr>
     <td width="170"><strong>Comentário</strong></td>
@@ -519,7 +519,7 @@ https://github.com/user-attachments/assets/ec48b43b-ddc3-41c4-ab29-c9a9174c9ab2
 </tr>
 </table>
 
-
+https://github.com/user-attachments/assets/718a6a96-ac4d-49f2-aff8-250724332a61
 
 <table>
   <tr>
@@ -533,7 +533,7 @@ https://github.com/user-attachments/assets/ec48b43b-ddc3-41c4-ab29-c9a9174c9ab2
     <td><strong>Responsável pela funcionalidade (desenvolvimento e teste)</strong></td>
     <td width="430">Kiane Ramalho</td>
      <td width="100"><strong>Data do Teste</strong></td>
-    <td width="150">06/10/2025</td>
+    <td width="150">19/10/2025</td>
   </tr>
     <tr>
     <td width="170"><strong>Comentário</strong></td>
@@ -545,6 +545,8 @@ https://github.com/user-attachments/assets/ec48b43b-ddc3-41c4-ab29-c9a9174c9ab2
   </td>
 </tr>
 </table>
+
+https://github.com/user-attachments/assets/1aa859af-e70c-486d-ae4c-e8ecc88fe97d
 
 <table>
   <tr>
@@ -722,6 +724,34 @@ https://github.com/user-attachments/assets/2d456819-bb82-4969-ac4f-da7017cb3db9
 </table>
 
 https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-003<br>Cadastro de serviços</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve realizar o cadastro de serviços.</td>
+  </tr>
+    <tr>
+      <td><strong>Responsável pela funcionalidade</strong></td>
+    <td width="430">Sara Guanais de Miranda</td>
+      <td><strong>Responsável pelo teste</strong></td>
+    <td width="430">Kiane Ramalho</td>
+     <td width="100"><strong>Data do teste</strong></td>
+    <td width="150">19/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro de serviços corretamente.</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><strong>Evidência</strong></td>
+  </tr>
+  <tr>
+</table>
+
+https://github.com/user-attachments/assets/94fd4303-2370-4bc1-8165-cf4a8de21040
 
 ### ETAPA 4
 

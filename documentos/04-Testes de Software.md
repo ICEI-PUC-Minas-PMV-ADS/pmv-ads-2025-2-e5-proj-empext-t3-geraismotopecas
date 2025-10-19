@@ -207,8 +207,8 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr> 
   <tr>
     <td><strong>Requisitos associados</strong></td>
-    <td>RF-005: Registrar serviços e consertos realizados, associando-os aos clientes e motocicletas correspondentes.</td>
-    <td>RF-007: Exibir o histórico completo de serviços realizados por cliente, com detalhamento de peças e datas.</td>
+    <td>RF-005: Registrar serviços e consertos realizados, associando-os aos clientes e motocicletas correspondentes.
+      RF-007: Exibir o histórico completo de serviços realizados por cliente, com detalhamento de peças e datas.</td>
   </tr>
   <tr>
     <td><strong>Passos</strong></td>

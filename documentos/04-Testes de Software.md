@@ -674,37 +674,9 @@ A fim de aumentar a qualidade da aplicação desenvolvida, cada funcionalidade d
 
 https://github.com/user-attachments/assets/fc0dee3a-7524-41b4-952f-971a4ab5c84a
 
-<table>
-  <tr>
-    <th colspan="6" width="1000">CT-002<br>Cadastro de produtos</th>
-  </tr>
-  <tr>
-    <td width="170"><strong>Critérios de êxito</strong></td>
-    <td colspan="5">O sistema deve realizar o cadastro de produtos.</td>
-  </tr>
-    <tr>
-      <td><strong>Responsável pela funcionalidade</strong></td>
-    <td width="430">Thabata Dias de Freitas e Maria Vitoria</td>
-      <td><strong>Responsável pelo teste</strong></td>
-    <td width="430">Sara Guanais de Miranda</td>
-     <td width="100"><strong>Data do teste</strong></td>
-    <td width="150">18/10/2025</td>
-  </tr>
-    <tr>
-    <td width="170"><strong>Comentário</strong></td>
-    <td colspan="5">O sistema está permitindo o cadastro de produto corretamente.</td>
-  </tr>
-  <tr>
-    <td colspan="6" align="center"><strong>Evidência</strong></td>
-  </tr>
-  <tr>
-</table>
-
-https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
-
-
 
 ### ETAPA 3
+
 <table>
   <tr>
     <th colspan="6" width="1000">CT-004<br>Cadastrar Garantia</th>
@@ -731,6 +703,34 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
     <td colspan="6" align="center"><img src="img/evidencia-garantia-par.gif" alt="Evidência de garantia par" />
   <tr>
 </table>
+
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-003<br>Cadastro de produtos</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve realizar o cadastro de produtos.</td>
+  </tr>
+    <tr>
+      <td><strong>Responsável pela funcionalidade</strong></td>
+    <td width="430">Thabata Dias de Freitas e Maria Vitoria</td>
+      <td><strong>Responsável pelo teste</strong></td>
+    <td width="430">Sara Guanais de Miranda</td>
+     <td width="100"><strong>Data do teste</strong></td>
+    <td width="150">18/10/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está permitindo o cadastro de produto corretamente.</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><strong>Evidência</strong></td>
+  </tr>
+  <tr>
+</table>
+
+https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
 
 ### ETAPA 4
 

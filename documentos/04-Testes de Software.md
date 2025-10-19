@@ -630,7 +630,7 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
   <tr>
     <td colspan="6" align="center"><strong>Evidência</strong></td>
   </tr>
-    <td colspan="6" align="center"><img src="img/evidencia-login-error1.gif" alt="Evidência de garantia par" />
+    <td colspan="6" align="center"><img src="img/evidencia-garantia-par.gif" alt="Evidência de garantia par" />
   <tr>
 </table>
 

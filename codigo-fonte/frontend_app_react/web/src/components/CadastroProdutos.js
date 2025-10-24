@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
-import "../styles/Garantias.css";
+import "../styles/cadastro.css";
 
 const CadastroProdutos = () => {
   const [nome, setNome] = useState('');
@@ -56,8 +56,8 @@ const CadastroProdutos = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        <div className="garantias-container">
-          <form className="garantia-card" onSubmit={handleSubmit}>
+        <div className="cadastro-container">
+          <form className="cadastro-card" onSubmit={handleSubmit}>
             <h2>Novo Produto</h2>
 
             <label>

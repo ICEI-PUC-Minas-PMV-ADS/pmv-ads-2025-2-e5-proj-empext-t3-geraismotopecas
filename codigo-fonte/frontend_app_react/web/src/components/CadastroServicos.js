@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
-import '../styles/Servicos.css';
+import '../styles/cadastro.css';
 
 const ServicoForm = () => {
   const [nomeServico, setNomeServico] = useState('');
@@ -72,8 +72,8 @@ const ServicoForm = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        <div className="cadastrar-container">
-          <form className="form-card" onSubmit={handleSubmit}>
+        <div className="cadastro-container">
+          <form className="cadastro-card" onSubmit={handleSubmit}>
             <h2>{id ? 'Editar Serviço' : 'Novo Serviço'}</h2>
 
             <label>
@@ -118,10 +118,11 @@ const ServicoForm = () => {
             <label>
               Peça usada:
               <select
+                className="servico-select"
                 value={pecaId}
                 onChange={(e) => setPecaId(e.target.value)}
               >
-                <option value="">-- Selecione uma peça --</option>
+                <option value="">-- Selecione--</option>
                 {produtos.map(produto => (
                   <option key={produto._id} value={produto._id}>
                     {produto.nome}

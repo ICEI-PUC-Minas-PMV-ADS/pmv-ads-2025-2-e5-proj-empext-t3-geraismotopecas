@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "./Sidebar";
-import "../styles/Garantias.css";
+import "../styles/cadastro.css";
 
 const EditarGarantias = () => {
   const [garantia, setGarantia] = useState(null);
@@ -82,8 +82,8 @@ const EditarGarantias = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        <div className="garantias-container">
-          <form className="garantia-card" onSubmit={handleSubmit}>
+        <div className="cadastro-container">
+          <form className="cadastro-card" onSubmit={handleSubmit}>
             <h2>Editar Garantia</h2>
 
             <label>Nome do cliente:</label>

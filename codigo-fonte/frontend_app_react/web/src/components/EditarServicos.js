@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Sidebar from './Sidebar';
-import '../styles/Servicos.css';
+import '../styles/cadastro.css';
 
 const EditarServicos = () => {
   const [nomeServico, setNomeServico] = useState('');
@@ -70,8 +70,8 @@ const EditarServicos = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        <div className="cadastrar-container">
-          <form className="form-card" onSubmit={handleSubmit}>
+        <div className="cadastro-container">
+          <form className="cadastro-card" onSubmit={handleSubmit}>
             <h2>{id ? 'Editar Serviço' : 'Novo Serviço'}</h2>
 
             <label>

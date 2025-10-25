@@ -18,7 +18,7 @@ function Home() {
       <main className="content">
         <h2>Atalhos</h2>
         <div className="cards">
-          <div className="card" onClick={() => navigate("/Produtos")}>
+          <div className="card" onClick={() => navigate("/produtos")}>
             <img src={produtoImage} alt="Produtos" className="card-icon" />
             <button className="card-btn">Produtos</button>
           </div>
@@ -26,7 +26,7 @@ function Home() {
             <img src={garantiaImage} alt="Garantias" className="card-icon" />
             <button className="card-btn">Garantias</button>
           </div>
-          <div className="card" onClick={() => navigate("/Servicos")}>
+          <div className="card" onClick={() => navigate("/servicos")}>
             <img src={servicoImage} alt="Serviços" className="card-icon" />
             <button className="card-btn">Serviços</button>
           </div>

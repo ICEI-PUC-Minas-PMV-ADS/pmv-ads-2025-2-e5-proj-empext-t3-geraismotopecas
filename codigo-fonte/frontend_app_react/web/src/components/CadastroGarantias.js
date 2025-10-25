@@ -243,7 +243,7 @@ const CadastroGarantias = () => {
               <button
                 type="button"
                 className="cancel-btn"
-                onClick={() => navigate("/Garantias")}
+                onClick={() => navigate("/garantias")}
               >
                 Cancelar
               </button>

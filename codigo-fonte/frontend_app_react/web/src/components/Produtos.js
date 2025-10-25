@@ -65,7 +65,7 @@ const Produtos = () => {
               onChange={e => setFiltro(e.target.value)}
               className="filtro-input"
             />
-            <button className="add-btn" onClick={() => navigate('/CadastroProdutos')}>+ Produto</button>
+            <button className="add-btn" onClick={() => navigate('/produtos/cadastro')}>+ Produto</button>
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const Produtos = () => {
                     <p className="produto-desc">{produto.desc}</p>
                     <p className="produto-estoque">Estoque: {produto.meta_controle.qtd_estoque}</p>
                     <div className="produto-acoes">
-                      <button className="btn-azul" onClick={() => navigate(`/EditarProdutos/${produto._id}`)}>Editar</button>
+                      <button className="btn-azul" onClick={() => navigate(`/produtos/editar/${produto._id}`)}>Editar</button>
                       <button className="btn-cinza" onClick={() => navigate(`/DetalhesProduto/${produto._id}`)}>Detalhes</button>
                     </div>
                   </div>

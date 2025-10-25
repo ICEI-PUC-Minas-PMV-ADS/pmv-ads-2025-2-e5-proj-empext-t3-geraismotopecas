@@ -74,7 +74,7 @@ const Garantias = () => {
             />
             <button
               className="add-btn"
-              onClick={() => navigate("/CadastroGarantias")}
+              onClick={() => navigate("/garantias/cadastro")}
             >
               + Garantia
             </button>
@@ -124,7 +124,7 @@ const Garantias = () => {
                     <div className="garantia-acoes">
                       <button
                         className="btn-azul"
-                        onClick={() => navigate(`/EditarGarantias/${g._id}`)}
+                        onClick={() => navigate(`/garantias/editar/${g._id}`)}
                       >
                         Editar
                       </button>

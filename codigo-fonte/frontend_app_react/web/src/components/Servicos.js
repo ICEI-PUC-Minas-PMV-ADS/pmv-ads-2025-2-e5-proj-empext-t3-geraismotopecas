@@ -53,7 +53,7 @@ const Servicos = () => {
               onChange={e => setFiltro(e.target.value)}
               className="filtro-input"
             />
-            <button className="add-btn" onClick={() => navigate('/CadastroServicos')}>
+            <button className="add-btn" onClick={() => navigate('/servicos/cadastro')}>
               + Serviço
             </button>
           </div>
@@ -71,7 +71,7 @@ const Servicos = () => {
                     <p className="servico-valor">Valor: R$ {servico.valor?.toFixed(2)}</p>
                     <p className="servico-garantia">Garantia: {servico.garantia_dias} dias</p>
                     <div className="servico-acoes">
-                      <button className="btn-azul" onClick={() => navigate(`/EditarServicos/${servico._id}`)}>Editar</button>
+                      <button className="btn-azul" onClick={() => navigate(`/servicos/editar/${servico._id}`)}>Editar</button>
                       <button className="btn-cinza" onClick={() => navigate(`/DetalhesServico/${servico._id}`)}>Detalhes</button>
                     </div>
                   </div>

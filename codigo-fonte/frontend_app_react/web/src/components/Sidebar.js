@@ -6,7 +6,7 @@ import logoImage from "../images/logolivro.png";
 function Sidebar({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const currentPath = location.pathname;
+  const currentPath = location.pathname.toLowerCase();
 
   const produtosPaths = ["/Produtos", "/CadastroProdutos", "/EditarProdutos"];
   const garantiasPaths = ["/Garantias", "/CadastroGarantias", "/EditarGarantias"];
@@ -19,6 +19,8 @@ function Sidebar({ children }) {
     localStorage.removeItem('token');
     navigate('/');
   };
+
+  const isActive = (basePath) => currentPath.startsWith(basePath.toLowerCase());
 
   return (
     <div className="home-container">
@@ -34,22 +36,22 @@ function Sidebar({ children }) {
 
         <nav className="menu-buttons">
           <button
-            onClick={() => navigate("/Produtos")}
-            className={produtosPaths.includes(currentPath) ? "active" : ""}
+            onClick={() => navigate("/produtos")}
+            className={isActive("/produtos") ? "active" : ""}
           >
             Produtos
           </button>
 
           <button
-            onClick={() => navigate("/Garantias")}
-            className={garantiasPaths.includes(currentPath) ? "active" : ""}
+            onClick={() => navigate("/garantias")}
+            className={isActive("/garantias") ? "active" : ""}
           >
             Garantias
           </button>
 
           <button
-            onClick={() => navigate("/Servicos")}
-            className={servicosPaths.includes(currentPath) ? "active" : ""}
+            onClick={() => navigate("/servicos")}
+            className={isActive("/servicos") ? "active" : ""}
           >
             Serviços
           </button>
@@ -57,8 +59,8 @@ function Sidebar({ children }) {
 
         <div className="sidebar-bottom">
           <button
-            onClick={() => navigate("/Profile")}
-            className={perfilPaths.includes(currentPath) ? "active" : ""}
+            onClick={() => navigate("/profile")}
+            className={isActive("/profile") ? "active" : ""}
           >
             Perfil
           </button>
@@ -67,7 +69,6 @@ function Sidebar({ children }) {
         </div>
       </aside>
 
-      {/* Conteúdo principal */}
       <main className="content">{children}</main>
     </div>
   );

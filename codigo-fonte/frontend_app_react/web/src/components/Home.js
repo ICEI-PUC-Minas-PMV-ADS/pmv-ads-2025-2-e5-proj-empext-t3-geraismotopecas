@@ -8,7 +8,7 @@ import produtoImage from "../images/produtos.png";
 import servicoImage from "../images/servicos.png";
 
 function Home() {
-  const navigate = useNavigate(); // hook para navegar entre páginas
+  const navigate = useNavigate();
 
   return (
     <div className="home-container">

@@ -102,8 +102,17 @@ const Produtos = () => {
                     <p className="produto-estoque">Estoque: {produto.meta_controle.qtd_estoque}</p>
                     <div className="produto-acoes">
                       <button className="btn-edit" onClick={() => navigate(`/produtos/editar/${produto._id}`)}>Editar</button>
-                     
                       <button className="btn-acoes" onClick={() => navigate(`/DetalhesProduto/${produto._id}`)}>Detalhes</button>
+                       <button
+                      className="btn-acoes"
+                      onClick={() => {
+                        const qtd = prompt("Digite a quantidade para dar baixa:");
+                        if (qtd) {
+                          darBaixa(produto._id, parseInt(qtd));
+                        }
+                      }}
+                    > Dar baixa
+                    </button>
                     </div>
                   </div>
                 </div>

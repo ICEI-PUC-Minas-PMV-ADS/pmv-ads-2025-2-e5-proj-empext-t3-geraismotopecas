@@ -43,7 +43,7 @@ const Servicos = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        <div className="header">
+        <div className="servicos-lista">
           <h2>Serviços</h2>
           <div className="header-actions">
             <input
@@ -59,8 +59,7 @@ const Servicos = () => {
           </div>
         </div>
 
-        <div className="servicos-lista">
-          {servicosFiltrados.length > 0 ? (
+        {servicosFiltrados.length > 0 ? (
             servicosFiltrados.map(servico => (
               <div className="servico-linha" key={servico._id}>
                 <div className="servico-info">
@@ -71,8 +70,8 @@ const Servicos = () => {
                     <p className="servico-valor">Valor: R$ {servico.valor?.toFixed(2)}</p>
                     <p className="servico-garantia">Garantia: {servico.garantia_dias} dias</p>
                     <div className="servico-acoes">
-                      <button className="btn-azul" onClick={() => navigate(`/servicos/editar/${servico._id}`)}>Editar</button>
-                      <button className="btn-cinza" onClick={() => navigate(`/DetalhesServico/${servico._id}`)}>Detalhes</button>
+                      <button className="btn-edit" onClick={() => navigate(`/servicos/editar/${servico._id}`)}>Editar</button>
+                      <button className="btn-acoes" onClick={() => navigate(`/DetalhesServico/${servico._id}`)}>Detalhes</button>
                     </div>
                   </div>
                 </div>
@@ -84,7 +83,6 @@ const Servicos = () => {
           ) : (
             <p className="nenhum-servico">Nenhum serviço encontrado.</p>
           )}
-        </div>
       </main>
     </div>
   );

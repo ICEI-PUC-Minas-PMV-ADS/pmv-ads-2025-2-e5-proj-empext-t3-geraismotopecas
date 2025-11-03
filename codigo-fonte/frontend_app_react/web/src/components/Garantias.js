@@ -61,8 +61,7 @@ const Garantias = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        {/* HEADER */}
-        <div className="header">
+        <div className="garantias-lista">
           <h2>Garantias</h2>
           <div className="header-actions">
             <input
@@ -74,15 +73,11 @@ const Garantias = () => {
             />
             <button
               className="add-btn"
-              onClick={() => navigate("/garantias/cadastro")}
-            >
+              onClick={() => navigate("/garantias/cadastro")}>
               + Garantia
             </button>
           </div>
-        </div>
 
-        {/* LISTAGEM */}
-        <div className="garantias-lista">
           {garantiasFiltradas.length > 0 ? (
             garantiasFiltradas.map((g) => (
               <div className="garantia-linha" key={g._id}>
@@ -123,13 +118,13 @@ const Garantias = () => {
 
                     <div className="garantia-acoes">
                       <button
-                        className="btn-azul"
+                        className="btn-edit"
                         onClick={() => navigate(`/garantias/editar/${g._id}`)}
                       >
                         Editar
                       </button>
                       <button
-                        className="btn-cinza"
+                        className="btn-acoes"
                         onClick={() => navigate(`/DetalhesGarantia/${g._id}`)}
                       >
                         Detalhes
@@ -151,6 +146,7 @@ const Garantias = () => {
             <p className="nenhuma-garantia">Nenhuma garantia encontrada.</p>
           )}
         </div>
+
       </main>
     </div>
   );

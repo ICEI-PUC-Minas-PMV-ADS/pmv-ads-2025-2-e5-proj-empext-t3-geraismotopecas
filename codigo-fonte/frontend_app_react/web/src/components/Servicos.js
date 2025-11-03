@@ -12,7 +12,7 @@ const Servicos = () => {
 
   const fetchServicos = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/servicos');
+      const res = await axios.get('https://geraismotopecas-api.onrender.com/servicos');
       setServicos(res.data);
     } catch (err) {
       console.error(err);
@@ -32,7 +32,7 @@ const Servicos = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Deseja realmente excluir este serviço?')) return;
     try {
-      await axios.delete(`http://localhost:3000/servicos/${id}`);
+      await axios.delete(`https://geraismotopecas-api.onrender.com/servicos/${id}`);
       setServicos(servicos.filter(s => s._id !== id));
     } catch {
       alert('Erro ao deletar serviço');

@@ -14,7 +14,7 @@ const EditarGarantias = () => {
   useEffect(() => {
     const buscarPecas = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/produtos");
+        const res = await axios.get("https://geraismotopecas-api.onrender.com/produtos");
         setPecasEstoque(res.data);
       } catch (err) {
         console.error("Erro ao carregar peças do estoque:", err);
@@ -26,7 +26,7 @@ const EditarGarantias = () => {
   useEffect(() => {
     if (id) {
       axios
-        .get(`http://localhost:3000/servicos-feitos/${id}`)
+        .get(`https://geraismotopecas-api.onrender.com/servicos-feitos/${id}`)
         .then((res) => {
           const g = res.data;
           setGarantia(g);
@@ -64,7 +64,7 @@ const EditarGarantias = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3000/servicos-feitos/${id}`, {
+      await axios.put(`https://geraismotopecas-api.onrender.com/servicos-feitos/${id}`, {
         ...garantia,
         pecas_utilizadas: pecas,
       });

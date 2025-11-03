@@ -21,14 +21,14 @@ const EditarProdutos = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/servicos")
+    axios.get("https://geraismotopecas-api.onrender.com/servicos")
       .then(res => setServicos(res.data))
       .catch(err => console.error("Erro ao carregar serviços:", err));
   }, []);
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3000/produtos/${id}`)
+      axios.get(`https://geraismotopecas-api.onrender.com/produtos/${id}`)
         .then(res => {
           const data = res.data;
           setNome(data.nome || '');
@@ -68,7 +68,7 @@ const EditarProdutos = () => {
     };
 
     try {
-      await axios.put(`http://localhost:3000/produtos/${id}`, dados);
+      await axios.put(`https://geraismotopecas-api.onrender.com/produtos/${id}`, dados);
       alert('Produto atualizado com sucesso!');
       navigate('/produtos');
     } catch (err) {

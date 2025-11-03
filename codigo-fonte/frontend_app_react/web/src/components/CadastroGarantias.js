@@ -28,7 +28,7 @@ const CadastroGarantias = () => {
     const buscarPecas = async () => {
       try {
         // Rota que deve retornar todos os itens do seu Produto.js
-        const res = await axios.get("http://localhost:3000/produtos");
+        const res = await axios.get("https://geraismotopecas-api.onrender.com/produtos");
         setPecasEstoque(res.data);
       } catch (err) {
         console.error("Erro ao carregar peças do estoque:", err);
@@ -84,7 +84,7 @@ const CadastroGarantias = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/servicos-feitos", dados);
+      await axios.post("https://geraismotopecas-api.onrender.com/servicos-feitos", dados);
       alert("Garantia cadastrada com sucesso!");
       navigate("/Garantias");
     } catch (err) {

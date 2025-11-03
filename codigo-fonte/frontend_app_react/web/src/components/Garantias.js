@@ -13,7 +13,7 @@ const Garantias = () => {
 
   const fetchGarantias = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/servicos-feitos");
+      const res = await axios.get("https://geraismotopecas-api.onrender.com/servicos-feitos");
       setGarantias(res.data);
     } catch (err) {
       console.error(err);
@@ -40,7 +40,7 @@ const Garantias = () => {
     if (!window.confirm("Tem certeza que deseja excluir esta garantia?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/servicos-feitos/${id}`);
+      await axios.delete(`https://geraismotopecas-api.onrender.com/servicos-feitos/${id}`);
       setGarantias((prev) => prev.filter((g) => g._id !== id));
     } catch (err) {
       console.error(err);

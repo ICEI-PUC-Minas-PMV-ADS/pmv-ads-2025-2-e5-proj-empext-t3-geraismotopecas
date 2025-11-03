@@ -14,7 +14,7 @@ const Produtos = () => {
 
   const fetchProdutos = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/produtos');
+      const res = await axios.get('https://geraismotopecas-api.onrender.com/produtos');
       setProdutos(res.data);
     } catch (err) {
       console.error(err);
@@ -38,7 +38,7 @@ const Produtos = () => {
   const handleDelete = async id => {
     if (!window.confirm('Deseja realmente excluir este produto?')) return;
     try {
-      await axios.delete(`http://localhost:3000/produtos/${id}`);
+      await axios.delete(`https://geraismotopecas-api.onrender.com/produtos/${id}`);
       setProdutos(produtos.filter(p => p._id !== id));
     } catch {
       alert('Erro ao deletar produto');
@@ -47,7 +47,7 @@ const Produtos = () => {
 
   async function darBaixa(id, quantidade) {
     try {
-      const response = await axios.put(`http://localhost:3000/produtos/${id}/baixa`, {
+      const response = await axios.put(`https://geraismotopecas-api.onrender.com/produtos/${id}/baixa`, {
         quantidade: quantidade,
       });
       alert("Baixa realizada com sucesso!");

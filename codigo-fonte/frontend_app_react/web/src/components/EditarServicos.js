@@ -15,7 +15,7 @@ const EditarServicos = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/produtos')
+    axios.get('https://geraismotopecas-api.onrender.com/produtos')
       .then(res => setProdutos(res.data))
       .catch(err => {
         console.error(err);
@@ -25,7 +25,7 @@ const EditarServicos = () => {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3000/servicos/${id}`)
+      axios.get(`https://geraismotopecas-api.onrender.com/servicos/${id}`)
         .then(res => {
           const data = res.data;
           setNomeServico(data.nome_servico || '');
@@ -53,10 +53,10 @@ const EditarServicos = () => {
 
     try {
       if (id) {
-        await axios.put(`http://localhost:3000/servicos/${id}`, dados);
+        await axios.put(`https://geraismotopecas-api.onrender.com/servicos/${id}`, dados);
         alert('Serviço atualizado com sucesso!');
       } else {
-        await axios.post('http://localhost:3000/servicos', dados);
+        await axios.post('https://geraismotopecas-api.onrender.com/servicos', dados);
         alert('Serviço criado com sucesso!');
       }
       navigate('/Servicos');

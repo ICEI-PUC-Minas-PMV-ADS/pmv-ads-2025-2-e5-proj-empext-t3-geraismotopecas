@@ -25,7 +25,7 @@ const Cadastrar = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:3000/auth/register`, {
+      const response = await axios.post(`https://geraismotopecas-api.onrender.com/auth/register`, {
         name: form.name,
         email: form.email,
         password: form.password,

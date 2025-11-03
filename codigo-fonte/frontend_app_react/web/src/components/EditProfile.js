@@ -14,7 +14,7 @@ const EditProfile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/usuarios/${userId}`);
+                const response = await axios.get(`https://geraismotopecas-api.onrender.com/usuarios/${userId}`);
                 setFormData({
                     nome: response.data.name || '',
                     email: response.data.email || '',
@@ -47,10 +47,10 @@ const EditProfile = () => {
                 email: formData.email,
             };
             if (formData.senha) {
-                payload.password = formData.senha; // atualiza a senha somente se digitada
+                payload.password = formData.senha;
             }
 
-            await axios.put(`http://localhost:3000/auth/users/${userId}`, payload);
+            await axios.put(`https://geraismotopecas-api.onrender.com/auth/users/${userId}`, payload);
             alert('Perfil atualizado com sucesso!');
             navigate('/profile');
         } catch (error) {
@@ -66,7 +66,7 @@ const EditProfile = () => {
         if (!confirmDelete) return;
 
         try {
-            await axios.delete(`http://localhost:3000/auth/users/${userId}`);
+            await axios.delete(`https://geraismotopecas-api.onrender.com/auth/users/${userId}`);
             alert('Usuário excluído com sucesso!');
             localStorage.removeItem('userId');
             navigate('/');

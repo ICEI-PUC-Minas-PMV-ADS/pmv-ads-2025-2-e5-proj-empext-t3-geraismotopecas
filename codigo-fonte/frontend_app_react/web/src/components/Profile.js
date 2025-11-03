@@ -20,7 +20,7 @@ const Profile = () => {
             }
 
             try {
-                const response = await axios.get(`http://localhost:3000/usuarios/${userId}`);
+                const response = await axios.get(`https://geraismotopecas-api.onrender.com/usuarios/${userId}`);
                 setUser(response.data);
             } catch (error) {
                 console.error("Erro ao buscar o perfil do usuário:", error);

@@ -20,7 +20,7 @@ const CadastroProdutos = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/servicos")
+    axios.get("https://geraismotopecas-api.onrender.com/servicos")
       .then(res => setServicos(res.data))
       .catch(err => console.error("Erro ao carregar serviços:", err));
   }, []);
@@ -43,7 +43,7 @@ const CadastroProdutos = () => {
 
 
     try {
-      await axios.post('http://localhost:3000/produtos', dados);
+      await axios.post('https://geraismotopecas-api.onrender.com/produtos', dados);
       alert('Produto cadastrado com sucesso!');
       navigate('/produtos');
     } catch (err) {

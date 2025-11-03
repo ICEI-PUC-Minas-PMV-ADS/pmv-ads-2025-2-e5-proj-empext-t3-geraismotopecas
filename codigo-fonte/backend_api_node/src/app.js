@@ -25,9 +25,7 @@ app.use("/servicos", servicoRoutes);
 // Exporta app para testes
 module.exports = app;
 
-// Apenas a lógica para iniciar o servidor de produção fica aqui
 if (require.main === module) {
-  // A conexão com o banco de dados SÓ ACONTECE AQUI
   const mongoUri =
     process.env.MONGODB_URI || "mongodb://localhost:27017/geraismot_db";
 
@@ -39,7 +37,7 @@ if (require.main === module) {
     .then(() => console.log(`Conectado ao MongoDB: ${mongoUri}`))
     .catch((err) => console.error("Erro ao conectar:", err));
 
-  const PORT = 3000;
+ const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
   });

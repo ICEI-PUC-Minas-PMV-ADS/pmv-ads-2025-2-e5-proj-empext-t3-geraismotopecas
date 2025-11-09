@@ -19,6 +19,7 @@ import CadastroGarantias from "./components/CadastroGarantias";
 import EditarServicos from "./components/EditarServicos";
 import EditarProdutos from "./components/EditarProdutos";
 import EditarGarantias from "./components/EditarGarantias";
+import DetalhesGarantias from "./components/DetalhesGarantias";
 
 import "./styles/Login.css";
 import "./styles/Profile.css";
@@ -56,6 +57,7 @@ const App = () => {
           <Route index element={<Garantias />} />
           <Route path="cadastro" element={<CadastroGarantias />} /> 
           <Route path="editar/:id" element={<EditarGarantias />} /> 
+          <Route path=":id" element={<DetalhesGarantias />} />
         </Route>
       </Routes>
     </Router>

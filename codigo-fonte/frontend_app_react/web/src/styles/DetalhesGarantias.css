@@ -1,0 +1,187 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: #f0f0f0;
+}
+
+.home-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.voltar-btn {
+  background-color: #a32009;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  width: 180px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.voltar-btn:hover {
+  background-color: #871b07;
+}
+
+.exportar-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+  height: 40px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.exportar-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ======== CARD PRINCIPAL ======== */
+.detalhes-card {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 900px;
+}
+
+h2 {
+  color: #333;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  color: #444;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 15px;
+  color: #333;
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+p strong {
+  color: #222;
+}
+
+/* ======== TABELA DE PEÇAS ======== */
+.pecas-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.pecas-tabela th,
+.pecas-tabela td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.pecas-tabela th {
+  background-color: #eee;
+  color: #333;
+  font-weight: 600;
+}
+
+/* ======== ALERTAS ======== */
+.icone-alerta {
+  color: #e67e22;
+  margin-left: 5px;
+}
+
+/* ======== STATUS ======== */
+.status-ativa {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.status-expirada {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.status-cancelada {
+  color: #757575;
+  font-weight: bold;
+}
+
+/* ======== BOTÕES INFERIORES ======== */
+.detalhes-botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.btn-edit {
+  background-color: #a32009;
+  color: white;
+  border: none;
+  width: 200px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  transition: background 0.3s;
+}
+
+.btn-edit:hover {
+  background-color: #871b07;
+}
+
+.btn-acoes {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  width: 200px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  transition: background 0.3s;
+}
+
+.btn-acoes:hover {
+  background-color: #999;
+}

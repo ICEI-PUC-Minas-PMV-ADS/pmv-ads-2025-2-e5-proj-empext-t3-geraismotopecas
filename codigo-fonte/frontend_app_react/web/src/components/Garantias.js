@@ -125,7 +125,7 @@ const Garantias = () => {
                       </button>
                       <button
                         className="btn-acoes"
-                        onClick={() => navigate(`/DetalhesGarantia/${g._id}`)}
+                        onClick={() => navigate(`/garantias/${g._id}`)}
                       >
                         Detalhes
                       </button>

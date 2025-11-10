@@ -92,7 +92,7 @@ const Garantias = () => {
                 checked={mostrarExpiradas}
                 onChange={() => setMostrarExpiradas(!mostrarExpiradas)}
               />
-              <span>Mostrar apenas garantias expiradas</span>
+              <span>Garantias expiradas</span>
             </div>
           </label>
 

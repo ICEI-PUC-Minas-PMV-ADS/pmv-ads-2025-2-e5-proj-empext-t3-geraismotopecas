@@ -8,8 +8,8 @@ import axios from "axios";
 const Garantias = () => {
   const [garantias, setGarantias] = useState([]);
   const [filtro, setFiltro] = useState("");
+  const [mostrarExpiradas, setMostrarExpiradas] = useState(false);
   const navigate = useNavigate();
-
 
   const fetchGarantias = async () => {
     try {
@@ -25,20 +25,26 @@ const Garantias = () => {
     fetchGarantias();
   }, []);
 
-
   const removeAcentos = (str) =>
     str?.normalize?.("NFD").replace(/[\u0300-\u036f]/g, "") ?? "";
 
-  const garantiasFiltradas = garantias.filter((g) =>
-    removeAcentos(g.nome_cliente?.toLowerCase() || "").includes(
-      removeAcentos(filtro.toLowerCase())
-    )
-  );
+  const garantiaExpirada = (data_validade) => {
+    if (!data_validade) return false;
+    const hoje = new Date();
+    const validade = new Date(data_validade);
+    return validade < hoje;
+  };
 
+  const garantiasFiltradas = garantias
+    .filter((g) =>
+      removeAcentos(g.nome_cliente?.toLowerCase() || "").includes(
+        removeAcentos(filtro.toLowerCase())
+      )
+    )
+    .filter((g) => !mostrarExpiradas || garantiaExpirada(g.data_validade));
 
   const handleDelete = async (id) => {
     if (!window.confirm("Tem certeza que deseja excluir esta garantia?")) return;
-
     try {
       await axios.delete(`https://geraismotopecas-api.onrender.com/servicos-feitos/${id}`);
       setGarantias((prev) => prev.filter((g) => g._id !== id));
@@ -47,7 +53,6 @@ const Garantias = () => {
       alert("Erro ao deletar garantia");
     }
   };
-
 
   const estaPertoDeVencer = (data_validade) => {
     if (!data_validade) return false;
@@ -63,6 +68,7 @@ const Garantias = () => {
       <main className="content">
         <div className="garantias-lista">
           <h2>Garantias</h2>
+
           <div className="header-actions">
             <input
               type="text"
@@ -73,10 +79,22 @@ const Garantias = () => {
             />
             <button
               className="add-btn"
-              onClick={() => navigate("/garantias/cadastro")}>
+              onClick={() => navigate("/garantias/cadastro")}
+            >
               + Garantia
             </button>
           </div>
+
+          <label className="checkbox-label">
+            <div className="checkbox-container">
+              <input
+                type="checkbox"
+                checked={mostrarExpiradas}
+                onChange={() => setMostrarExpiradas(!mostrarExpiradas)}
+              />
+              <span>Mostrar apenas garantias expiradas</span>
+            </div>
+          </label>
 
           {garantiasFiltradas.length > 0 ? (
             garantiasFiltradas.map((g) => (
@@ -86,13 +104,13 @@ const Garantias = () => {
                   <div className="garantia-detalhes">
                     <p className="garantia-nome">
                       {g.nome_cliente}
-                      {g.status === "Expirada" && (
+                      {garantiaExpirada(g.data_validade) && (
                         <FaExclamationTriangle
                           className="icone-alerta"
                           title="Garantia expirada"
                         />
                       )}
-                      {estaPertoDeVencer(g.data_validade) && (
+                      {estaPertoDeVencer(g.data_validade) && !garantiaExpirada(g.data_validade) && (
                         <FaExclamationTriangle
                           className="icone-alerta"
                           title="Próximo do vencimento"
@@ -109,7 +127,7 @@ const Garantias = () => {
                       {g.data_validade
                         ? new Date(g.data_validade).toLocaleDateString()
                         : "-"}{" "}
-                      ({g.status})
+                      ({garantiaExpirada(g.data_validade) ? "Expirada" : "Ativa"})
                     </p>
 
                     <p className="garantia-valor">
@@ -146,7 +164,6 @@ const Garantias = () => {
             <p className="nenhuma-garantia">Nenhuma garantia encontrada.</p>
           )}
         </div>
-
       </main>
     </div>
   );

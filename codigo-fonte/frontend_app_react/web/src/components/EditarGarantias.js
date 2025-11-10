@@ -8,6 +8,7 @@ const EditarGarantias = () => {
   const [garantia, setGarantia] = useState(null);
   const [pecas, setPecas] = useState([]);
   const [pecasEstoque, setPecasEstoque] = useState([]);
+  const [servicos, setServicos] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -17,10 +18,21 @@ const EditarGarantias = () => {
         const res = await axios.get("https://geraismotopecas-api.onrender.com/produtos");
         setPecasEstoque(res.data);
       } catch (err) {
-        console.error("Erro ao carregar peças do estoque:", err);
+        console.error("Erro ao carregar peças:", err);
       }
     };
+
+    const buscarServicos = async () => {
+      try {
+        const res = await axios.get("https://geraismotopecas-api.onrender.com/servicos");
+        setServicos(res.data);
+      } catch (err) {
+        console.error("Erro ao carregar serviços:", err);
+      }
+    };
+
     buscarPecas();
+    buscarServicos();
   }, []);
 
   useEffect(() => {
@@ -39,6 +51,26 @@ const EditarGarantias = () => {
     }
   }, [id]);
 
+  const handleServicoChange = (nomeSelecionado) => {
+    const servicoSelecionado = servicos.find((s) => s.nome_servico === nomeSelecionado);
+    if (servicoSelecionado) {
+      setGarantia({
+        ...garantia,
+        servico_feito: {
+          nome: servicoSelecionado.nome_servico,
+          quantidade: servicoSelecionado.quantidade || 1,
+          precoUnit: servicoSelecionado.valor || 0,
+          diasGarantia: servicoSelecionado.garantia_dias || 0,
+        },
+      });
+    } else {
+      setGarantia({
+        ...garantia,
+        servico_feito: { ...garantia.servico_feito, nome: nomeSelecionado },
+      });
+    }
+  };
+
   const handlePecaChange = (index, field, value) => {
     const novasPecas = [...pecas];
     novasPecas[index][field] = field === "nome" ? value : Number(value);
@@ -46,19 +78,12 @@ const EditarGarantias = () => {
   };
 
   const handlePecaSelect = (index, nomeSelecionado) => {
-    const produtoSelecionado = pecasEstoque.find(
-      (item) => item.nome === nomeSelecionado
-    );
-
+    const produtoSelecionado = pecasEstoque.find((item) => item.nome === nomeSelecionado);
     handlePecaChange(index, "nome", nomeSelecionado);
-
-    if (produtoSelecionado) {
-      handlePecaChange(index, "precoUnit", produtoSelecionado.valor);
-    }
+    if (produtoSelecionado) handlePecaChange(index, "precoUnit", produtoSelecionado.valor);
   };
 
-  const addPeca = () =>
-    setPecas([...pecas, { nome: "", quantidade: 1, precoUnit: 0 }]);
+  const addPeca = () => setPecas([...pecas, { nome: "", quantidade: 1, precoUnit: 0 }]);
   const removePeca = (index) => setPecas(pecas.filter((_, i) => i !== index));
 
   const handleSubmit = async (e) => {
@@ -89,152 +114,109 @@ const EditarGarantias = () => {
             <label>Nome do cliente:</label>
             <input
               type="text"
-              value={garantia.nome_cliente}
-              onChange={(e) =>
-                setGarantia({ ...garantia, nome_cliente: e.target.value })
-              }
+              value={garantia.nome_cliente || ""}
+              onChange={(e) => setGarantia({ ...garantia, nome_cliente: e.target.value })}
               required
             />
 
             <label>Contato:</label>
             <input
               type="text"
-              value={garantia.contato_cliente}
-              onChange={(e) =>
-                setGarantia({ ...garantia, contato_cliente: e.target.value })
-              }
+              value={garantia.contato_cliente || ""}
+              onChange={(e) => setGarantia({ ...garantia, contato_cliente: e.target.value })}
               required
             />
 
             <label>Modelo:</label>
             <input
               type="text"
-              value={garantia.modelo_moto}
-              onChange={(e) =>
-                setGarantia({ ...garantia, modelo_moto: e.target.value })
-              }
+              value={garantia.modelo_moto || ""}
+              onChange={(e) => setGarantia({ ...garantia, modelo_moto: e.target.value })}
             />
 
             <label>Placa:</label>
             <input
               type="text"
-              value={garantia.placa_moto}
-              onChange={(e) =>
-                setGarantia({ ...garantia, placa_moto: e.target.value })
-              }
+              value={garantia.placa_moto || ""}
+              onChange={(e) => setGarantia({ ...garantia, placa_moto: e.target.value })}
             />
 
             <label>Cor:</label>
             <input
               type="text"
-              value={garantia.cor_moto}
-              onChange={(e) =>
-                setGarantia({ ...garantia, cor_moto: e.target.value })
-              }
+              value={garantia.cor_moto || ""}
+              onChange={(e) => setGarantia({ ...garantia, cor_moto: e.target.value })}
             />
 
             <label>Ano:</label>
             <input
               type="number"
-              value={garantia.ano_moto}
-              onChange={(e) =>
-                setGarantia({ ...garantia, ano_moto: e.target.value })
-              }
+              value={garantia.ano_moto || ""}
+              onChange={(e) => setGarantia({ ...garantia, ano_moto: e.target.value })}
             />
 
             <h3>Serviço realizado</h3>
-            <label>Nome:</label>
-            <input
-              type="text"
-              value={garantia.servico_feito.nome}
-              onChange={(e) =>
-                setGarantia({
-                  ...garantia,
-                  servico_feito: {
-                    ...garantia.servico_feito,
-                    nome: e.target.value,
-                  },
-                })
-              }
-            />
-
+            <label>Selecione o serviço</label>
+            <select
+              className="peca-select-input"
+              value={garantia.servico_feito?.nome || ""}
+              onChange={(e) => handleServicoChange(e.target.value)}
+            >
+              <option value="" disabled>Selecione o serviço</option>
+              {servicos.map((servico) => (
+                <option key={servico._id} value={servico.nome_servico}>
+                  {servico.nome_servico} — R${servico.valor?.toFixed(2)}
+                </option>
+              ))}
+            </select>
+            
             <label>Quantidade:</label>
             <input
               type="number"
-              value={garantia.servico_feito.quantidade}
+              value={garantia.servico_feito.quantidade || 1}
+              min="1"
               onChange={(e) =>
                 setGarantia({
                   ...garantia,
                   servico_feito: {
                     ...garantia.servico_feito,
-                    quantidade: e.target.value,
+                    quantidade: Number(e.target.value),
                   },
                 })
               }
             />
 
-            <label>Preço unitário:</label>
-            <input
-              type="number"
-              value={garantia.servico_feito.precoUnit}
-              onChange={(e) =>
-                setGarantia({
-                  ...garantia,
-                  servico_feito: {
-                    ...garantia.servico_feito,
-                    precoUnit: e.target.value,
-                  },
-                })
-              }
-            />
+            <label>Preço do serviço</label>
+            <input type="number" value={garantia.servico_feito?.precoUnit || 0} readOnly />
 
-            <label>Dias de garantia:</label>
-            <input
-              type="number"
-              value={garantia.servico_feito.diasGarantia}
-              onChange={(e) =>
-                setGarantia({
-                  ...garantia,
-                  servico_feito: {
-                    ...garantia.servico_feito,
-                    diasGarantia: e.target.value,
-                  },
-                })
-              }
-            />
+            <label>Dias de garantia</label>
+            <input type="number" value={garantia.servico_feito?.diasGarantia || 0} readOnly />
+
             <h3>Peças utilizadas</h3>
             <div className="pecas-container">
-              {" "}
               {pecas.map((p, i) => (
                 <div key={i} className="peca-item">
-                  {" "}
                   <div className="inputs-peca">
-                    {" "}
                     <select
                       className="peca-select-input"
                       value={p.nome}
                       onChange={(e) => handlePecaSelect(i, e.target.value)}
                       required
                     >
-                      <option value="" disabled>
-                        Selecione a Peça
-                      </option>
-
+                      <option value="" disabled>Selecione a Peça</option>
                       {pecasEstoque.map((produto) => (
                         <option key={produto._id} value={produto.nome}>
-                          {produto.nome} - R${" "}
-                          {produto.valor?.toFixed(2) || "0.00"}
+                          {produto.nome} — R${produto.valor?.toFixed(2) || "0.00"}
                         </option>
                       ))}
                     </select>
+
                     <input
                       type="number"
                       placeholder="Qtd"
                       value={p.quantidade}
                       min="1"
-                      onChange={(e) =>
-                        handlePecaChange(i, "quantidade", e.target.value)
-                      }
+                      onChange={(e) => handlePecaChange(i, "quantidade", e.target.value)}
                     />
                     <input
                       type="number"
@@ -242,35 +224,20 @@ const EditarGarantias = () => {
                       value={p.precoUnit}
                       min="0"
                       step="0.01"
-                      onChange={(e) =>
-                        handlePecaChange(i, "precoUnit", e.target.value)
-                      }
+                      onChange={(e) => handlePecaChange(i, "precoUnit", e.target.value)}
                     />
-                    <button
-                      type="button"
-                      className="btn-remove-peca"
-                      onClick={() => removePeca(i)}
-                    >
+                    <button type="button" className="btn-remove-peca" onClick={() => removePeca(i)}>
                       X
                     </button>
-                  </div>{" "}
+                  </div>
                 </div>
               ))}
+              <button type="button" onClick={addPeca}>Adicionar peça</button>
             </div>
 
-            <button type="button" onClick={addPeca}>
-              Adicionar peça
-            </button>
-
             <div className="form-buttons">
-              <button type="submit" className="register-btn">
-                Salvar
-              </button>
-              <button
-                type="button"
-                className="cancel-btn"
-                onClick={() => navigate("/Garantias")}
-              >
+              <button type="submit" className="register-btn">Salvar</button>
+              <button type="button" className="cancel-btn" onClick={() => navigate("/Garantias")}>
                 Cancelar
               </button>
             </div>

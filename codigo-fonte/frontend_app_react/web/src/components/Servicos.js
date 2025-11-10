@@ -71,7 +71,7 @@ const Servicos = () => {
                     <p className="servico-garantia">Garantia: {servico.garantia_dias} dias</p>
                     <div className="servico-acoes">
                       <button className="btn-edit" onClick={() => navigate(`/servicos/editar/${servico._id}`)}>Editar</button>
-                      <button className="btn-acoes" onClick={() => navigate(`/DetalhesServico/${servico._id}`)}>Detalhes</button>
+                      <button className="btn-acoes" onClick={() => navigate(`/servicos/${servico._id}`)}>Detalhes</button>
                     </div>
                   </div>
                 </div>

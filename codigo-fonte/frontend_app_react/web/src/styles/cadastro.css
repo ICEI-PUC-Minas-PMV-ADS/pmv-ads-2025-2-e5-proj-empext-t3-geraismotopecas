@@ -106,10 +106,11 @@ body {
 }
 
 .btn-remove-peca {
-  background-color: #f44336;
+  background-color: #a32009;
   color: #fff;
   border: none;
-  padding: 3px 8px;
+  padding: 6px 8px;
+  margin-bottom: 15px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
@@ -120,7 +121,28 @@ body {
 }
 
 .btn-remove-peca:hover {
-  background-color: #d32f2f;
+  background-color: #621406;
+}
+
+.btn-add-peca {
+  background-color: #a32009;
+  color: #fff;
+  border: none;
+  width: 50%;
+  max-width: 400px;
+  margin: 10px auto;
+  display: block;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
+}
+
+.btn-add-peca:hover {
+  background-color: #621406;
 }
 
 .form-buttons {
@@ -197,7 +219,7 @@ body {
 }
 
 .servico-select {
-  width: 300px;
+  width: 1000px;
   padding: 6px 10px; 
   margin-top: 5px; 
   border-radius: 6px;
@@ -222,4 +244,20 @@ body {
   background-position: right 8px center;
   transform: translateY(1.5px);
   align-self: center;
+}
+.input-bloqueado:disabled {
+  background-color: #e5e5e5;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.input-bloqueado {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.valor-total {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: right;
+  color: #444;
 }

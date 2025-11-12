@@ -4,7 +4,6 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
-import Footer from './Footer';
 import Header from './Header';
 
 const Login = () => {
@@ -20,6 +19,7 @@ const Login = () => {
         password,
       });
 
+      localStorage.setItem('token', response.data.token);
       localStorage.setItem('userId', response.data.user._id);
       localStorage.setItem('userName', response.data.user.name);
 
@@ -71,7 +71,7 @@ const Login = () => {
           <ToastContainer />
         </div>
       </div>
-  
+
     </>
   );
 };

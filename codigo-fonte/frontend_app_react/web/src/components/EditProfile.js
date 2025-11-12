@@ -115,21 +115,7 @@ const EditProfile = () => {
                         {saving ? 'Salvando...' : 'Salvar'}
                     </button>
 
-                    <button
-                        type="button"
-                        onClick={handleDelete}
-                        style={{
-                            marginTop: '10px',
-                            backgroundColor: '#FF0000',
-                            color: 'white',
-                            width: '100%',
-                            padding: '12px',
-                            border: 'none',
-                            borderRadius: '5px',
-                            cursor: 'pointer',
-                            fontWeight: 'bold'
-                        }}
-                    >
+                    <button className="delete-btn" type="button" onClick={handleDelete} >
                         Excluir Usuário
                     </button>
                 </form>

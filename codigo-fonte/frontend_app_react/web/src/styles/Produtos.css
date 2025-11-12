@@ -33,11 +33,10 @@ h2 {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 10px;
   justify-content: space-between;
-  align-items: flex-start;
+  gap: 20px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .filtro-group {
@@ -49,9 +48,16 @@ h2 {
 
 .filtro-input {
   border: 1px solid #ccc;
-  flex: 0 0 600px;
-  font-family: "josefin sans", sans-serif;
+  padding: 12px 12px;
+  font-family: "Josefin Sans", sans-serif;
+  flex: 1;
+  min-width: 200px;
+  max-width: 800px; 
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 20px 0;
 }
+
 
 .add-btn {
   background-color: #a32009;
@@ -92,14 +98,10 @@ h2 {
 
 .checkbox-container input[type="checkbox"] {
   margin: 0;
-  /* remove qualquer margem padrão */
   padding: 0;
-  /* remove padding interno, se houver */
   width: 16px;
-  /* tamanho da caixinha */
   height: 16px;
   vertical-align: middle;
-  /* garante alinhamento com o texto */
   align-items: center;
 }
 
@@ -149,7 +151,7 @@ h2 {
 }
 
 .icone-alerta {
-  margin-left: 15px; /* distância do nome do produto */
+  margin-left: 15px;
   vertical-align: middle;
 }
 

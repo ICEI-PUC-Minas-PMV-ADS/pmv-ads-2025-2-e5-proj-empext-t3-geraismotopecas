@@ -9,15 +9,16 @@ const ServicoForm = () => {
   const [desc, setDesc] = useState('');
   const [valor, setValor] = useState('');
   const [garantiaDias, setGarantiaDias] = useState('');
-  const [pecaId, setPecaId] = useState('');
-  const [produtos, setProdutos] = useState([]);
+  const [pecasEstoque, setPecasEstoque] = useState([]);
+  const [pecas, setPecas] = useState([{ id: '', precoUnit: 0 }]);
+
   const navigate = useNavigate();
   const { id } = useParams();
 
   // Buscar produtos para select
   useEffect(() => {
     axios.get('https://geraismotopecas-api.onrender.com/produtos')
-      .then(res => setProdutos(res.data))
+      .then(res => setPecasEstoque(res.data))
       .catch(err => {
         console.error(err);
         alert('Erro ao buscar produtos');
@@ -34,7 +35,12 @@ const ServicoForm = () => {
           setDesc(data.desc || '');
           setValor(data.valor ?? '');
           setGarantiaDias(data.garantia_dias ?? '');
-          setPecaId(data.pecaId || '');
+          if (data.pecas && data.pecas.length) {
+            setPecas(data.pecas.map(p => ({
+              id: p.id || '',
+              precoUnit: p.precoUnit ?? 0
+            })));
+          }
         })
         .catch(err => {
           console.error(err);
@@ -43,6 +49,22 @@ const ServicoForm = () => {
     }
   }, [id]);
 
+  // Atualiza campos das peças
+  const handlePecaChange = (index, field, value) => {
+    const novasPecas = [...pecas];
+    if (field === 'id') {
+      novasPecas[index].id = value;
+      const produtoSelecionado = pecasEstoque.find(p => p._id === value);
+      novasPecas[index].precoUnit = produtoSelecionado ? produtoSelecionado.valor : 0;
+    } else {
+      novasPecas[index][field] = value;
+    }
+    setPecas(novasPecas);
+  };
+
+  const addPeca = () => setPecas([...pecas, { id: '', precoUnit: 0 }]);
+  const removePeca = (index) => setPecas(pecas.filter((_, i) => i !== index));
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const dados = {
@@ -50,7 +72,10 @@ const ServicoForm = () => {
       desc,
       valor: parseFloat(valor) || 0,
       garantia_dias: parseInt(garantiaDias) || 0,
-      pecaId: pecaId || null
+      pecas: pecas.map(p => ({
+        id: p.id || null,
+        precoUnit: p.precoUnit ? Number(p.precoUnit).toFixed(2) : 0
+      }))
     };
 
     try {
@@ -115,21 +140,47 @@ const ServicoForm = () => {
               />
             </label>
 
-            <label>
-              Peça usada:
-              <select
-                className="servico-select"
-                value={pecaId}
-                onChange={(e) => setPecaId(e.target.value)}
-              >
-                <option value="">-- Selecione--</option>
-                {produtos.map(produto => (
-                  <option key={produto._id} value={produto._id}>
-                    {produto.nome}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <h3>Peças utilizadas</h3>
+            <div className="pecas-container">
+              {pecas.map((p, i) => (
+                <div key={i} className="peca-item">
+                  <div className="inputs-peca">
+                    <select
+                      className="peca-select-input"
+                      value={p.id}
+                      onChange={(e) => handlePecaChange(i, 'id', e.target.value)}
+                    >
+                      <option value="">-- Selecione a peça --</option>
+                      {pecasEstoque.map(produto => (
+                        <option key={produto._id} value={produto._id}>
+                          {produto.nome}
+                        </option>
+                      ))}
+                    </select>
+
+                    <input
+                      type="number"
+                      placeholder="Preço unitário"
+                      value={p.id ? Number(p.precoUnit).toFixed(2) : ''}
+                      readOnly
+                      disabled={!p.id}
+                      className="input-bloqueado"
+                    />
+
+                    <button
+                      type="button"
+                      className="btn-remove-peca"
+                      onClick={() => removePeca(i)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </div>
+              ))}
+              <button type="button" className="btn-add-peca" onClick={addPeca}>
+                Adicionar Peça
+              </button>
+            </div>
 
             <div className="form-buttons">
               <button type="submit" className="register-btn">

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
 .edit-profile-container {
     display: flex;
     flex-direction: column;
@@ -46,12 +48,27 @@
     padding: 12px;
     border: none;
     border-radius: 5px;
-    background-color: #A32009;
+    background-color: #a32009;
     color: white;
     cursor: pointer;
     font-weight: bold;
 }
 
 .edit-profile-form button:hover {
-    background-color: #ff5722;
+    background-color: #871b07;
+}
+
+.edit-profile-form button.delete-btn {
+  background-color: rgba(159, 159, 159, 0.867);
+  color: white;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 400px;
+}
+  
+.edit-profile-form button.delete-btn:hover {
+  background-color: #9d9d9d;
+  color: white !important;
 }

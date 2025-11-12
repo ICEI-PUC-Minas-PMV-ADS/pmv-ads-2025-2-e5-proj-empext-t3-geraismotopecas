@@ -6,6 +6,7 @@ import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
 import Cadastrar from "./components/Cadastrar";
 import Home from "./components/Home";
+import PrivateRoute from "./components/PrivateRouter";
 
 // Paginas principais
 import Servicos from "./components/Servicos";
@@ -35,33 +36,95 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/editProfile" element={<EditProfile />} />
         <Route path="/cadastrar" element={<Cadastrar />} />
+
+        <Route path="/home" element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>} />
+        <Route path="/profile" element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>} />
+        <Route
+          path="/editProfile"
+          element={
+            <PrivateRoute>
+              <EditProfile />
+            </PrivateRoute>
+          }
+        />
 
         {/* Produtos */}
         <Route path="/produtos" element={<LayoutWrapper />}>
-          <Route index element={<Produtos />} /> 
-          <Route path="cadastro" element={<CadastroProdutos />} /> 
-          <Route path="editar/:id" element={<EditarProdutos />} /> 
-          <Route path=":id" element={<DetalhesProdutos />} />
+          <Route index element={
+            <PrivateRoute>
+              <Produtos />
+            </PrivateRoute>
+          } />
+          <Route path="cadastro" element={
+            <PrivateRoute>
+              <CadastroProdutos />
+            </PrivateRoute>
+          } />
+          <Route path="editar/:id" element={
+            <PrivateRoute>
+              <EditarProdutos />
+            </PrivateRoute>
+          } />
+          <Route path=":id" element={
+            <PrivateRoute>
+              <DetalhesProdutos />
+            </PrivateRoute>
+          } />
         </Route>
 
         {/* Serviços */}
         <Route path="/servicos" element={<LayoutWrapper />}>
-          <Route index element={<Servicos />} /> 
-          <Route path="cadastro" element={<CadastroServicos />} /> 
-          <Route path="editar/:id" element={<EditarServicos />} /> 
-          <Route path=":id" element={<DetalhesServicos />} /> 
+          <Route index element={
+            <PrivateRoute>
+              <Servicos />
+            </PrivateRoute>
+          } />
+          <Route path="cadastro" element={
+            <PrivateRoute>
+              <CadastroServicos />
+            </PrivateRoute>
+          } />
+          <Route path="editar/:id" element={
+            <PrivateRoute>
+              <EditarServicos />
+            </PrivateRoute>
+          } />
+          <Route path=":id" element={
+            <PrivateRoute>
+              <DetalhesServicos />
+            </PrivateRoute>
+          } />
         </Route>
 
         {/* Garantias */}
         <Route path="/garantias" element={<LayoutWrapper />}>
-          <Route index element={<Garantias />} />
-          <Route path="cadastro" element={<CadastroGarantias />} /> 
-          <Route path="editar/:id" element={<EditarGarantias />} /> 
-          <Route path=":id" element={<DetalhesGarantias />} />
+          <Route index element={
+            <PrivateRoute>
+              <Garantias />
+            </PrivateRoute>
+          } />
+          <Route path="cadastro" element={
+            <PrivateRoute>
+              <CadastroGarantias />
+            </PrivateRoute>
+          } />
+          <Route path="editar/:id" element={
+            <PrivateRoute>
+              <EditarGarantias />
+            </PrivateRoute>
+          } />
+          <Route path=":id" element={
+            <PrivateRoute>
+              <DetalhesGarantias />
+            </PrivateRoute>
+          } />
         </Route>
       </Routes>
     </Router>

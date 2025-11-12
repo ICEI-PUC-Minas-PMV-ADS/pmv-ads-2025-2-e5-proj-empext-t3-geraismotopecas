@@ -9,8 +9,17 @@ const EditarGarantias = () => {
   const [pecas, setPecas] = useState([]);
   const [pecasEstoque, setPecasEstoque] = useState([]);
   const [servicos, setServicos] = useState([]);
+  const [servicoQuantidade, setServicoQuantidade] = useState(1);
+  const [valorTotal, setValorTotal] = useState(0);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const buscarPecas = async () => {
@@ -43,6 +52,7 @@ const EditarGarantias = () => {
           const g = res.data;
           setGarantia(g);
           setPecas(g.pecas_utilizadas || []);
+          setServicoQuantidade(g.servico_feito?.quantidade || 1);
         })
         .catch((err) => {
           console.error(err);
@@ -51,23 +61,56 @@ const EditarGarantias = () => {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (!garantia || !garantia.servico_feito) return;
+
+    const valorServico =
+      (garantia.servico_feito.precoUnit || 0) * (servicoQuantidade || 0);
+
+    const valorPecas = pecas.reduce((total, peca) => {
+      const qtd = Number(peca.quantidade) || 0;
+      const val = Number(peca.precoUnit) || 0;
+      return total + qtd * val;
+    }, 0);
+
+    setValorTotal(valorServico + valorPecas);
+  }, [garantia, servicoQuantidade, pecas]);
+
+
+
   const handleServicoChange = (nomeSelecionado) => {
     const servicoSelecionado = servicos.find((s) => s.nome_servico === nomeSelecionado);
-    if (servicoSelecionado) {
+
+    if (!servicoSelecionado) {
       setGarantia({
         ...garantia,
-        servico_feito: {
-          nome: servicoSelecionado.nome_servico,
-          quantidade: servicoSelecionado.quantidade || 1,
-          precoUnit: servicoSelecionado.valor || 0,
-          diasGarantia: servicoSelecionado.garantia_dias || 0,
-        },
+        servico_feito: { nome: "", quantidade: 1, precoUnit: 0, diasGarantia: 0 },
       });
-    } else {
-      setGarantia({
-        ...garantia,
-        servico_feito: { ...garantia.servico_feito, nome: nomeSelecionado },
-      });
+      setPecas([{ nome: "", quantidade: 1, precoUnit: 0 }]);
+      return;
+    }
+
+    setGarantia({
+      ...garantia,
+      servico_feito: {
+        nome: servicoSelecionado.nome_servico,
+        quantidade: servicoSelecionado.quantidade || 1,
+        precoUnit: servicoSelecionado.valor || 0,
+        diasGarantia: servicoSelecionado.garantia_dias || 0,
+      },
+    });
+
+    if (servicoSelecionado.pecaId) {
+      const pecaVinculada = pecasEstoque.find((p) => p._id === servicoSelecionado.pecaId);
+      if (pecaVinculada) {
+        setPecas([
+          {
+            nome: pecaVinculada.nome,
+            quantidade: 1,
+            precoUnit: pecaVinculada.valor || 0,
+          },
+        ]);
+      }
     }
   };
 
@@ -92,6 +135,10 @@ const EditarGarantias = () => {
       await axios.put(`https://geraismotopecas-api.onrender.com/servicos-feitos/${id}`, {
         ...garantia,
         pecas_utilizadas: pecas,
+        servico_feito: {
+          ...garantia.servico_feito,
+          quantidade: Number(servicoQuantidade),
+        },
       });
       alert("Garantia atualizada com sucesso!");
       navigate("/Garantias");
@@ -127,7 +174,7 @@ const EditarGarantias = () => {
               required
             />
 
-            <label>Modelo:</label>
+            <label>Modelo da moto:</label>
             <input
               type="text"
               value={garantia.modelo_moto || ""}
@@ -156,41 +203,44 @@ const EditarGarantias = () => {
             />
 
             <h3>Serviço realizado</h3>
-            <label>Selecione o serviço</label>
             <select
               className="peca-select-input"
               value={garantia.servico_feito?.nome || ""}
               onChange={(e) => handleServicoChange(e.target.value)}
             >
-              <option value="" disabled>Selecione o serviço</option>
+              <option value="">Selecione o serviço</option>
               {servicos.map((servico) => (
                 <option key={servico._id} value={servico.nome_servico}>
-                  {servico.nome_servico} — R${servico.valor?.toFixed(2)}
+                  {servico.nome_servico}
                 </option>
               ))}
             </select>
-            
+
             <label>Quantidade:</label>
             <input
               type="number"
-              value={garantia.servico_feito.quantidade || 1}
               min="1"
-              onChange={(e) =>
-                setGarantia({
-                  ...garantia,
-                  servico_feito: {
-                    ...garantia.servico_feito,
-                    quantidade: Number(e.target.value),
-                  },
-                })
-              }
+              value={servicoQuantidade}
+              onChange={(e) => setServicoQuantidade(e.target.value)}
             />
 
-            <label>Preço do serviço</label>
-            <input type="number" value={garantia.servico_feito?.precoUnit || 0} readOnly />
+            <label>Preço unitário do serviço:</label>
+            <input
+              type="number"
+              value={garantia.servico_feito?.precoUnit || ""}
+              readOnly
+              disabled={!garantia.servico_feito?.nome}
+              className="input-bloqueado"
+            />
 
-            <label>Dias de garantia</label>
-            <input type="number" value={garantia.servico_feito?.diasGarantia || 0} readOnly />
+            <label>Dias de garantia:</label>
+            <input
+              type="number"
+              value={garantia.servico_feito?.diasGarantia || ""}
+              readOnly
+              disabled={!garantia.servico_feito?.nome}
+              className="input-bloqueado"
+            />
 
             <h3>Peças utilizadas</h3>
             <div className="pecas-container">
@@ -203,40 +253,50 @@ const EditarGarantias = () => {
                       onChange={(e) => handlePecaSelect(i, e.target.value)}
                       required
                     >
-                      <option value="" disabled>Selecione a Peça</option>
+                      <option value="">Selecione a Peça</option>
                       {pecasEstoque.map((produto) => (
                         <option key={produto._id} value={produto.nome}>
-                          {produto.nome} — R${produto.valor?.toFixed(2) || "0.00"}
+                          {produto.nome}
                         </option>
                       ))}
                     </select>
 
                     <input
                       type="number"
-                      placeholder="Qtd"
-                      value={p.quantidade}
+                      placeholder="Quantidade"
+                      value={p.nome ? p.quantidade : ""}
                       min="1"
                       onChange={(e) => handlePecaChange(i, "quantidade", e.target.value)}
                     />
+
                     <input
                       type="number"
-                      placeholder="Preço unit"
-                      value={p.precoUnit}
+                      placeholder="Preço unitário"
+                      value={p.nome ? Number(p.precoUnit).toFixed(2) : ""}
                       min="0"
                       step="0.01"
-                      onChange={(e) => handlePecaChange(i, "precoUnit", e.target.value)}
+                      readOnly
+                      disabled={!p.nome}
+                      className="input-bloqueado"
                     />
+
                     <button type="button" className="btn-remove-peca" onClick={() => removePeca(i)}>
                       X
                     </button>
                   </div>
                 </div>
               ))}
-              <button type="button" onClick={addPeca}>Adicionar peça</button>
+              <button type="button" className="btn-add-peca" onClick={addPeca}>
+                Adicionar peça
+              </button>
+            </div>
+
+            <div className="valor-total">
+              <strong>Valor total:</strong> R$ {valorTotal.toFixed(2)}
             </div>
 
             <div className="form-buttons">
-              <button type="submit" className="register-btn">Salvar</button>
+              <button type="submit" className="register-btn">Atualizar</button>
               <button type="button" className="cancel-btn" onClick={() => navigate("/Garantias")}>
                 Cancelar
               </button>

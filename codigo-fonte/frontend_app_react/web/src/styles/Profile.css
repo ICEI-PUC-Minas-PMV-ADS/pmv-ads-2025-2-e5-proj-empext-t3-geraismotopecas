@@ -23,7 +23,7 @@ h2 {
   color: #333;
   margin-bottom: 20px;
   font-family: 'Josefin Sans', sans-serif;
-  text-align: center;
+  text-align: center !important;
 }
 
 p {

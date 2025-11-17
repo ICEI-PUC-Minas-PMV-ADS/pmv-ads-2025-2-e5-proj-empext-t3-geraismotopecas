@@ -233,6 +233,40 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-006 - S<br>Gerar PDF de consertos feitos</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se um usuário consegue gerar o PDF de um conserto feito com sucesso.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Larissa Pocceschy Martins</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td> RF-009:	Gerar um documento PDF dos consertos feitos.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Clicar em Garantias<br>
+      2. Clicar em Exibir detalhes de uma garantia cadastrada<br>
+      3. Clicar em Exportar PDF<br>
+      </td>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve gerar o PDF com todas as informações da garantia com sucesso.</td>
+  </tr>
+</table>
+
 ### Casos de Teste de Insucesso
 
 ### ETAPA 2  
@@ -727,7 +761,7 @@ https://github.com/user-attachments/assets/03708e50-e644-4b09-8f6d-698d2b07c0a1
 
 <table>
   <tr>
-    <th colspan="6" width="1000">CT-003<br>Cadastro de serviços</th>
+    <th colspan="6" width="1000">CT-005<br>Cadastro de serviços</th>
   </tr>
   <tr>
     <td width="170"><strong>Critérios de êxito</strong></td>
@@ -755,6 +789,31 @@ https://github.com/user-attachments/assets/94fd4303-2370-4bc1-8165-cf4a8de21040
 
 ### ETAPA 4
 
-### ETAPA 4
-Colocar evidências de teste da etapa 4
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-06<br>Gerar PDF dos consertos feitos </th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">O sistema deve gerar um documento PDF dos consertos feitos.</td>
+  </tr>
+    <tr>
+      <td><strong>Responsável pela funcionalidade</strong></td>
+    <td width="430">Larissa Pocceschy Martin</td>
+      <td><strong>Responsável pelo teste</strong></td>
+    <td width="430">Kiane Ramalho</td>
+     <td width="100"><strong>Data do teste</strong></td>
+    <td width="150">17/11/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está gerando o PDF corretamente.</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><strong>Evidência</strong></td>
+  </tr>
+  <tr>
+</table>
+
+https://github.com/user-attachments/assets/1b858a39-50b5-4732-a868-7d124d58aee6
 

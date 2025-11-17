@@ -6,6 +6,7 @@ import "../styles/DetalhesGarantias.css";
 import { FaArrowLeft, FaExclamationTriangle } from "react-icons/fa";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import logo from "../images/logolivro.png";
 
 const DetalhesGarantias = () => {
   const { id } = useParams();
@@ -33,25 +34,40 @@ const DetalhesGarantias = () => {
   const formatarData = (data) =>
     data ? new Date(data).toLocaleDateString("pt-BR") : "-";
 
-  const gerarPDF = async () => {
-    const elemento = document.getElementById("detalhes-garantia");
-    const canvas = await html2canvas(elemento, { scale: 2 });
-    const imgData = canvas.toDataURL("image/png");
+const gerarPDF = async () => {
+  const elemento = document.getElementById("detalhes-garantia");
+  const canvas = await html2canvas(elemento, { scale: 2 });
+  const imgData = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF("p", "mm", "a4");
-    const larguraPagina = pdf.internal.pageSize.getWidth();
-    const alturaPagina = pdf.internal.pageSize.getHeight();
+  const pdf = new jsPDF("p", "mm", "a4");
+  const larguraPagina = pdf.internal.pageSize.getWidth();
 
-    const proporcao = Math.min(larguraPagina / canvas.width, alturaPagina / canvas.height);
-    const larguraImg = canvas.width * proporcao;
-    const alturaImg = canvas.height * proporcao;
+  // ---- ADICIONAR LOGO AQUI ----
+  const logoWidth = 30; // ajuste se quiser maior/menor
+  const logoHeight = 20;
+  const posLogoX = (larguraPagina - logoWidth) / 2;
+  const posLogoY = 5;
 
-    const posX = (larguraPagina - larguraImg) / 2;
-    const posY = 10;
+  pdf.addImage(logo, "PNG", posLogoX, posLogoY, logoWidth, logoHeight);
 
-    pdf.addImage(imgData, "PNG", posX, posY, larguraImg, alturaImg);
-    pdf.save("detalhes_garantia.pdf");
-  };
+  // Espaço do logo
+  const offsetY = posLogoY + logoHeight + 5;
+
+  const alturaPagina = pdf.internal.pageSize.getHeight();
+  const proporcao = Math.min(
+    larguraPagina / canvas.width,
+    (alturaPagina - offsetY) / canvas.height
+  );
+
+  const larguraImg = canvas.width * proporcao;
+  const alturaImg = canvas.height * proporcao;
+
+  const posX = (larguraPagina - larguraImg) / 2;
+  const posY = offsetY;
+
+  pdf.addImage(imgData, "PNG", posX, posY, larguraImg, alturaImg);
+  pdf.save("detalhes_garantia.pdf");
+};
 
   if (loading) return <div className="carregando">Carregando...</div>;
   if (!garantia) return <div className="erro">Garantia não encontrada</div>;

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Sidebar from './Sidebar';
 import '../styles/Servicos.css';
 import { FaTrash } from 'react-icons/fa';
+import servicoImage from "../images/servicos.png";
 
 const Servicos = () => {
   const [servicos, setServicos] = useState([]);
@@ -63,7 +64,11 @@ const Servicos = () => {
             servicosFiltrados.map(servico => (
               <div className="servico-linha" key={servico._id}>
                 <div className="servico-info">
-                  <div className="servico-img-placeholder" />
+                  <img
+                    src={servicoImage}
+                    alt="Servico"
+                    className="servico-img"
+                  />
                   <div className="servico-detalhes">
                     <p className="servico-nome">{servico.nome_servico}</p>
                     <p className="servico-desc">{servico.desc}</p>

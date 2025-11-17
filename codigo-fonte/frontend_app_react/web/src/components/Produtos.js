@@ -4,6 +4,8 @@ import axios from "axios";
 import Sidebar from "./Sidebar";
 import "../styles/Produtos.css";
 import { FaTrash, FaExclamationTriangle } from "react-icons/fa";
+import produtoImage from "../images/produtos.png";
+
 
 const Produtos = () => {
   const [produtos, setProdutos] = useState([]);
@@ -101,7 +103,11 @@ const Produtos = () => {
             produtosFiltrados.map((produto) => (
               <div className="produto-linha" key={produto._id}>
                 <div className="produto-info">
-                  <div className="produto-img-placeholder" />
+                  <img
+                    src={produtoImage}
+                    alt="Produto"
+                    className="produto-img"
+                  />
                   <div className="produto-detalhes">
                     <p className="produto-nome">
                       {produto.nome}

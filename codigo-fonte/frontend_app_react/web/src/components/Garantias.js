@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import "../styles/Garantias.css";
 import { FaTrash, FaExclamationTriangle } from "react-icons/fa";
 import axios from "axios";
+import garantiaImage from "../images/garantia.png";
 
 const Garantias = () => {
   const [garantias, setGarantias] = useState([]);
@@ -100,7 +101,11 @@ const Garantias = () => {
             garantiasFiltradas.map((g) => (
               <div className="garantia-linha" key={g._id}>
                 <div className="garantia-info">
-                  <div className="garantia-img-placeholder" />
+                  <img
+                    src={garantiaImage}
+                    alt="Garantia"
+                    className="garantia-img"
+                  />
                   <div className="garantia-detalhes">
                     <p className="garantia-nome">
                       {g.nome_cliente}

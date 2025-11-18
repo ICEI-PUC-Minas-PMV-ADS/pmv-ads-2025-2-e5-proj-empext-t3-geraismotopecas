@@ -1,29 +1,24 @@
 message: Please cite this software using these metadata.
-title:
+title: Gerais Motopeças
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
+  - family-names: Pinto Ramalho
+    given-names: Kiane
+  - family-names: Pocceschy Martins
+    given-names: Larissa 
+  - family-names: do Nascimento
+    given-names: Maria Vitória
+  - family-names: Guanais de Miranda
+    given-names: Sara 
+  - family-names: Dias de Freitas
+    given-names: Thabata 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
-  - name-suffix: Professor
-    affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: da Costa
+    given-names: José Wilson
 keywords:
-  - 
-  - 
-repository-code: 
+  - motopeças
+  - controle de estoque de peças
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2025-2-e5-proj-empext-t3-geraismotopecas
 version: 1.0.0
-date-released: 2023-10-31
+
+date-released: 2025-12-08

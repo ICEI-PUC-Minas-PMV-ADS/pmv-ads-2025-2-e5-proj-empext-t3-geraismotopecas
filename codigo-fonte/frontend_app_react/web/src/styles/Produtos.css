@@ -125,7 +125,8 @@ h2 {
 
 .produto-info {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  gap: 20px;
   flex: 1;
 }
 
@@ -134,7 +135,7 @@ h2 {
   height: 120px;
   background-color: #e5e5e5;
   border-radius: 6px;
-  margin: 20px;
+  margin: 0;
   flex-shrink: 0;
 }
 

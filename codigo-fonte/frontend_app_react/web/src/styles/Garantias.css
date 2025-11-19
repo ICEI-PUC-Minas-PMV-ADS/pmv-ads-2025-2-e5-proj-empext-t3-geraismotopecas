@@ -77,7 +77,8 @@ h2 {
   align-items: flex-start;
   justify-content: space-between;
   border-bottom: 2px solid #ccc;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
 
 .garantia-info {
@@ -100,7 +101,11 @@ h2 {
   display: flex;
   flex-direction: column;
   flex: 1;
-  gap: 6px;
+  width: 100%;
+  max-width: 750px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .garantia-nome {
@@ -181,6 +186,7 @@ h2 {
   border-radius: 10px;
   transition: background-color 0.2s ease;
   flex-shrink: 0;
+  align-self: flex-start;
 }
 
 .delete-button:hover {

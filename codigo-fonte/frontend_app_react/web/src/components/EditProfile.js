@@ -112,7 +112,7 @@ const EditProfile = () => {
                     />
 
                     <button type="submit" disabled={saving}>
-                        {saving ? 'Salvando...' : 'Salvar'}
+                        {saving ? 'Atualizando...' : 'Atualizar'}
                     </button>
 
                     <button className="delete-btn" type="button" onClick={handleDelete} >

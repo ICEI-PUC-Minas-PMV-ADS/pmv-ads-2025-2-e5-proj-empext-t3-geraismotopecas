@@ -41,6 +41,9 @@ const DetalhesProdutos = () => {
     html2pdf().set(opt).from(pdfRef.current).save();
   };
 
+  const formatarData = (data) =>
+    data ? new Date(data).toLocaleDateString("pt-BR") : "—";
+
   if (!produto) return <p>Carregando detalhes...</p>;
 
   return (
@@ -48,56 +51,99 @@ const DetalhesProdutos = () => {
       <Sidebar />
 
       <main className="content">
-        {/* conteúdo que será exportado */}
-        <div className="detalhes-container" ref={pdfRef}>
-          <h2>Detalhes do Produto</h2>
+        {/* conteúdo que vai pro PDF */}
+        <div className="detalhes-produto-wrapper" ref={pdfRef}>
+          <header className="detalhes-produto-header">
+            <div>
+              <h1 className="detalhes-produto-titulo">Detalhes do Produto</h1>
+              <p className="detalhes-produto-subtitulo">
+                Informações do produto, vínculo com serviço e controle de estoque.
+              </p>
+            </div>
 
-          <div className="detalhes-card">
-            <p>
-              <strong>Nome:</strong> {produto.nome || "—"}
-            </p>
-            <p>
-              <strong>Código:</strong> {produto.codigo || "—"}
-            </p>
-            <p>
-              <strong>Descrição:</strong> {produto.desc || "—"}
-            </p>
-            <p>
-              <strong>Data de início da gestão:</strong>{" "}
-              {produto.data_inicio_gestao
-                ? new Date(produto.data_inicio_gestao).toLocaleDateString("pt-BR")
-                : "—"}
-            </p>
-            <p>
-              <strong>Ligado a serviço:</strong>{" "}
-              {produto.contem_servico ? "Sim" : "Não"}
-            </p>
-            <p>
-              <strong>Valor:</strong>{" "}
-              {produto.valor ? `R$ ${produto.valor.toFixed(2)}` : "—"}
-            </p>
+            <div className="detalhes-produto-tag-valor">
+              <span className="detalhes-produto-tag">Valor do produto</span>
+              <span className="detalhes-produto-valor">
+                {produto.valor ? `R$ ${produto.valor.toFixed(2)}` : "—"}
+              </span>
+            </div>
+          </header>
 
-            <h3>Controle de Estoque</h3>
-            <p>
-              <strong>Quantidade mínima:</strong>{" "}
-              {produto.meta_controle?.qtd_min_fixa ?? "—"}
-            </p>
-            <p>
-              <strong>Quantidade em estoque:</strong>{" "}
-              {produto.meta_controle?.qtd_estoque ?? "—"}
-            </p>
-            <p>
-              <strong>Data da última compra:</strong>{" "}
-              {produto.meta_controle?.data_ultima_compra
-                ? new Date(
-                    produto.meta_controle.data_ultima_compra
-                  ).toLocaleDateString("pt-BR")
-                : "—"}
-            </p>
-          </div>
+          <section className="bloco-produto">
+            <div className="bloco-produto-header">
+              <h3>Informações do produto</h3>
+            </div>
+            <div className="bloco-produto-body">
+              <div className="linha-produto">
+                <span className="col-label-produto">Nome</span>
+                <span className="col-valor-produto">{produto.nome || "—"}</span>
+              </div>
+
+              <div className="linha-produto">
+                <span className="col-label-produto">Código</span>
+                <span className="col-valor-produto">{produto.codigo || "—"}</span>
+              </div>
+
+              <div className="linha-produto">
+                <span className="col-label-produto">Descrição</span>
+                <span className="col-valor-produto">{produto.desc || "—"}</span>
+              </div>
+
+              <div className="linha-produto">
+                <span className="col-label-produto">Ligado a serviço</span>
+                <span className="col-valor-produto">
+                  {produto.contem_servico ? "Sim" : "Não"}
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <section className="bloco-produto">
+            <div className="bloco-produto-header">
+              <h3>Gestão do produto</h3>
+            </div>
+            <div className="bloco-produto-body">
+              <div className="linha-produto">
+                <span className="col-label-produto">Início da gestão</span>
+                <span className="col-valor-produto">
+                  {formatarData(produto.data_inicio_gestao)}
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <section className="bloco-produto">
+            <div className="bloco-produto-header">
+              <h3>Controle de estoque</h3>
+            </div>
+            <div className="bloco-produto-body">
+              <div className="linha-produto">
+                <span className="col-label-produto">Quantidade mínima</span>
+                <span className="col-valor-produto">
+                  {produto.meta_controle?.qtd_min_fixa ?? "—"}
+                </span>
+              </div>
+
+              <div className="linha-produto">
+                <span className="col-label-produto">Quantidade em estoque</span>
+                <span className="col-valor-produto">
+                  {produto.meta_controle?.qtd_estoque ?? "—"}
+                </span>
+              </div>
+
+              <div className="linha-produto">
+                <span className="col-label-produto">Última compra</span>
+                <span className="col-valor-produto">
+                  {produto.meta_controle?.data_ultima_compra
+                    ? formatarData(produto.meta_controle.data_ultima_compra)
+                    : "—"}
+                </span>
+              </div>
+            </div>
+          </section>
         </div>
 
-        {/* botões */}
+      
         <div className="botoes-acao">
           <button className="btn-voltar" onClick={() => navigate("/produtos")}>
             Voltar

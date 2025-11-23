@@ -1,40 +1,148 @@
-.detalhes-container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: 0 auto;
+/* WRAPPER PRINCIPAL */
+
+.detalhes-produto-wrapper {
+  background: #ffffff;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto 20px;
+  padding: 38px 44px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.detalhes-container h2 {
-  font-size: 24px;
+/* HEADER */
+
+.detalhes-produto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.detalhes-produto-titulo {
+  font-size: 26px;
+  font-weight: 700;
   color: #333;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #a32009;
-  padding-bottom: 10px;
+  margin: 0 0 6px;
+  letter-spacing: -0.4px;
 }
 
-.detalhes-card p {
-  font-size: 15px;
-  margin: 8px 0;
+.detalhes-produto-subtitulo {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* BLOCO VALOR */
+
+.detalhes-produto-tag-valor {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 6px;
+}
+
+.detalhes-produto-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a32009;
+  background: #fff7ed;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.detalhes-produto-valor {
+  display: inline-block;
+  min-width: max-content;
+  font-size: 20px;
+  font-weight: 700;
+  color: #a32009;
+  text-align: right;
+}
+
+/* BLOCOS (tabela de info) */
+
+.bloco-produto {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 24px;
+}
+
+.bloco-produto-header {
+  background: #a32009;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.bloco-produto-header h3 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.bloco-produto-body {
+  background: #fcfcfc;
+}
+
+.linha-produto {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ececec;
+}
+
+.linha-produto:last-child {
+  border-bottom: none;
+}
+
+.col-label-produto {
+  font-size: 13px;
+  font-weight: 600;
   color: #444;
 }
 
-.detalhes-card strong {
-  color: #000;
+.col-valor-produto {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  text-align: right;
 }
 
-.detalhes-card h3 {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #a32009;
+/* CTA FINAL */
+
+.detalhes-produto-cta {
+  margin-top: 32px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: #a32009;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
 }
 
-.botoes-acao {
+/* BOTÕES */
+.botoes-acao-garantia {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
   gap: 15px;
+  width: 100%;
+  max-width: 1000px;
   margin-top: 25px;
 }
 
@@ -49,19 +157,20 @@
 }
 
 .btn-voltar {
-  background-color: #ccc;
-  color: #333;
+  background-color: #e5e5e5;
+  color: #333333;
+}
+
+.btn-voltar:hover {
+  background-color: #b3b3b3;
 }
 
 .btn-exportar {
   background-color: #a32009;
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn-exportar:hover {
-  background-color: #621406;
+  background-color: #6c1406;
 }
 
-.btn-voltar:hover {
-  background-color: #888;
-}

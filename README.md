@@ -23,7 +23,7 @@ A solução para atender à loja de motopeças Gerais Motopeças consiste no des
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+A aplicação não requer instalação local. Para utilizar o sistema, basta acessar o link da interface hospedada no Vercel: https://gerais-moto-pecas.vercel.app/ . Todas as funcionalidades estão disponíveis diretamente pelo navegador.
 
 # Documentação
 

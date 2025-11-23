@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "./Sidebar";
 import "../styles/DetalhesServicos.css";
-//import "../styles/DetalhesProduto.css"; // Pode reaproveitar o mesmo CSS
 import html2pdf from "html2pdf.js";
 
 const DetalhesServicos = () => {
@@ -57,8 +56,22 @@ const DetalhesServicos = () => {
     <div className="home-container">
       <Sidebar />
       <main className="content">
-        <div className="detalhes-container" ref={pdfRef}>
-          <h2>Detalhes do Serviço</h2>
+        <div className="detalhes-wrapper" ref={pdfRef}>
+          <header className="detalhes-header">
+            <div>
+              <h1 className="detalhes-titulo">Detalhes do Serviço</h1>
+              <p className="detalhes-subtitulo">
+                Visão geral do serviço realizado na oficina
+              </p>
+            </div>
+
+            <div className="detalhes-tag-valor">
+              <span className="detalhes-tag">Valor do serviço</span>
+              <span className="detalhes-valor">
+                R$ {servico.valor?.toFixed(2)}
+              </span>
+            </div>
+          </header>
 
           <div className="detalhes-card">
             <p><strong>Nome do Serviço:</strong> {servico.nome_servico}</p>

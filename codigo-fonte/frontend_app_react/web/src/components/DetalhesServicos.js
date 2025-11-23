@@ -96,6 +96,34 @@ const DetalhesServicos = () => {
             </div>
           </section>
 
+          <section className="bloco">
+            <div className="bloco-header">
+              <h3>Garantia & Datas</h3>
+            </div>
+
+            <div className="bloco-body">
+              <div className="linha">
+                <span className="col-label">Dias de garantia</span>
+                <span className="col-valor">{servico.garantia_dias} dia(s)</span>
+              </div>
+
+              <div className="linha">
+                <span className="col-label">Cadastrado em</span>
+                <span className="col-valor">
+                  {new Date(servico.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+
+              <div className="linha">
+                <span className="col-label">Última atualização</span>
+                <span className="col-valor">
+                  {new Date(servico.updatedAt).toLocaleDateString()}
+                </span>
+              </div>
+            </div>
+          </section>
+
+
           <div className="detalhes-card">
             <p><strong>Nome do Serviço:</strong> {servico.nome_servico}</p>
             <p><strong>Descrição:</strong> {servico.desc}</p>

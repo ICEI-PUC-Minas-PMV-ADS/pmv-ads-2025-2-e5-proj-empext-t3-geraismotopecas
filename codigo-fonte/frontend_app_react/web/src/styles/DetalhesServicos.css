@@ -3,10 +3,10 @@
 .detalhes-wrapper {
   background: #ffffff;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   padding: 38px 44px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  box-shadow: none; /* melhor para PDF */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .detalhes-titulo {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 700;
   color: #333333;
   margin: 0 0 6px;
@@ -31,12 +31,16 @@
 
 .detalhes-subtitulo {
   font-size: 14px;
-  color: #777777;
+  color: #6b6b6b;
   margin: 2px 0 0;
 }
 
 .detalhes-tag-valor {
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* ALINHA TUDO À DIREITA */
+  text-align: right;     /* garante alinhamento interno */
+  gap: 4px;              /* espaço entre a frase e o valor */
 }
 
 .detalhes-tag {
@@ -64,13 +68,15 @@
 .bloco {
   border-radius: 10px;
   overflow: hidden;
+  background: #ffffff;
   border: 1px solid #e5e5e5;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .bloco-header {
   background: #a32009;
   padding: 8px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .bloco-header h3 {
@@ -82,14 +88,14 @@
 }
 
 .bloco-body {
-  background: #fafafa;
+  background: #fcfcfc;
 }
 
 .linha {
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-bottom: 1px solid #ececec;
 }
 
@@ -100,12 +106,51 @@
 .col-label {
   font-size: 13px;
   font-weight: 600;
-  color: #555555;
+  color: #444;
 }
 
 .col-valor {
   font-size: 14px;
-  font-weight: 500;
-  color: #222222;
+  font-weight: 600;
+  color: #222;
   text-align: right;
 }
+
+
+/* BOTÕES */
+
+.botoes-acao {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-voltar,
+.btn-exportar {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-voltar {
+  background-color: #e5e5e5;
+  color: #333333;
+}
+
+.btn-voltar:hover {
+  background-color: #b3b3b3;
+}
+
+.btn-exportar {
+  background-color: #a32009;
+  color: #ffffff;
+}
+
+.btn-exportar:hover {
+  background-color: #6c1406;
+}
+

@@ -16,7 +16,9 @@ const DetalhesServicos = () => {
   useEffect(() => {
     const fetchServico = async () => {
       try {
-        const res = await axios.get(`https://geraismotopecas-api.onrender.com/servicos/${id}`);
+        const res = await axios.get(
+          `https://geraismotopecas-api.onrender.com/servicos/${id}`
+        );
         setServico(res.data);
 
         // Buscar nome da peça usada (se houver)
@@ -38,7 +40,7 @@ const DetalhesServicos = () => {
     fetchServico();
   }, [id]);
 
-  // Função para exportar PDF
+  // Exportar PDF
   const handleExportPDF = () => {
     const opt = {
       margin: 0.5,
@@ -55,6 +57,7 @@ const DetalhesServicos = () => {
   return (
     <div className="home-container">
       <Sidebar />
+
       <main className="content">
         <div className="detalhes-wrapper" ref={pdfRef}>
           <header className="detalhes-header">
@@ -125,8 +128,13 @@ const DetalhesServicos = () => {
         </div>
 
         <div className="botoes-acao">
-          <button className="btn-voltar" onClick={() => navigate("/servicos")}>Voltar</button>
-          <button className="btn-exportar" onClick={handleExportPDF}>Exportar PDF</button>
+          <button className="btn-voltar" onClick={() => navigate("/servicos")}>
+            Voltar
+          </button>
+
+          <button className="btn-exportar" onClick={handleExportPDF}>
+            Exportar PDF
+          </button>
         </div>
       </main>
     </div>

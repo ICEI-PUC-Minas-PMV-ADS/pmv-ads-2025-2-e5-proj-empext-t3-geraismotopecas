@@ -6,7 +6,7 @@
   margin: 0 auto 20px;
   padding: 38px 44px;
   border-radius: 12px;
-  box-shadow: none; /* melhor para PDF */
+  box-shadow: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -38,9 +38,9 @@
 .detalhes-tag-valor {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* ALINHA TUDO À DIREITA */
-  text-align: right;     /* garante alinhamento interno */
-  gap: 4px;              /* espaço entre a frase e o valor */
+  align-items: flex-end;
+  text-align: right;    
+  gap: 4px;
 }
 
 .detalhes-tag {

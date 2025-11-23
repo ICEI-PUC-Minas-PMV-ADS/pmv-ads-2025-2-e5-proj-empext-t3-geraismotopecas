@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
-  background-color: #f6eee6; /* tom mais neutro */
+  background-color: #f6eee6; 
 }
 
 /* Página de login */
@@ -18,7 +18,7 @@ body {
 
 /* Card central */
 .login-card {
-  background-color: #a5a28c; /* cor neutra */
+  background-color: #a5a28c; 
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   padding: 40px 30px;
@@ -75,7 +75,7 @@ body {
 }
 
 .login-btn {
-  background-color: #7d3c2d; /* marrom escuro */
+  background-color: #7d3c2d; 
   color: #fff;
   border: none;
 }

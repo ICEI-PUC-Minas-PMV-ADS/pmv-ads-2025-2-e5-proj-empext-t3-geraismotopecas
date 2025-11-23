@@ -12,9 +12,9 @@
 
 .custom-header-left {
   display: flex;
-  justify-content: center; /* centraliza horizontalmente o conteúdo dentro do header */
-  align-items: center; /* centraliza verticalmente */
-  width: 100%; /* ocupa toda a largura do header */
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
 }
 
 .custom-header-left .logo-placeholder {
@@ -28,8 +28,8 @@
   width: 80px;
   background: white;
   object-fit: contain;
-  border-radius: 50%; /* imagem redonda */
-  border: 2px solid #000; /* moldura */
+  border-radius: 50%; 
+  border: 2px solid #000; 
   padding: 4px;
   object-position: -3px center;
 }

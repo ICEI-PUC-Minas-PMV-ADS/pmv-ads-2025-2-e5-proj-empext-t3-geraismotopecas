@@ -3,7 +3,7 @@
 body {
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
-  background-color: #f6eee6; /* mesmo fundo do login */
+  background-color: #f6eee6; 
 }
 
 /* Página de cadastro de serviços */
@@ -18,7 +18,7 @@ body {
 
 /* Card central */
 .form-card {
-  background-color: #fff; /* igual ao login */
+  background-color: #fff; 
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   padding: 40px 30px;
@@ -92,7 +92,7 @@ body {
 
 /* Botão de cadastro/atualizar */
 .register-btn {
-  background-color: #7d3c2d; /* marrom escuro igual login */
+  background-color: #7d3c2d;
   color: #fff;
 }
 

@@ -73,6 +73,29 @@ const DetalhesServicos = () => {
             </div>
           </header>
 
+          <section className="bloco">
+            <div className="bloco-header">
+              <h3>Informações do serviço</h3>
+            </div>
+
+            <div className="bloco-body">
+              <div className="linha">
+                <span className="col-label">Nome do serviço</span>
+                <span className="col-valor">{servico.nome_servico}</span>
+              </div>
+
+              <div className="linha">
+                <span className="col-label">Descrição</span>
+                <span className="col-valor">{servico.desc || "-"}</span>
+              </div>
+
+              <div className="linha">
+                <span className="col-label">Peça usada</span>
+                <span className="col-valor">{pecaUsadaNome || "Nenhuma"}</span>
+              </div>
+            </div>
+          </section>
+
           <div className="detalhes-card">
             <p><strong>Nome do Serviço:</strong> {servico.nome_servico}</p>
             <p><strong>Descrição:</strong> {servico.desc}</p>

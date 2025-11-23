@@ -14,7 +14,6 @@ function Home() {
     <div className="home-container">
       <Sidebar />
 
-      {/* Main content */}
       <main className="content">
         <h2>Atalhos</h2>
         <div className="cards">

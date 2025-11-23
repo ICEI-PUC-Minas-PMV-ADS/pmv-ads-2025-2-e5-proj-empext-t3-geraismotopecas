@@ -21,7 +21,6 @@ const DetalhesServicos = () => {
         );
         setServico(res.data);
 
-        // Buscar nome da peça usada (se houver)
         if (res.data.peca_usada) {
           try {
             const pecaRes = await axios.get(
@@ -40,7 +39,6 @@ const DetalhesServicos = () => {
     fetchServico();
   }, [id]);
 
-  // Exportar PDF
   const handleExportPDF = () => {
     const opt = {
       margin: 0.5,

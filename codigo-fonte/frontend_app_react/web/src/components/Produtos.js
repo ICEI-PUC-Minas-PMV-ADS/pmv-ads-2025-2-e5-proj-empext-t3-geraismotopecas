@@ -62,7 +62,7 @@ const Produtos = () => {
       );
       alert("Baixa realizada com sucesso!");
       console.log(response.data.produto);
-      fetchProdutos(); // 🔁 Atualiza a lista automaticamente após a baixa
+      fetchProdutos();
     } catch (error) {
       alert(error.response?.data?.message || "Erro ao dar baixa no estoque.");
     }

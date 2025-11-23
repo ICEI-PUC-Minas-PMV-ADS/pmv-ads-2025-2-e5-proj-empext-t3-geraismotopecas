@@ -24,7 +24,6 @@ function Sidebar({ children }) {
 
   return (
     <div className="home-container">
-      {/* Sidebar */}
       <aside className="sidebar">
         <div
           className="logo"

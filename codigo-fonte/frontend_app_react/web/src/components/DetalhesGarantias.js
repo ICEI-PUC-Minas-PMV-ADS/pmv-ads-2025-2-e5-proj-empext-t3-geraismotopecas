@@ -89,7 +89,6 @@ const DetalhesGarantias = () => {
       <Sidebar />
 
       <main className="content">
-        {/* CONTEÚDO QUE VAI PARA O PDF */}
         <div id="detalhes-garantia" className="detalhes-garantia-wrapper">
           <header className="detalhes-garantia-header">
             <div>
@@ -99,7 +98,6 @@ const DetalhesGarantias = () => {
               </p>
             </div>
 
-            {/* VALOR + STATUS */}
             <div className="detalhes-garantia-tag-valor">
               <span className="detalhes-garantia-tag">Valor total</span>
 
@@ -113,7 +111,6 @@ const DetalhesGarantias = () => {
             </div>
           </header>
 
-          {/* BLOCO CLIENTE */}
           <section className="bloco-garantia">
             <div className="bloco-garantia-header">
               <h3>Cliente</h3>
@@ -131,7 +128,6 @@ const DetalhesGarantias = () => {
             </div>
           </section>
 
-          {/* BLOCO MOTO */}
           <section className="bloco-garantia">
             <div className="bloco-garantia-header">
               <h3>Moto</h3>
@@ -167,7 +163,6 @@ const DetalhesGarantias = () => {
             </div>
           </section>
 
-          {/* BLOCO SERVIÇO */}
           <section className="bloco-garantia">
             <div className="bloco-garantia-header">
               <h3>Serviço realizado</h3>
@@ -203,7 +198,6 @@ const DetalhesGarantias = () => {
             </div>
           </section>
 
-          {/* BLOCO PEÇAS */}
           <section className="bloco-garantia">
             <div className="bloco-garantia-header">
               <h3>Peças utilizadas</h3>

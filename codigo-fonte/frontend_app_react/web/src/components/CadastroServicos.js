@@ -15,7 +15,6 @@ const ServicoForm = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // Buscar produtos para select
   useEffect(() => {
     axios.get('https://geraismotopecas-api.onrender.com/produtos')
       .then(res => setPecasEstoque(res.data))

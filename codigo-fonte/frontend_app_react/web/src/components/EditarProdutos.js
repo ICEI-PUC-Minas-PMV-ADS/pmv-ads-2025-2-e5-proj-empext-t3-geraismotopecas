@@ -49,7 +49,6 @@ const EditarProdutos = () => {
     }
   }, [id]);
 
-  // Atualizar produto
   const handleSubmit = async (e) => {
     e.preventDefault();
     const dados = {

@@ -24,87 +24,154 @@ body {
   align-items: center;
 }
 
-.voltar-btn {
-  background-color: #a32009;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  width: 180px;
-  height: 40px;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  transition: background-color 0.3s;
-}
+/* WRAPPER PRINCIPAL */
 
-.voltar-btn:hover {
-  background-color: #871b07;
-}
-
-.exportar-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 10px;
-  height: 40px;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
-
-.exportar-btn:hover {
-  background-color: #0056b3;
-}
-
-/* ======== CARD PRINCIPAL ======== */
-.detalhes-card {
-  background: none;
-  box-shadow: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
+.detalhes-garantia-wrapper {
+  background: #ffffff;
   max-width: 900px;
+  width: 100%;
+  margin: 0 auto 20px;
+  padding: 32px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
 }
 
-h2 {
+/* HEADER */
+
+.detalhes-garantia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+.detalhes-garantia-titulo {
+  font-size: 26px;
+  font-weight: 700;
   color: #333;
-  font-size: 22px;
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 10px;
+  margin: 0 0 6px;
+  letter-spacing: -0.4px;
 }
 
-h3 {
-  font-size: 18px;
-  color: #444;
-  margin-top: 15px;
-  margin-bottom: 5px;
+.detalhes-garantia-subtitulo {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* VALOR + STATUS */
+
+.detalhes-garantia-tag-valor {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 6px;
+}
+
+.detalhes-garantia-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a32009;
+  background: #fff7ed;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.detalhes-garantia-valor {
+  display: inline-block;
+  min-width: max-content;
+  font-size: 20px;
+  font-weight: 700;
+  color: #a32009;
+  text-align: right;
+}
+
+.detalhes-garantia-status {
+  font-size: 13px;
   font-weight: 600;
 }
 
-p {
-  font-size: 15px;
-  color: #333;
-  margin: 4px 0;
-  line-height: 1.4;
+.status-ativa {
+  color: #2e7d32;
 }
 
-p strong {
+.status-expirada {
+  color: #d32f2f;
+}
+
+.status-cancelada {
+  color: #757575;
+}
+
+/* BLOCOS EM FORMATO DE TABELA */
+
+.bloco-garantia {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 24px;
+}
+
+.bloco-garantia-header {
+  background: #a32009;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.bloco-garantia-header h3 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.bloco-garantia-body {
+  background: #fcfcfc;
+}
+
+.linha-garantia {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ececec;
+}
+
+.linha-garantia:last-child {
+  border-bottom: none;
+}
+
+.col-label-garantia {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.col-valor-garantia {
+  font-size: 14px;
+  font-weight: 600;
   color: #222;
+  text-align: right;
 }
 
-/* ======== TABELA DE PEÇAS ======== */
+/* TABELA DE PEÇAS */
+
+.bloco-garantia-body-tabela {
+  padding: 12px 16px 16px;
+}
+
 .pecas-tabela {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
 }
 
 .pecas-tabela th,
@@ -112,7 +179,7 @@ p strong {
   border: 1px solid #ccc;
   padding: 8px;
   text-align: left;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .pecas-tabela th {
@@ -121,67 +188,56 @@ p strong {
   font-weight: 600;
 }
 
-/* ======== ALERTAS ======== */
+.texto-sem-pecas {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #555;
+}
+
+/* ALERTA */
+
 .icone-alerta {
-  color: #e67e22;
+  color: #a32009;
   margin-left: 5px;
 }
 
-/* ======== STATUS ======== */
-.status-ativa {
-  color: #2e7d32;
-  font-weight: bold;
-}
-
-.status-expirada {
-  color: #d32f2f;
-  font-weight: bold;
-}
-
-.status-cancelada {
-  color: #757575;
-  font-weight: bold;
-}
-
-/* ======== BOTÕES INFERIORES ======== */
-.detalhes-botoes {
+/* BOTÕES */
+.botoes-acao-garantia {
   display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
   width: 100%;
+  max-width: 500px;
+  margin-top: 25px;
 }
 
-.btn-edit {
+.btn-voltar,
+.btn-exportar {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-voltar {
+  background-color: #e5e5e5;
+  color: #333333;
+}
+
+.btn-voltar:hover {
+  background-color: #b3b3b3;
+}
+
+.btn-exportar {
   background-color: #a32009;
-  color: white;
-  border: none;
-  width: 200px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  height: 40px;
-  transition: background 0.3s;
+  color: #ffffff;
 }
 
-.btn-edit:hover {
-  background-color: #871b07;
+.btn-exportar:hover {
+  background-color: #6c1406;
 }
 
-.btn-acoes {
-  background-color: #ccc;
-  color: #333;
-  border: none;
-  width: 200px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  height: 40px;
-  transition: background 0.3s;
-}
-
-.btn-acoes:hover {
-  background-color: #999;
-}

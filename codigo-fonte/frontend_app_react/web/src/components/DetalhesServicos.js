@@ -122,17 +122,6 @@ const DetalhesServicos = () => {
               </div>
             </div>
           </section>
-
-
-          <div className="detalhes-card">
-            <p><strong>Nome do Serviço:</strong> {servico.nome_servico}</p>
-            <p><strong>Descrição:</strong> {servico.desc}</p>
-            <p><strong>Peça usada:</strong> {pecaUsadaNome || "Nenhuma"}</p>
-            <p><strong>Dias de garantia:</strong> {servico.garantia_dias}</p>
-            <p><strong>Valor:</strong> R$ {servico.valor?.toFixed(2)}</p>
-            <p><strong>Cadastrado em:</strong> {new Date(servico.createdAt).toLocaleDateString()}</p>
-            <p><strong>Última atualização:</strong> {new Date(servico.updatedAt).toLocaleDateString()}</p>
-          </div>
         </div>
 
         <div className="botoes-acao">

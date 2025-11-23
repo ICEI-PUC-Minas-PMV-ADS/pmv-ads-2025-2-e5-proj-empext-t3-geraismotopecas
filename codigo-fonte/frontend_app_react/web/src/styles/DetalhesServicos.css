@@ -1,14 +1,75 @@
-/* BLOCO EM FORMATO DE TABELA */
+/* WRAPPER PRINCIPAL */
+
+.detalhes-wrapper {
+  background: #ffffff;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 38px 44px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* HEADER */
+
+.detalhes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
+}
+
+.detalhes-titulo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+}
+
+.detalhes-subtitulo {
+  font-size: 14px;
+  color: #777777;
+  margin: 2px 0 0;
+}
+
+.detalhes-tag-valor {
+  text-align: right;
+}
+
+.detalhes-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a32009;
+  background: #fff7ed;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
+
+.detalhes-valor {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: #a32009;
+}
+
+/* BLOCOS TIPO TABELA */
 
 .bloco {
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid #e5e5e5;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
 }
 
 .bloco-header {
-  background: #f97316; /* laranja da referência */
+  background: #a32009;
   padding: 8px 16px;
 }
 
@@ -28,7 +89,7 @@
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  padding: 10px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid #ececec;
 }
 

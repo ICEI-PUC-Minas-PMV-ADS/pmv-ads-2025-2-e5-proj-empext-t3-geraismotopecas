@@ -25,7 +25,7 @@ const ServicoForm = () => {
       });
   }, []);
 
-  // Buscar serviço se for edição
+ 
   useEffect(() => {
     if (id) {
       axios.get(`https://geraismotopecas-api.onrender.com/servicos/${id}`)
@@ -49,7 +49,7 @@ const ServicoForm = () => {
     }
   }, [id]);
 
-  // Atualiza campos das peças
+
   const handlePecaChange = (index, field, value) => {
     const novasPecas = [...pecas];
     if (field === 'id') {

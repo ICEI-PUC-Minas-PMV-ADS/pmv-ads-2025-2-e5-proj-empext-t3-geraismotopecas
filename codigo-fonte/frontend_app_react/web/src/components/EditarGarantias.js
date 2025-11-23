@@ -76,8 +76,6 @@ const EditarGarantias = () => {
     setValorTotal(valorServico + valorPecas);
   }, [garantia, servicoQuantidade, pecas]);
 
-
-
   const handleServicoChange = (nomeSelecionado) => {
     const servicoSelecionado = servicos.find((s) => s.nome_servico === nomeSelecionado);
 
@@ -86,7 +84,6 @@ const EditarGarantias = () => {
         ...garantia,
         servico_feito: { nome: "", quantidade: 1, precoUnit: 0, diasGarantia: 0 },
       });
-      setPecas([{ nome: "", quantidade: 1, precoUnit: 0 }]);
       return;
     }
 
@@ -162,7 +159,9 @@ const EditarGarantias = () => {
             <input
               type="text"
               value={garantia.nome_cliente || ""}
-              onChange={(e) => setGarantia({ ...garantia, nome_cliente: e.target.value })}
+              onChange={(e) =>
+                setGarantia({ ...garantia, nome_cliente: e.target.value })
+              }
               required
             />
 
@@ -170,7 +169,9 @@ const EditarGarantias = () => {
             <input
               type="text"
               value={garantia.contato_cliente || ""}
-              onChange={(e) => setGarantia({ ...garantia, contato_cliente: e.target.value })}
+              onChange={(e) =>
+                setGarantia({ ...garantia, contato_cliente: e.target.value })
+              }
               required
             />
 
@@ -178,31 +179,40 @@ const EditarGarantias = () => {
             <input
               type="text"
               value={garantia.modelo_moto || ""}
-              onChange={(e) => setGarantia({ ...garantia, modelo_moto: e.target.value })}
+              onChange={(e) =>
+                setGarantia({ ...garantia, modelo_moto: e.target.value })
+              }
             />
 
             <label>Placa:</label>
             <input
               type="text"
               value={garantia.placa_moto || ""}
-              onChange={(e) => setGarantia({ ...garantia, placa_moto: e.target.value })}
+              onChange={(e) =>
+                setGarantia({ ...garantia, placa_moto: e.target.value })
+              }
             />
 
             <label>Cor:</label>
             <input
               type="text"
               value={garantia.cor_moto || ""}
-              onChange={(e) => setGarantia({ ...garantia, cor_moto: e.target.value })}
+              onChange={(e) =>
+                setGarantia({ ...garantia, cor_moto: e.target.value })
+              }
             />
 
             <label>Ano:</label>
             <input
               type="number"
               value={garantia.ano_moto || ""}
-              onChange={(e) => setGarantia({ ...garantia, ano_moto: e.target.value })}
+              onChange={(e) =>
+                setGarantia({ ...garantia, ano_moto: e.target.value })
+              }
             />
 
             <h3>Serviço realizado</h3>
+
             <select
               className="peca-select-input"
               value={garantia.servico_feito?.nome || ""}
@@ -227,22 +237,37 @@ const EditarGarantias = () => {
             <label>Preço unitário do serviço:</label>
             <input
               type="number"
+              min="0"
+              step="0.01"
               value={garantia.servico_feito?.precoUnit || ""}
-              readOnly
-              disabled={!garantia.servico_feito?.nome}
-              className="input-bloqueado"
+              onChange={(e) =>
+                setGarantia({
+                  ...garantia,
+                  servico_feito: {
+                    ...garantia.servico_feito,
+                    precoUnit: Number(e.target.value),
+                  },
+                })
+              }
             />
 
             <label>Dias de garantia:</label>
             <input
               type="number"
               value={garantia.servico_feito?.diasGarantia || ""}
-              readOnly
-              disabled={!garantia.servico_feito?.nome}
-              className="input-bloqueado"
+              onChange={(e) =>
+                setGarantia({
+                  ...garantia,
+                  servico_feito: {
+                    ...garantia.servico_feito,
+                    diasGarantia: Number(e.target.value),
+                  },
+                })
+              }
             />
 
             <h3>Peças utilizadas</h3>
+
             <div className="pecas-container">
               {pecas.map((p, i) => (
                 <div key={i} className="peca-item">
@@ -264,28 +289,35 @@ const EditarGarantias = () => {
                     <input
                       type="number"
                       placeholder="Quantidade"
-                      value={p.nome ? p.quantidade : ""}
+                      value={p.quantidade}
                       min="1"
-                      onChange={(e) => handlePecaChange(i, "quantidade", e.target.value)}
+                      onChange={(e) =>
+                        handlePecaChange(i, "quantidade", e.target.value)
+                      }
                     />
 
                     <input
                       type="number"
                       placeholder="Preço unitário"
-                      value={p.nome ? Number(p.precoUnit).toFixed(2) : ""}
                       min="0"
                       step="0.01"
-                      readOnly
-                      disabled={!p.nome}
-                      className="input-bloqueado"
+                      value={p.precoUnit}
+                      onChange={(e) =>
+                        handlePecaChange(i, "precoUnit", e.target.value)
+                      }
                     />
 
-                    <button type="button" className="btn-remove-peca" onClick={() => removePeca(i)}>
+                    <button
+                      type="button"
+                      className="btn-remove-peca"
+                      onClick={() => removePeca(i)}
+                    >
                       X
                     </button>
                   </div>
                 </div>
               ))}
+
               <button type="button" className="btn-add-peca" onClick={addPeca}>
                 Adicionar peça
               </button>
@@ -296,8 +328,14 @@ const EditarGarantias = () => {
             </div>
 
             <div className="form-buttons">
-              <button type="submit" className="register-btn">Atualizar</button>
-              <button type="button" className="cancel-btn" onClick={() => navigate("/Garantias")}>
+              <button type="submit" className="register-btn">
+                Atualizar
+              </button>
+              <button
+                type="button"
+                className="cancel-btn"
+                onClick={() => navigate("/Garantias")}
+              >
                 Cancelar
               </button>
             </div>

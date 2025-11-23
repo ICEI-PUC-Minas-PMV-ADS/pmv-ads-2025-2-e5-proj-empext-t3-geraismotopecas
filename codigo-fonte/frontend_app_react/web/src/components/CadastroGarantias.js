@@ -11,14 +11,16 @@ const CadastroGarantias = () => {
   const [placaMoto, setPlacaMoto] = useState("");
   const [corMoto, setCorMoto] = useState("");
   const [anoMoto, setAnoMoto] = useState("");
-  const [servicoNome, setServicoNome] = useState("");
-  const [servicoQuantidade, setServicoQuantidade] = useState(1);
-  const [servicoPreco, setServicoPreco] = useState("");
-  const [diasGarantia, setDiasGarantia] = useState("");
+
   const [pecasEstoque, setPecasEstoque] = useState([]);
   const [servicos, setServicos] = useState([]);
-  const [valorTotal, setValorTotal] = useState(0);
+
+  const [servicoSelecionado, setServicoSelecionado] = useState(null);
+  const [servicoQuantidade, setServicoQuantidade] = useState(1);
+  const [servicoPreco, setServicoPreco] = useState(0); // editável
+
   const [pecas, setPecas] = useState([{ nome: "", quantidade: 1, precoUnit: 0 }]);
+  const [valorTotal, setValorTotal] = useState(0);
 
   const navigate = useNavigate();
 
@@ -26,7 +28,7 @@ const CadastroGarantias = () => {
     const buscarPecas = async () => {
       try {
         const res = await axios.get("https://geraismotopecas-api.onrender.com/produtos");
-        setPecasEstoque(res.data);
+        setPecasEstoque(res.data || []);
       } catch (err) {
         console.error("Erro ao carregar peças:", err);
       }
@@ -35,7 +37,7 @@ const CadastroGarantias = () => {
     const buscarServicos = async () => {
       try {
         const res = await axios.get("https://geraismotopecas-api.onrender.com/servicos");
-        setServicos(res.data);
+        setServicos(res.data || []);
       } catch (err) {
         console.error("Erro ao carregar serviços:", err);
       }
@@ -45,30 +47,43 @@ const CadastroGarantias = () => {
     buscarServicos();
   }, []);
 
+  // recalcula total sempre com números
   useEffect(() => {
-    const valorServico = (Number(servicoPreco) || 0) * (Number(servicoQuantidade) || 0);
+    const valorServ = (Number(servicoPreco) || 0) * (Number(servicoQuantidade) || 0);
 
-    const valorPecas = pecas.reduce((total, peca) => {
-      const qtd = Number(peca.quantidade) || 0;
-      const val = Number(peca.precoUnit) || 0;
+    const valorPecas = pecas.reduce((total, p) => {
+      const qtd = Number(p.quantidade) || 0;
+      const val = Number(p.precoUnit) || 0;
       return total + qtd * val;
     }, 0);
 
-    setValorTotal(valorServico + valorPecas);
+    setValorTotal(valorServ + valorPecas);
   }, [servicoPreco, servicoQuantidade, pecas]);
 
+  const handleServicoChange = (nome) => {
+    if (!nome) {
+      setServicoSelecionado(null);
+      setServicoPreco(0);
+      return;
+    }
 
+    const serv = servicos.find((s) => s.nome_servico === nome) || null;
+    setServicoSelecionado(serv);
+
+    // preenche o price (editável)
+    setServicoPreco(Number(serv?.valor || 0));
+  };
 
   const handlePecaChange = (index, field, value) => {
-    const novasPecas = [...pecas];
-    novasPecas[index][field] = field === "nome" ? value : Number(value) || 0;
-    setPecas(novasPecas);
+    const novas = [...pecas];
+    novas[index][field] = field === "nome" ? value : Number(value) || 0;
+    setPecas(novas);
   };
 
   const handlePecaSelect = (index, nomeSelecionado) => {
-    const produtoSelecionado = pecasEstoque.find((item) => item.nome === nomeSelecionado);
+    const produto = pecasEstoque.find((p) => p.nome === nomeSelecionado);
     handlePecaChange(index, "nome", nomeSelecionado);
-    if (produtoSelecionado) handlePecaChange(index, "precoUnit", produtoSelecionado.valor);
+    if (produto) handlePecaChange(index, "precoUnit", produto.valor);
   };
 
   const addPeca = () => setPecas([...pecas, { nome: "", quantidade: 1, precoUnit: 0 }]);
@@ -77,6 +92,24 @@ const CadastroGarantias = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // construir objeto sem enviar servico_feito como null
+    const servicoObj = servicoSelecionado
+      ? {
+          nome: servicoSelecionado.nome_servico || "",
+          quantidade: Number(servicoQuantidade) || 1,
+          precoUnit: Number(servicoPreco) || 0,
+          diasGarantia: Number(servicoSelecionado?.garantia_dias) || 0,
+        }
+      : undefined; // omitiremos o campo se undefined
+
+    const pecasEnviadas = pecas
+      .filter((p) => p.nome && p.nome.trim() !== "")
+      .map((p) => ({
+        nome: p.nome,
+        quantidade: Number(p.quantidade) || 1,
+        precoUnit: Number(p.precoUnit) || 0,
+      }));
+
     const dados = {
       nome_cliente: nomeCliente,
       contato_cliente: contatoCliente,
@@ -84,26 +117,26 @@ const CadastroGarantias = () => {
       placa_moto: placaMoto || undefined,
       cor_moto: corMoto || undefined,
       ano_moto: anoMoto ? Number(anoMoto) : undefined,
-      servico_feito: {
-        nome: servicoNome,
-        quantidade: Number(servicoQuantidade) || 1,
-        precoUnit: Number(servicoPreco) || 0,
-        diasGarantia: Number(diasGarantia) || 0,
-      },
-      pecas_utilizadas: pecas.map((p) => ({
-        nome: p.nome,
-        quantidade: Number(p.quantidade) || 1,
-        precoUnit: Number(p.precoUnit) || 0,
-      })),
+      // somente incluir servico_feito se houver serviço selecionado
+      ...(servicoObj ? { servico_feito: servicoObj } : {}),
+      // sempre enviar pecas_utilizadas (array vazio se não houver)
+      pecas_utilizadas: pecasEnviadas,
     };
 
     try {
-      await axios.post("https://geraismotopecas-api.onrender.com/servicos-feitos", dados);
+      const res = await axios.post("https://geraismotopecas-api.onrender.com/servicos-feitos", dados);
       alert("Garantia cadastrada com sucesso!");
       navigate("/Garantias");
     } catch (err) {
-      console.error(err.response?.data || err);
-      alert("Erro ao cadastrar garantia: " + err.response?.data?.message);
+      // mostrar resposta detalhada para debugging
+      console.error("Erro ao cadastrar garantia:", err);
+      if (err.response) {
+        console.error("Status:", err.response.status);
+        console.error("Resposta da API:", err.response.data);
+        alert("Erro ao cadastrar garantia: " + (err.response.data?.message || JSON.stringify(err.response.data)));
+      } else {
+        alert("Erro ao cadastrar garantia. Veja o console para mais detalhes.");
+      }
     }
   };
 
@@ -136,69 +169,39 @@ const CadastroGarantias = () => {
             <h3>Serviço realizado</h3>
             <select
               className="peca-select-input"
-              value={servicoNome}
-              onChange={(e) => {
-                const nome = e.target.value;
-
-                if (nome === "") {
-                  setServicoNome("");
-                  setServicoPreco("");
-                  setDiasGarantia("");
-                  setPecas([{ nome: "", quantidade: 1, precoUnit: 0 }]);
-                  return;
-                }
-
-                setServicoNome(nome);
-                const servicoSelecionado = servicos.find((s) => s.nome_servico === nome);
-                if (servicoSelecionado) {
-                  setServicoPreco(servicoSelecionado.valor || 0);
-                  setDiasGarantia(servicoSelecionado.garantia_dias || 0);
-                  if (servicoSelecionado.pecaId) {
-                    const pecaVinculada = pecasEstoque.find((p) => p._id === servicoSelecionado.pecaId);
-                    if (pecaVinculada) {
-                      setPecas([
-                        {
-                          nome: pecaVinculada.nome,
-                          quantidade: 1,
-                          precoUnit: pecaVinculada.valor || 0,
-                        },
-                      ]);
-                    }
-                  }
-                }
-              }}
-              required
+              value={servicoSelecionado?.nome_servico || ""}
+              onChange={(e) => handleServicoChange(e.target.value)}
             >
-              <option value="">Selecione o serviço</option>
-              {servicos.map((servico) => (
-                <option key={servico._id} value={servico.nome_servico}>
-                  {servico.nome_servico}
+              <option value="">Nenhum serviço</option>
+              {servicos.map((serv) => (
+                <option key={serv._id} value={serv.nome_servico}>
+                  {serv.nome_servico}
                 </option>
               ))}
             </select>
 
-            <label>Quantidade:</label>
-            <input type="number" min="1" value={servicoQuantidade} onChange={(e) => setServicoQuantidade(e.target.value)} />
+            {servicoSelecionado && (
+              <>
+                <label>Quantidade:</label>
+                <input
+                  type="number"
+                  min="1"
+                  value={servicoQuantidade}
+                  onChange={(e) => setServicoQuantidade(Number(e.target.value) || 1)}
+                />
 
-            <label>Preço unitário do serviço:</label>
-            <input
-              type="number"
-              value={servicoPreco ? Number(servicoPreco).toFixed(2) : ""}
-              step="0.01"
-              readOnly
-              disabled={!servicoNome}
-              className="input-bloqueado"
-            />
+                <label>Preço unitário do serviço (editável):</label>
+                <input
+                  type="number"
+                  value={servicoPreco}
+                  step="0.01"
+                  onChange={(e) => setServicoPreco(Number(e.target.value) || 0)}
+                />
 
-            <label>Dias de garantia:</label>
-            <input
-              type="number"
-              value={diasGarantia}
-              readOnly
-              disabled={!servicoNome}
-              className="input-bloqueado"
-            />
-
+                <label>Dias de garantia:</label>
+                <input type="number" readOnly value={Number(servicoSelecionado?.garantia_dias) || ""} />
+              </>
+            )}
 
             <h3>Peças utilizadas</h3>
             <div className="pecas-container">
@@ -207,14 +210,10 @@ const CadastroGarantias = () => {
                   <div className="inputs-peca">
                     <select
                       className="peca-select-input"
-                      placeholder="Nome"
                       value={p.nome}
                       onChange={(e) => handlePecaSelect(i, e.target.value)}
-                      required
                     >
-                      <option value="">
-                        Selecione a Peça
-                      </option>
+                      <option value="">Selecione a Peça</option>
                       {pecasEstoque.map((produto) => (
                         <option key={produto._id} value={produto.nome}>
                           {produto.nome}
@@ -225,35 +224,26 @@ const CadastroGarantias = () => {
                     <input
                       type="number"
                       placeholder="Quantidade"
-                      value={p.nome ? p.quantidade : ""}
+                      value={p.quantidade}
                       min="1"
-                      onChange={(e) =>
-                        handlePecaChange(i, "quantidade", e.target.value)
-                      }
+                      onChange={(e) => handlePecaChange(i, "quantidade", Number(e.target.value) || 0)}
                     />
 
                     <input
                       type="number"
                       placeholder="Preço unitário"
-                      value={p.nome ? Number(p.precoUnit).toFixed(2) : ""}
-                      min="0"
+                      value={p.precoUnit}
                       step="0.01"
-                      readOnly
-                      disabled={!p.nome}
-                      className="input-bloqueado"
-                      onChange={(e) => handlePecaChange(i, "precoUnit", e.target.value)}
+                      onChange={(e) => handlePecaChange(i, "precoUnit", Number(e.target.value) || 0)}
                     />
 
-                    <button
-                      type="button"
-                      className="btn-remove-peca"
-                      onClick={() => removePeca(i)}
-                    >
+                    <button type="button" onClick={() => removePeca(i)} className="btn-remove-peca">
                       X
                     </button>
                   </div>
                 </div>
               ))}
+
               <button type="button" className="btn-add-peca" onClick={addPeca}>
                 Adicionar peça
               </button>
@@ -265,13 +255,9 @@ const CadastroGarantias = () => {
 
             <div className="form-buttons">
               <button type="submit" className="register-btn">
-                Salvar
+                Cadastrar
               </button>
-              <button
-                type="button"
-                className="cancel-btn"
-                onClick={() => navigate("/garantias")}
-              >
+              <button type="button" className="cancel-btn" onClick={() => navigate("/Garantias")}>
                 Cancelar
               </button>
             </div>

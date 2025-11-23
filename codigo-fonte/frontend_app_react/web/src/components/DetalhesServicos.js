@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "./Sidebar";
-import "../styles/DetalhesProduto.css"; // Pode reaproveitar o mesmo CSS
+import "../styles/DetalhesServicos.css";
+//import "../styles/DetalhesProduto.css"; // Pode reaproveitar o mesmo CSS
 import html2pdf from "html2pdf.js";
 
 const DetalhesServicos = () => {

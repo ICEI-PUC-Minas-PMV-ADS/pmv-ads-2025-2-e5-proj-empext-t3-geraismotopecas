@@ -267,6 +267,39 @@ Casos de testes utilizados na realização da verificação e validação da apl
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th colspan="2" width="1000">CT-007 - S<br>Gerar alerta automático de nível mínimo de estoque</th>
+  </tr>
+  <tr>
+    <td width="150"><strong>Descrição</strong></td>
+    <td>Este caso de teste verifica se o sistema gera um alerta automático quando a quantidade de uma peça atinge o nível mínimo de estoque.</td>
+  </tr>
+  <tr>
+    <td><strong>Responsável Caso de Teste </strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+  </tr>
+ <tr>
+    <td><strong>Tipo do Teste</strong></td>
+    <td width="430">Sucesso</td>
+  </tr> 
+  <tr>
+    <td><strong>Requisitos associados</strong></td>
+    <td> RF-010:	Emitir um alerta automático quando a quantidade de uma peça atingir o nível mínimo de estoque.</td>
+  </tr>
+  <tr>
+    <td><strong>Passos</strong></td>
+    <td>
+      1. Clicar em Produtos<br>
+      2. Verificar na lista de produtos o ícone de alerta<br>
+     </td>
+  </tr>
+    <tr>
+    <td><strong>Critérios de êxito</strong></td>
+    <td>O sistema deve gerar o o ícone de alerta quando uma peça atingir o nível mínimo de estoque.</td>
+  </tr>
+</table>
+
 ### Casos de Teste de Insucesso
 
 ### ETAPA 2  

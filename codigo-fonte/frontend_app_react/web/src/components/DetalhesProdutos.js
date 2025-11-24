@@ -144,7 +144,7 @@ const DetalhesProdutos = () => {
         </div>
 
       
-        <div className="botoes-acao">
+        <div className="botoes-detalhes-produto">
           <button className="btn-voltar" onClick={() => navigate("/produtos")}>
             Voltar
           </button>

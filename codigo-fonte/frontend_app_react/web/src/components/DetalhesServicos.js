@@ -57,67 +57,67 @@ const DetalhesServicos = () => {
       <Sidebar />
 
       <main className="content">
-        <div className="detalhes-wrapper" ref={pdfRef}>
-          <header className="detalhes-header">
+        <div className="detalhes-servico-wrapper" ref={pdfRef}>
+          <header className="detalhes-servico-header">
             <div>
-              <h1 className="detalhes-titulo">Detalhes do Serviço</h1>
-              <p className="detalhes-subtitulo">
+              <h1 className="detalhes-servico-titulo">Detalhes do Serviço</h1>
+              <p className="detalhes-servico-subtitulo">
                 Visão geral do serviço realizado na oficina
               </p>
             </div>
 
-            <div className="detalhes-tag-valor">
-              <span className="detalhes-tag">Valor do serviço</span>
-              <span className="detalhes-valor">
+            <div className="detalhes-servico-tag-valor">
+              <span className="detalhes-servico-tag">Valor do serviço</span>
+              <span className="detalhes-servico-valor">
                 R$ {servico.valor?.toFixed(2)}
               </span>
             </div>
           </header>
 
-          <section className="bloco">
-            <div className="bloco-header">
+          <section className="bloco-servico">
+            <div className="bloco-servico-header">
               <h3>Informações do serviço</h3>
             </div>
 
-            <div className="bloco-body">
-              <div className="linha">
-                <span className="col-label">Nome do serviço</span>
-                <span className="col-valor">{servico.nome_servico}</span>
+            <div className="bloco-servico-body">
+              <div className="linha-servico">
+                <span className="col-label-servico">Nome do serviço</span>
+                <span className="col-valor-servico">{servico.nome_servico}</span>
               </div>
 
-              <div className="linha">
-                <span className="col-label">Descrição</span>
-                <span className="col-valor">{servico.desc || "-"}</span>
+              <div className="linha-servico">
+                <span className="col-label-servico">Descrição</span>
+                <span className="col-valor-servico">{servico.desc || "-"}</span>
               </div>
 
-              <div className="linha">
-                <span className="col-label">Peça usada</span>
-                <span className="col-valor">{pecaUsadaNome || "Nenhuma"}</span>
+              <div className="linha-servico">
+                <span className="col-label-servico">Peça usada</span>
+                <span className="col-valor-servico">{pecaUsadaNome || "Nenhuma"}</span>
               </div>
             </div>
           </section>
 
-          <section className="bloco">
-            <div className="bloco-header">
+          <section className="bloco-servico">
+            <div className="bloco-servico-header">
               <h3>Garantia & Datas</h3>
             </div>
 
-            <div className="bloco-body">
-              <div className="linha">
-                <span className="col-label">Dias de garantia</span>
-                <span className="col-valor">{servico.garantia_dias} dia(s)</span>
+            <div className="bloco-servico-body">
+              <div className="linha-servico">
+                <span className="col-label-servico">Dias de garantia</span>
+                <span className="col-valor-servico">{servico.garantia_dias} dia(s)</span>
               </div>
 
-              <div className="linha">
-                <span className="col-label">Cadastrado em</span>
-                <span className="col-valor">
+              <div className="linha-servico">
+                <span className="col-label-servico">Cadastrado em</span>
+                <span className="col-valor-servico">
                   {new Date(servico.createdAt).toLocaleDateString()}
                 </span>
               </div>
 
-              <div className="linha">
-                <span className="col-label">Última atualização</span>
-                <span className="col-valor">
+              <div className="linha-servico">
+                <span className="col-label-servico">Última atualização</span>
+                <span className="col-valor-servico">
                   {new Date(servico.updatedAt).toLocaleDateString()}
                 </span>
               </div>
@@ -125,7 +125,7 @@ const DetalhesServicos = () => {
           </section>
         </div>
 
-        <div className="botoes-acao">
+        <div className="botoes-detalhes-servico">
           <button className="btn-voltar" onClick={() => navigate("/servicos")}>
             Voltar
           </button>

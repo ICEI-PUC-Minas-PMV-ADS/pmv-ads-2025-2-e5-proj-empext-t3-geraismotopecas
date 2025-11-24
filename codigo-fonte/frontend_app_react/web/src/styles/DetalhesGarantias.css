@@ -209,7 +209,7 @@ body {
   align-items: center;
   gap: 15px;
   width: 100%;
-  max-width: 500px;
+  max-width: 900px;
   margin-top: 25px;
 }
 
@@ -240,4 +240,3 @@ body {
 .btn-exportar:hover {
   background-color: #6c1406;
 }
-

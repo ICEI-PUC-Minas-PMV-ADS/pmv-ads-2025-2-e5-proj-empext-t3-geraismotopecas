@@ -94,7 +94,8 @@ const DetalhesGarantias = () => {
             <div>
               <h1 className="detalhes-garantia-titulo">Detalhes da Garantia</h1>
               <p className="detalhes-garantia-subtitulo">
-                Informações completas do cliente, moto, serviço e validade da garantia.
+                Informações completas do cliente, moto, serviço e validade da
+                garantia.
               </p>
             </div>
 
@@ -118,12 +119,16 @@ const DetalhesGarantias = () => {
             <div className="bloco-garantia-body">
               <div className="linha-garantia">
                 <span className="col-label-garantia">Nome</span>
-                <span className="col-valor-garantia">{garantia.nome_cliente}</span>
+                <span className="col-valor-garantia">
+                  {garantia.nome_cliente}
+                </span>
               </div>
 
               <div className="linha-garantia">
                 <span className="col-label-garantia">Contato</span>
-                <span className="col-valor-garantia">{garantia.contato_cliente}</span>
+                <span className="col-valor-garantia">
+                  {garantia.contato_cliente}
+                </span>
               </div>
             </div>
           </section>
@@ -253,7 +258,6 @@ const DetalhesGarantias = () => {
                   {garantia.status === "Expirada" && (
                     <FaExclamationTriangle className="icone-alerta" />
                   )}
-
                   {estaPertoDeVencer() && garantia.status === "Ativa" && (
                     <FaExclamationTriangle className="icone-alerta" />
                   )}
@@ -270,13 +274,12 @@ const DetalhesGarantias = () => {
           </section>
         </div>
 
-             
         <div className="botoes-acao-garantia">
-          <button className="voltar-btn" onClick={() => navigate("/garantias")}>
-            <FaArrowLeft /> Voltar
+          <button className="btn-voltar" onClick={() => navigate("/garantias")}>
+            Voltar
           </button>
 
-          <button onClick={gerarPDF} className="exportar-btn">
+          <button onClick={gerarPDF} className="btn-exportar">
             Exportar PDF
           </button>
         </div>

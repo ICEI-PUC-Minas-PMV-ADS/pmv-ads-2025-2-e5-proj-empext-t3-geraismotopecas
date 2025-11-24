@@ -844,3 +844,30 @@ https://github.com/user-attachments/assets/94fd4303-2370-4bc1-8165-cf4a8de21040
 
 https://github.com/user-attachments/assets/1b858a39-50b5-4732-a868-7d124d58aee6
 
+<table>
+  <tr>
+    <th colspan="6" width="1000">CT-10<br>Gerar alerta de estoque mínimo</th>
+  </tr>
+  <tr>
+    <td width="170"><strong>Critérios de êxito</strong></td>
+    <td colspan="5">Emitir um alerta automático quando a quantidade de uma peça atingir o nível mínimo de estoque.</td>
+  </tr>
+    <tr>
+      <td><strong>Responsável pela funcionalidade</strong></td>
+    <td width="430">Thabata Dias de Freitas</td>
+      <td><strong>Responsável pelo teste</strong></td>
+    <td width="430">Kiane Ramalho</td>
+     <td width="100"><strong>Data do teste</strong></td>
+    <td width="150">23/11/2025</td>
+  </tr>
+    <tr>
+    <td width="170"><strong>Comentário</strong></td>
+    <td colspan="5">O sistema está gerando o alerta de estoque mínimo.</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="center"><strong>Evidência</strong></td>
+  </tr>
+  <tr>
+</table>
+
+

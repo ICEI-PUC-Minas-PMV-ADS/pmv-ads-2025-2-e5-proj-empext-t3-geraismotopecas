@@ -9,28 +9,13 @@ const DetalhesServicos = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [servico, setServico] = useState(null);
-  const [pecaUsadaNome, setPecaUsadaNome] = useState("");
   const pdfRef = useRef();
 
-  // Buscar dados do serviço
   useEffect(() => {
     const fetchServico = async () => {
       try {
-        const res = await axios.get(
-          `https://geraismotopecas-api.onrender.com/servicos/${id}`
-        );
+        const res = await axios.get(`https://geraismotopecas-api.onrender.com/servicos/${id}`);
         setServico(res.data);
-
-        if (res.data.peca_usada) {
-          try {
-            const pecaRes = await axios.get(
-              `https://geraismotopecas-api.onrender.com/produtos/${res.data.peca_usada}`
-            );
-            setPecaUsadaNome(pecaRes.data.nome);
-          } catch {
-            setPecaUsadaNome("Peça não encontrada");
-          }
-        }
       } catch (err) {
         console.error(err);
         alert("Erro ao buscar detalhes do serviço.");
@@ -58,81 +43,77 @@ const DetalhesServicos = () => {
 
       <main className="content">
         <div className="detalhes-servico-wrapper" ref={pdfRef}>
+
           <header className="detalhes-servico-header">
             <div>
               <h1 className="detalhes-servico-titulo">Detalhes do Serviço</h1>
               <p className="detalhes-servico-subtitulo">
-                Visão geral do serviço realizado na oficina
+                Informações completas do serviço executado e materiais usados
               </p>
             </div>
 
             <div className="detalhes-servico-tag-valor">
               <span className="detalhes-servico-tag">Valor do serviço</span>
-              <span className="detalhes-servico-valor">
-                R$ {servico.valor?.toFixed(2)}
-              </span>
+              <span className="detalhes-servico-valor">R$ {servico.valor?.toFixed(2)}</span>
             </div>
           </header>
 
+          {/* 🔥 Informações Gerais */}
           <section className="bloco-servico">
-            <div className="bloco-servico-header">
-              <h3>Informações do serviço</h3>
-            </div>
+            <div className="bloco-servico-header"><h3>Informações do serviço</h3></div>
 
             <div className="bloco-servico-body">
-              <div className="linha-servico">
-                <span className="col-label-servico">Nome do serviço</span>
-                <span className="col-valor-servico">{servico.nome_servico}</span>
-              </div>
+              <div className="linha-servico"><span className="col-label-servico">Nome</span>
+                <span className="col-valor-servico">{servico.nome_servico}</span></div>
 
-              <div className="linha-servico">
-                <span className="col-label-servico">Descrição</span>
-                <span className="col-valor-servico">{servico.desc || "-"}</span>
-              </div>
-
-              <div className="linha-servico">
-                <span className="col-label-servico">Peça usada</span>
-                <span className="col-valor-servico">{pecaUsadaNome || "Nenhuma"}</span>
-              </div>
+              <div className="linha-servico"><span className="col-label-servico">Descrição</span>
+                <span className="col-valor-servico">{servico.desc || "-"}</span></div>
             </div>
           </section>
 
+          {/* 🔥 Seção IGUAL à de Garantias – peças utilizadas 👇 */}
           <section className="bloco-servico">
-            <div className="bloco-servico-header">
-              <h3>Garantia & Datas</h3>
+            <div className="bloco-servico-header"><h3>Peças utilizadas</h3></div>
+
+            <div className="bloco-servico-body bloco-servico-tabela">
+            <table className="pecas-tabela">
+              <thead>
+                <tr>
+                  <th>Peça usada</th>
+                  <th>Valor (R$)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>{servico.peca_usada ?? "Nenhuma peça utilizada"}</td>
+                  <td>{servico.valor?.toFixed(2)}</td>
+                </tr>
+              </tbody>
+            </table>
             </div>
+          </section>
+
+          {/* 🔥 Garantia & Datas */}
+          <section className="bloco-servico">
+            <div className="bloco-servico-header"><h3>Garantia & Datas</h3></div>
 
             <div className="bloco-servico-body">
-              <div className="linha-servico">
-                <span className="col-label-servico">Dias de garantia</span>
-                <span className="col-valor-servico">{servico.garantia_dias} dia(s)</span>
-              </div>
+              <div className="linha-servico"><span className="col-label-servico">Dias de garantia</span>
+                <span className="col-valor-servico">{servico.garantia_dias} dia(s)</span></div>
 
-              <div className="linha-servico">
-                <span className="col-label-servico">Cadastrado em</span>
-                <span className="col-valor-servico">
-                  {new Date(servico.createdAt).toLocaleDateString()}
-                </span>
-              </div>
+              <div className="linha-servico"><span className="col-label-servico">Cadastrado em</span>
+                <span className="col-valor-servico">{new Date(servico.createdAt).toLocaleDateString()}</span></div>
 
-              <div className="linha-servico">
-                <span className="col-label-servico">Última atualização</span>
-                <span className="col-valor-servico">
-                  {new Date(servico.updatedAt).toLocaleDateString()}
-                </span>
-              </div>
+              <div className="linha-servico"><span className="col-label-servico">Última atualização</span>
+                <span className="col-valor-servico">{new Date(servico.updatedAt).toLocaleDateString()}</span></div>
             </div>
           </section>
         </div>
 
         <div className="botoes-detalhes-servico">
-          <button className="btn-voltar" onClick={() => navigate("/servicos")}>
-            Voltar
-          </button>
-
-          <button className="btn-exportar" onClick={handleExportPDF}>
-            Exportar PDF
-          </button>
+          <button className="btn-voltar" onClick={() => navigate("/servicos")}>Voltar</button>
+          <button className="btn-exportar" onClick={handleExportPDF}>Exportar PDF</button>
         </div>
       </main>
     </div>

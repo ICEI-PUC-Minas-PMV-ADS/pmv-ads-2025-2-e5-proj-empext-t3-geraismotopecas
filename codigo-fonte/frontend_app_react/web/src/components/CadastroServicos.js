@@ -1,143 +1,131 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
-import Sidebar from './Sidebar';
-import '../styles/cadastro.css';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Sidebar from "./Sidebar";
+import "../styles/cadastro.css";
 
-const ServicoForm = () => {
-  const [nomeServico, setNomeServico] = useState('');
-  const [desc, setDesc] = useState('');
-  const [valor, setValor] = useState('');
-  const [garantiaDias, setGarantiaDias] = useState('');
-  const [pecasEstoque, setPecasEstoque] = useState([]);
-  const [pecas, setPecas] = useState([{ id: '', precoUnit: 0 }]);
-
-  const navigate = useNavigate();
+export default function ServicoForm() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
+  const [nomeServico, setNomeServico] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [valorMaoObra, setValorMaoObra] = useState(0);
+  const [garantia, setGarantia] = useState(0);
+
+  // Estoque que vem do banco
+  const [pecasEstoque, setPecasEstoque] = useState([]);
+
+  // Lista editável utilizada no serviço
+  const [pecas, setPecas] = useState([{ nome:"", quantidade:1, precoUnit:0 }]);
+
+  // Carrega peças do estoque
   useEffect(() => {
-    axios.get('https://geraismotopecas-api.onrender.com/produtos')
+    axios.get("https://geraismotopecas-api.onrender.com/produtos")
       .then(res => setPecasEstoque(res.data))
-      .catch(err => {
-        console.error(err);
-        alert('Erro ao buscar produtos');
-      });
+      .catch(() => alert("Erro ao carregar estoque"));
   }, []);
 
- 
+  // Carrega dados ao editar
   useEffect(() => {
-    if (id) {
-      axios.get(`https://geraismotopecas-api.onrender.com/servicos/${id}`)
-        .then(res => {
-          const data = res.data;
-          setNomeServico(data.nome_servico || '');
-          setDesc(data.desc || '');
-          setValor(data.valor ?? '');
-          setGarantiaDias(data.garantia_dias ?? '');
-          if (data.pecas && data.pecas.length) {
-            setPecas(data.pecas.map(p => ({
-              id: p.id || '',
-              precoUnit: p.precoUnit ?? 0
-            })));
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Erro ao carregar serviço');
-        });
-    }
+    if (!id) return;
+
+    axios.get(`https://geraismotopecas-api.onrender.com/servicos/${id}`)
+      .then(res => {
+        const s = res.data;
+
+        setNomeServico(s.nome_servico || "");
+        setDescricao(s.desc || "");
+        setGarantia(s.garantia_dias || 0);
+        setValorMaoObra(Number(s.valor_mao_obra) || Number(s.valor) || 0);
+
+        setPecas(
+          s.pecas?.length
+          ? s.pecas.map(p => ({
+              nome: p.nome,
+              quantidade: Number(p.qtd ?? p.quantidade ?? 1),
+              precoUnit: Number(p.precoUnit ?? p.preco ?? 0)
+            }))
+          : [{ nome:"", quantidade:1, precoUnit:0 }]
+        );
+      })
+      .catch(() => alert("Erro ao carregar serviço para edição"));
   }, [id]);
 
-
-  const handlePecaChange = (index, field, value) => {
-    const novasPecas = [...pecas];
-    if (field === 'id') {
-      novasPecas[index].id = value;
-      const produtoSelecionado = pecasEstoque.find(p => p._id === value);
-      novasPecas[index].precoUnit = produtoSelecionado ? produtoSelecionado.valor : 0;
-    } else {
-      novasPecas[index][field] = value;
-    }
-    setPecas(novasPecas);
+  // Seleção puxa peça + valor do estoque automaticamente
+  const handlePecaSelect = (index, nome) => {
+    const item = pecasEstoque.find(p => p.nome === nome);
+    let nova = [...pecas];
+    nova[index].nome = nome;
+    if (item) nova[index].precoUnit = Number(item.valor);
+    setPecas(nova);
   };
 
-  const addPeca = () => setPecas([...pecas, { id: '', precoUnit: 0 }]);
-  const removePeca = (index) => setPecas(pecas.filter((_, i) => i !== index));
+  // Edição de quantidade e preço
+  const handlePecaChange = (index, campo, valor) => {
+    let nova = [...pecas];
+    nova[index][campo] = Number(valor);
+    setPecas(nova);
+  };
 
-  const handleSubmit = async (e) => {
+  const addPeca = () => setPecas([...pecas, { nome:"", quantidade:1, precoUnit:0 }]);
+  const removePeca = i => setPecas(pecas.filter((_, idx) => idx !== i));
+
+  const totalPecas = pecas.reduce((acc,p)=> acc + p.quantidade*p.precoUnit ,0);
+  const totalFinal = totalPecas + Number(valorMaoObra);
+
+  const salvar = async e => {
     e.preventDefault();
-    const dados = {
+
+    const data = {
       nome_servico: nomeServico,
-      desc,
-      valor: parseFloat(valor) || 0,
-      garantia_dias: parseInt(garantiaDias) || 0,
+      desc: descricao,
+      garantia_dias: Number(garantia),
+      valor: Number(totalFinal),
       pecas: pecas.map(p => ({
-        id: p.id || null,
-        precoUnit: p.precoUnit ? Number(p.precoUnit).toFixed(2) : 0
+        nome:p.nome,
+        qtd:p.quantidade,
+        precoUnit:p.precoUnit,
+        total: p.quantidade * p.precoUnit
       }))
     };
 
     try {
       if (id) {
-        await axios.put(`https://geraismotopecas-api.onrender.com/servicos/${id}`, dados);
-        alert('Serviço atualizado com sucesso!');
+        await axios.put(`https://geraismotopecas-api.onrender.com/servicos/${id}`, data);
       } else {
-        await axios.post('https://geraismotopecas-api.onrender.com/servicos', dados);
-        alert('Serviço criado com sucesso!');
+        await axios.post("https://geraismotopecas-api.onrender.com/servicos", data);
       }
-      navigate('/servicos');
-    } catch (err) {
-      console.error(err.response?.data || err);
-      alert('Erro ao salvar serviço: ' + (err.response?.data?.error || err.message));
+
+      alert("Serviço salvo com sucesso!");
+      navigate("/servicos");
+
+    } catch {
+      alert("Erro ao salvar");
     }
   };
 
   return (
     <div className="home-container">
       <Sidebar />
+
       <main className="content">
         <div className="cadastro-container">
-          <form className="cadastro-card" onSubmit={handleSubmit}>
-            <h2>{id ? 'Editar Serviço' : 'Novo Serviço'}</h2>
+          <form className="cadastro-card" onSubmit={salvar}>
 
-            <label>
-              Nome:
-              <input
-                type="text"
-                value={nomeServico}
-                onChange={(e) => setNomeServico(e.target.value)}
-                required
-              />
-            </label>
+            <h2>{id ? "Editar Serviço" : "Cadastrar Serviço"}</h2>
 
-            <label>
-              Descrição:
-              <textarea
-                value={desc}
-                onChange={(e) => setDesc(e.target.value)}
-              />
-            </label>
+            <label>Nome do serviço</label>
+            <input value={nomeServico} onChange={e=>setNomeServico(e.target.value)} required />
 
-            <label>
-              Preço:
-              <input
-                type="number"
-                value={valor}
-                onChange={(e) => setValor(e.target.value)}
-                step="0.01"
-                required
-              />
-            </label>
+            <label>Descrição</label>
+            <textarea value={descricao} onChange={e=>setDescricao(e.target.value)} />
 
-            <label>
-              Dias de garantia:
-              <input
-                type="number"
-                value={garantiaDias}
-                onChange={(e) => setGarantiaDias(e.target.value)}
-                min="0"
-              />
-            </label>
+            <label>Garantia (dias)</label>
+            <input type="number" value={garantia} onChange={e=>setGarantia(e.target.value)} />
+
+            <label>Valor mão de obra</label>
+            <input type="number" step="0.01" value={valorMaoObra} onChange={e=>setValorMaoObra(e.target.value)} />
 
             <h3>Peças utilizadas</h3>
             <div className="pecas-container">
@@ -146,12 +134,12 @@ const ServicoForm = () => {
                   <div className="inputs-peca">
                     <select
                       className="peca-select-input"
-                      value={p.id}
-                      onChange={(e) => handlePecaChange(i, 'id', e.target.value)}
+                      value={p.nome}
+                      onChange={(e) => handlePecaSelect(i, e.target.value)}
                     >
-                      <option value="">-- Selecione a peça --</option>
-                      {pecasEstoque.map(produto => (
-                        <option key={produto._id} value={produto._id}>
+                      <option value="">Selecione a Peça</option>
+                      {pecasEstoque.map((produto) => (
+                        <option key={produto._id} value={produto.nome}>
                           {produto.nome}
                         </option>
                       ))}
@@ -159,37 +147,41 @@ const ServicoForm = () => {
 
                     <input
                       type="number"
-                      placeholder="Preço unitário"
-                      value={p.id ? Number(p.precoUnit).toFixed(2) : ''}
-                      readOnly
-                      disabled={!p.id}
-                      className="input-bloqueado"
+                      placeholder="Quantidade"
+                      value={p.quantidade}
+                      min="1"
+                      onChange={(e) => handlePecaChange(i, "quantidade", Number(e.target.value) || 0)}
                     />
 
-                    <button
-                      type="button"
-                      className="btn-remove-peca"
-                      onClick={() => removePeca(i)}
-                    >
+                    <input
+                      type="number"
+                      placeholder="Preço unitário"
+                      value={p.precoUnit}
+                      step="0.01"
+                      onChange={(e) => handlePecaChange(i, "precoUnit", Number(e.target.value) || 0)}
+                    />
+
+                    <button type="button" onClick={() => removePeca(i)} className="btn-remove-peca">
                       X
                     </button>
                   </div>
                 </div>
               ))}
+
               <button type="button" className="btn-add-peca" onClick={addPeca}>
-                Adicionar Peça
+                Adicionar peça
               </button>
+            </div>
+
+            <div className="valor-total">
+              <strong>Valor total:</strong> R$ {totalFinal.toFixed(2)}
             </div>
 
             <div className="form-buttons">
               <button type="submit" className="register-btn">
-                {id ? 'Atualizar' : 'Cadastrar'}
+                Cadastrar
               </button>
-              <button
-                type="button"
-                className="cancel-btn"
-                onClick={() => navigate('/servicos')}
-              >
+              <button type="button" className="cancel-btn" onClick={() => navigate("/Servicos")}>
                 Cancelar
               </button>
             </div>
@@ -198,6 +190,4 @@ const ServicoForm = () => {
       </main>
     </div>
   );
-};
-
-export default ServicoForm;
+}
